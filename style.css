@@ -29,3 +29,19 @@ body{
     background:transparent;
 
 }
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3){
+    border-top: none;
+}
+.cell:nth-child(n + 7){
+ border-bottom: none;
+}
+
+.cell:nth-child(3n + 1){
+    border-left: none;
+}
+.cell:nth-child(3n){
+    border-right: none;
+}
