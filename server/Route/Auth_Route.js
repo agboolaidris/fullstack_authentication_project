@@ -4,9 +4,25 @@ const Route = express.Router()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { json } = require('express')
+const Auth = require('../Middleware/Auth_middleware')
 
-Route.get('/',(req,res)=>{
-    res.json([{}])
+Route.get('/',Auth,async(req,res)=>{
+   try{
+    await User.findById(req.user)
+     .then(result=>{
+      return res.json({
+         username:result.username,
+         email:result.email,
+         })  
+     })
+     .catch(err=>{
+     return  res.status(400).json({msg:err.message})
+     })
+
+   }
+   catch(err){
+     res.status(400).json({msg:err.message})
+   }
 })
 
 Route.post('/register',async(req,res)=>{
