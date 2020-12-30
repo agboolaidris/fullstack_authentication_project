@@ -12,22 +12,26 @@ Route.post('/register',async(req,res)=>{
   try{
     const {username, email, password, password2} = req.body
     const findEmail = await User.findOne({email:email})
+    
+    if(!username || !email || !password2 || !password2){
+      return  res.status(400).json({msg:'the field is required'}) 
+    }
     if(findEmail){
-        res.status(400).json({msg:'the email address have already exist'})
+      return  res.status(400).json({msg:'the email address have already exist'})
     }
 
     const FindUsername = await User.findOne({username:username})
     if(FindUsername){
-        res.status(400).json({msg:'username has already exist'})
+       return   res.status(400).json({msg:'username has already exist'})
     }
      
     
     if(password.length < 6){
-     res.status(400).json({msg:'password length must be greater than 5 character'})
+    return res.status(400).json({msg:'password length must be greater than 5 character'})
     }
  
-    if(password !== password2){
-        res.status(400).json({msg:'password does not match'})
+    if( password !== password2){
+      return  res.status(400).json({msg:'password does not match'})
     }
     
     const salt= await bcrypt.genSalt()
@@ -40,8 +44,18 @@ Route.post('/register',async(req,res)=>{
     })
  
    await newUser.save()
-    .then(()=>{
-        res.json(newUser)
+    .then(async()=>{
+        const user = await User.findOne({email:email})
+         const token = jwt.sign( {id:user._id},process.env.JWT_SECRET)
+         
+        res.json({
+            token,
+            user:{
+                id:user._id,
+                username:user.username,
+                email:user.email
+            }
+        })
     })
     .catch((err)=>{
         res.status(400).json({mssg:err})
