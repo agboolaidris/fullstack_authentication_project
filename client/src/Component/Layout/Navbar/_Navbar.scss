@@ -24,6 +24,7 @@ nav {
     #register {
       background: lighten($color: $primary, $amount: 20);
       padding: 0.5em 1em;
+      margin: 0;
     }
     #register:hover,
     #login:hover {

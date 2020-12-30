@@ -1,0 +1,9 @@
+.register {
+  margin: 5vh 5%;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  height: 82vh;
+  .col-1 {
+    background: $primary2;
+  }
+}
