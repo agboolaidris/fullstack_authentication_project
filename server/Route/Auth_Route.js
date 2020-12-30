@@ -3,6 +3,7 @@ const User = require('../Module/Auth_Module')
 const Route = express.Router()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const { json } = require('express')
 
 Route.get('/',(req,res)=>{
     res.json([{}])
@@ -66,6 +67,35 @@ Route.post('/register',async(req,res)=>{
   }
 
     
+})
+
+Route.post('/login', async(req,res)=>{
+ try {  const {email, password} =req.body
+    const findUser =await User.findOne({email:email})
+    if(!findUser){
+     return res.status(400).json({msg:'no such an account is register'})
+    }
+    
+     const verifiedPassword = bcrypt.compare(password,findUser.password)
+     if(!verifiedPassword){
+       return res.status(400).json({msg:'password does not match'})
+     }
+
+     const token = jwt.sign({id:findUser._id}, process.env.JWT_SECRET)
+    
+     res.json({
+       token,
+       user:{
+         username:findUser.username,
+         id:findUser._id,
+         email:findUser.email
+       }
+     })
+
+  }
+  catch(err){
+    json.status(400).json({msg:err.message})
+  }
 })
 
 
