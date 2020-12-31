@@ -65,22 +65,36 @@
       form {
         margin-top: 1em;
         width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
 
-        div {
-          width: 100%;
-          text-align: center;
+        .input {
+          width: 80%;
+          height: 35px;
+          background: $neutral;
+          display: flex;
+          justify-content: center;
           margin: 0.5em;
-          border: 1px solid gray;
+
+          align-items: center;
           input {
-            width: 80%;
-            height: 30px;
+            width: 90%;
+            height: 35px;
+            background: none;
+            border: none;
+            outline: none;
           }
           label {
-            width: 20%;
+            color: darken($color: $neutral, $amount: 10);
+            width: 10%;
             display: inline-block;
-            height: 30px;
-            background: coral;
+            text-align: center;
           }
+        }
+        .input:hover {
+          border: 1px solid darken($color: $neutral, $amount: 30);
         }
       }
     }

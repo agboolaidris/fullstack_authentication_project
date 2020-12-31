@@ -25,25 +25,25 @@ function Right_page() {
       </div>
       <p> or use your email for registration</p>
       <form action="">
-        <div>
+        <div className="input">
           <label htmlFor="">
             <FontAwesomeIcon icon={faUser} />
           </label>
           <input type="text" placeholder="enter your username" />
         </div>
-        <div>
+        <div className="input">
           <label htmlFor="">
             <FontAwesomeIcon icon={faKey} />
           </label>
           <input type="password" placeholder="enter password" />
         </div>
-        <div>
+        <div className="input">
           <label htmlFor="">
             <FontAwesomeIcon icon={faKey} />
           </label>
           <input type="password" placeholder="enter password" />
         </div>
-        <div>
+        <div className="input">
           <label htmlFor="">
             <FontAwesomeIcon icon={faEnvelope} />
           </label>
