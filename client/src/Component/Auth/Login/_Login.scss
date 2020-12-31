@@ -1,0 +1,99 @@
+.login {
+  margin: 5vh 5%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  height: 82vh;
+  .col-1 {
+    background: $primary2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .div {
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h1 {
+        font-size: clamp(2.75rem, 3vw, 4.5rem);
+        color: $neutral;
+      }
+      .icon {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 1em 0;
+        color: $primary;
+      }
+      p {
+        color: $primary;
+      }
+
+      form {
+        margin-top: 1em;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        .input {
+          width: 80%;
+          height: 35px;
+          background: $neutral;
+          display: flex;
+          justify-content: center;
+          margin: 0.5em;
+
+          align-items: center;
+          input {
+            width: 90%;
+            height: 35px;
+            background: none;
+            border: none;
+            outline: none;
+          }
+          label {
+            color: darken($color: $neutral, $amount: 10);
+            width: 10%;
+            display: inline-block;
+            text-align: center;
+          }
+        }
+        .input:hover {
+          border: 1px solid darken($color: $neutral, $amount: 30);
+        }
+        .check {
+          margin: 0.5em 0;
+          text-align: left;
+          width: 80%;
+          span {
+            margin-left: 1em;
+          }
+        }
+        button {
+          width: 60%;
+          height: 40px;
+          background: $primary2;
+          margin: 1em 0;
+          border: 1px solid $secondary;
+          border-radius: 30px;
+          color: $neutral;
+          font-size: 20px;
+        }
+        button:hover {
+          background: $secondary;
+        }
+        .login {
+          display: none;
+        }
+      }
+    }
+  }
+  .col-2 {
+    background: darken($color: $neutral, $amount: 10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
