@@ -29,34 +29,34 @@ function Right_page() {
           <label htmlFor="">
             <FontAwesomeIcon icon={faUser} />
           </label>
-          <input type="text" placeholder="enter your username" />
-        </div>
-        <div className="input">
-          <label htmlFor="">
-            <FontAwesomeIcon icon={faKey} />
-          </label>
-          <input type="password" placeholder="enter password" />
-        </div>
-        <div className="input">
-          <label htmlFor="">
-            <FontAwesomeIcon icon={faKey} />
-          </label>
-          <input type="password" placeholder="enter password" />
+          <input type="text" placeholder="Username" />
         </div>
         <div className="input">
           <label htmlFor="">
             <FontAwesomeIcon icon={faEnvelope} />
           </label>
-          <input type="password" placeholder="enter password" />
+          <input type="password" placeholder="Email" />
         </div>
-        <div>
+        <div className="input">
+          <label htmlFor="">
+            <FontAwesomeIcon icon={faKey} />
+          </label>
+          <input type="password" placeholder=" Password" />
+        </div>
+        <div className="input">
+          <label htmlFor="">
+            <FontAwesomeIcon icon={faKey} />
+          </label>
+          <input type="password" placeholder="Confirm Password" />
+        </div>
+        <div className="check">
           <input type="checkbox" required />
           <span>i agree with the term and condition of this website </span>
         </div>
-        <div>
-          <button>Register</button>
+        <button>Register</button>
+        <div className="login">
           <span>
-            already have an account <Link>SIGN IN</Link>
+            already have an account <Link to="/login">SIGN IN</Link>
           </span>
         </div>
       </form>
