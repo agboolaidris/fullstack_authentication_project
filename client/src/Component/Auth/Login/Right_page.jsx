@@ -7,7 +7,7 @@ function Right_page() {
       <h1>Welcome Back!</h1>
       <p>To keep connected with us pls login with your personal info</p>
       <button>
-        <Link to="/login">SIGN IN</Link>
+        <Link to="/register">REGISTER</Link>
       </button>
     </div>
   );
