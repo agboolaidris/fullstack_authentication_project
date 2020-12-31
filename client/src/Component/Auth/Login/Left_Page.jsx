@@ -28,7 +28,7 @@ function Left_Page() {
           <label htmlFor="">
             <FontAwesomeIcon icon={faEnvelope} />
           </label>
-          <input type="password" placeholder="Email" />
+          <input type="email" placeholder="Email" />
         </div>
         <div className="input">
           <label htmlFor="">
@@ -38,7 +38,7 @@ function Left_Page() {
         </div>
 
         <button>LOG IN</button>
-        <div className="login">
+        <div className="register-link">
           <span>
             don't have an account <Link to="/register">Register</Link>
           </span>

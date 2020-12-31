@@ -117,7 +117,7 @@
         button:hover {
           background: $secondary;
         }
-        .login {
+        .login-link {
           display: none;
         }
       }
@@ -144,7 +144,7 @@
             }
           }
 
-          .login {
+          .login-link {
             display: block;
             text-align: left;
             width: 80%;

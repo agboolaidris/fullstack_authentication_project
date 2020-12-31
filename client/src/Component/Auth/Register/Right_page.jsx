@@ -35,7 +35,7 @@ function Right_page() {
           <label htmlFor="">
             <FontAwesomeIcon icon={faEnvelope} />
           </label>
-          <input type="password" placeholder="Email" />
+          <input type="email" placeholder="Email" />
         </div>
         <div className="input">
           <label htmlFor="">
@@ -54,7 +54,7 @@ function Right_page() {
           <span>i agree with the term and condition of this website </span>
         </div>
         <button>Register</button>
-        <div className="login">
+        <div className="login-link">
           <span>
             already have an account <Link to="/login">SIGN IN</Link>
           </span>
