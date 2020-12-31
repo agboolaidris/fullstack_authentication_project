@@ -5,5 +5,41 @@
   height: 82vh;
   .col-1 {
     background: $primary2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div {
+      text-align: center;
+      padding: 1em;
+      h1 {
+        font-size: clamp(2.75rem, 4vw, 4.5rem);
+      }
+      p {
+        font-size: clamp(16px, 20px, 30px);
+        margin: 1em 0;
+      }
+      button {
+        width: 50%;
+        height: 50px;
+        background: none;
+        outline: none;
+        border: 1px solid $neutral;
+        border-radius: 16px;
+        font-size: clamp(16px, 20px, 30px);
+        a {
+          text-decoration: none;
+          color: $neutral;
+        }
+      }
+      button:hover {
+        background: $secondary;
+      }
+    }
+  }
+  .col-2 {
+    background: darken($color: $neutral, $amount: 10%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
