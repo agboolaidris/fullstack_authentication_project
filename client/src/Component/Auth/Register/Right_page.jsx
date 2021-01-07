@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function Right_page() {
-  const { state } = useRegister();
+  const { state, handleChange, handleSubmit } = useRegister();
 
   return (
     <div className="div">
@@ -28,30 +28,54 @@ function Right_page() {
         </a>
       </div>
       <p> or use your email for registration</p>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <div className="input">
-          <label htmlFor="">
+          <label htmlFor="username">
             <FontAwesomeIcon icon={faUser} />
           </label>
-          <input type="text" placeholder="Username" />
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={handleChange}
+            value={state.username}
+            id="username"
+          />
         </div>
         <div className="input">
-          <label htmlFor="">
+          <label htmlFor="email">
             <FontAwesomeIcon icon={faEnvelope} />
           </label>
-          <input type="email" placeholder="Email" />
+          <input
+            type="email"
+            placeholder="Email"
+            onChange={handleChange}
+            value={state.email}
+            id="email"
+          />
         </div>
         <div className="input">
-          <label htmlFor="">
+          <label htmlFor="password">
             <FontAwesomeIcon icon={faKey} />
           </label>
-          <input type="password" placeholder=" Password" />
+          <input
+            type="password"
+            placeholder=" Password"
+            onChange={handleChange}
+            value={state.password}
+            id="password"
+          />
         </div>
         <div className="input">
-          <label htmlFor="">
+          <label htmlFor="password2">
             <FontAwesomeIcon icon={faKey} />
           </label>
-          <input type="password" placeholder="Confirm Password" />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            onChange={handleChange}
+            value={state.password2}
+            id="password2"
+          />
         </div>
         <div className="check">
           <input type="checkbox" required />
