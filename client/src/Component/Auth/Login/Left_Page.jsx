@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useLogin from "./LoginHook";
 import {
   faGooglePlusSquare,
   faFacebookSquare,
   faTwitterSquare,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 function Left_Page() {
+  const { state, handleChange, handleSubmit } = useLogin();
   return (
     <div className="div">
       <h1>SIGN IN</h1>
@@ -23,18 +25,30 @@ function Left_Page() {
         </a>
       </div>
       <p> or use your email for registration</p>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <div className="input">
-          <label htmlFor="">
+          <label htmlFor="email">
             <FontAwesomeIcon icon={faEnvelope} />
           </label>
-          <input type="email" placeholder="Email" />
+          <input
+            type="email"
+            placeholder="Email"
+            onChange={handleChange}
+            value={state.email}
+            id="email"
+          />
         </div>
         <div className="input">
-          <label htmlFor="">
+          <label htmlFor="password">
             <FontAwesomeIcon icon={faKey} />
           </label>
-          <input type="password" placeholder=" Password" />
+          <input
+            type="password"
+            placeholder=" Password"
+            onChange={handleChange}
+            value={state.password}
+            id="password"
+          />
         </div>
 
         <button>LOG IN</button>
