@@ -81,6 +81,7 @@
           font-size: 20px;
           border: none;
           outline: none;
+          transition: 1s ease-in-out;
         }
         button:hover {
           background: $secondary;
