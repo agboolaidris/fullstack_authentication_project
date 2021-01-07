@@ -1,5 +1,7 @@
 import React from "react";
+import useRegister from "./RegisterHook";
 import { Link } from "react-router-dom";
+
 import {
   faGooglePlusSquare,
   faFacebookSquare,
@@ -9,6 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function Right_page() {
+  const { state } = useRegister();
+
   return (
     <div className="div">
       <h1>Create Account</h1>
