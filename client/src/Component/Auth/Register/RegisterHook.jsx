@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-const useRegister = () => {
+const useRegister = (Register) => {
   const [state, setstate] = useState({
     username: "",
     email: "",
@@ -15,7 +15,7 @@ const useRegister = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(state);
+    Register(state);
   };
 
   return { state, handleChange, handleSubmit };

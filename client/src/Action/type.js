@@ -1,2 +1,7 @@
-export const USER_LOADING = 'USERLOADING';
-export const USER_LOADED = 'isloaded'
+export const USER_LOADING = 'USER_LOADING';
+export const USER_LOADED = 'USER_LOADED';
+export const USER_AUTH_ERR = 'USER_AUTH_ERR';
+export const REGISTER_SUCCESSFUL = 'REGISTER_SUCCESSFUL'
+export const REGISTER_SUCCESSFUL_ERR = 'REGISTER_SUCCESSFUL_ERR'
+export const GET_ERROR = 'GET_ERROR';
+export const CLEAR_ERROR = 'CLEAR_ERROR'

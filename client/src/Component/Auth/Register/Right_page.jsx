@@ -1,7 +1,8 @@
 import React from "react";
 import useRegister from "./RegisterHook";
 import { Link } from "react-router-dom";
-
+import { Register } from "../../../Action/AuthAction";
+import { connect } from "react-redux";
 import {
   faGooglePlusSquare,
   faFacebookSquare,
@@ -10,8 +11,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-function Right_page() {
-  const { state, handleChange, handleSubmit } = useRegister();
+function Right_page({ Register }) {
+  const { state, handleChange, handleSubmit } = useRegister(Register);
 
   return (
     <div className="div">
@@ -92,4 +93,4 @@ function Right_page() {
   );
 }
 
-export default Right_page;
+export default connect(null, { Register })(Right_page);
