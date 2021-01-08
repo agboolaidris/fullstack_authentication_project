@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-const useRegister = (Register, error, clearError) => {
+import { useHistory } from "react-router-dom";
+const useRegister = (Register, error, clearError, isAuthenticated) => {
   const [state, setstate] = useState({
     username: "",
     email: "",
@@ -7,6 +8,7 @@ const useRegister = (Register, error, clearError) => {
     password2: "",
   });
   const [Error, setError] = useState("");
+  const history = useHistory();
   const handleChange = (e) => {
     setstate({
       ...state,
@@ -18,8 +20,16 @@ const useRegister = (Register, error, clearError) => {
   useEffect(() => {
     if (error.id === "REGISTERATION FAIL") {
       setError(error.msg);
+    } else {
+      setError("");
     }
   }, [error]);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/");
+    }
+  }, [isAuthenticated]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -12,11 +12,12 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-function Right_page({ Register, error, clearError }) {
+function Right_page({ Register, error, clearError, isAuthenticated }) {
   const { state, handleChange, handleSubmit, Error } = useRegister(
     Register,
     error,
-    clearError
+    clearError,
+    isAuthenticated
   );
 
   return (
@@ -102,6 +103,7 @@ function Right_page({ Register, error, clearError }) {
 const mapStateToProps = (state) => {
   return {
     error: state.Error,
+    isAuthenticated: state.Auth.isAuthenticated,
   };
 };
 

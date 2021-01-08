@@ -6,8 +6,9 @@ export const checkAuth = ()=>{
        try{ 
         dispatch({type:USER_LOADING})
         const token = getState().Auth.token
+        console.log(`tokennnnn : ${token}`)
         if(token){
-           axios.get('http://localhost:5000/user',Headers({'x-auth-token':token}))
+           axios.get('http://localhost:5000/user',{headers:{'x-auth-token':token}})
            .then(res=>{
                dispatch({type:USER_LOADED, payload:res.data})
                console.log(res)
@@ -30,7 +31,8 @@ export const Register = (user)=>{
     return async(dispatch)=>{
      try{ axios.post('http://localhost:5000/user/register',user)
       .then(res=>{
-          dispatch({type:REGISTER_SUCCESSFUL,payload:res.payload})
+
+          dispatch({type:REGISTER_SUCCESSFUL,payload:res.data})
         
       })
       .catch(err=>{
