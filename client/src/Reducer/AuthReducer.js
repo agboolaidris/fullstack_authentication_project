@@ -1,3 +1,4 @@
+import {USER_LOADING,USER_LOADED} from '../Action/type'
 const initialState = {
     token:localStorage.getItem('token'),
     isLoading:false,
@@ -7,6 +8,12 @@ const initialState = {
 
 const AuthReducer = (state=initialState,action)=>{
     switch (action.type) {
+        case USER_LOADING:
+            return{
+                ...state,
+                isLoading:true
+            }
+            break;
         default:
             return state
             break;

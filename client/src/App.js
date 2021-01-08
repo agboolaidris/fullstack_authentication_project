@@ -1,8 +1,14 @@
+import React,{useEffect} from 'react'
 import {BrowserRouter,Route,Switch} from 'react-router-dom'
 import Login from './Component/Auth/Login/Login';
 import Register from './Component/Auth/Register/Register';
 import Navbar from './Component/Layout/Navbar/Navbar';
-function App() {
+import {checkAuth} from './Action/AuthAction'
+import {connect} from 'react-redux'
+function App({checkAuth}) {
+    useEffect(() => {
+        checkAuth()
+    }, [])
   return (
     <div className="App">
       <BrowserRouter>
@@ -16,4 +22,5 @@ function App() {
   );
 }
 
-export default App;
+
+export default connect(null, {checkAuth})(App);
