@@ -1,4 +1,4 @@
-import {USER_LOADED,USER_LOADING,USER_AUTH_ERR, REGISTER_SUCCESSFUL,REGISTER_ERROR,LOGIN_ERROR,LOGIN_SUCCESSFUL} from './type' 
+import {USER_LOADED,LOGOUT,USER_LOADING,USER_AUTH_ERR, REGISTER_SUCCESSFUL,REGISTER_ERROR,LOGIN_ERROR,LOGIN_SUCCESSFUL} from './type' 
 import axios from 'axios'
 import {getError} from './ErrorAction'
 export const checkAuth = ()=>{
@@ -61,4 +61,10 @@ export const Login = (user)=>{
         console.log(err.message)
     } 
    }
+}
+
+export const Logout = ()=>{
+    return (dispatch)=>{
+      dispatch({type:LOGOUT})
+    }
 }

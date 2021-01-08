@@ -1,17 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { Logout } from "../../../Action/AuthAction";
 
-function Guset() {
+function Guset({ Logout }) {
+  const handleClick = () => {
+    Logout();
+  };
   return (
     <ul>
-      <li id="login">
-        <Link to="/login">Login</Link>
-      </li>
-      <li id="register">
-        <Link to="/register">Register</Link>
+      <li id="login" onClick={handleClick}>
+        Logout
       </li>
     </ul>
   );
 }
 
-export default Guset;
+export default connect(null, { Logout })(Guset);

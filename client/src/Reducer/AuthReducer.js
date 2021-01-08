@@ -1,4 +1,4 @@
-import {USER_LOADING,USER_LOADED,USER_AUTH_ERR,REGISTER_ERROR,REGISTER_SUCCESSFUL,LOGIN_ERROR,LOGIN_SUCCESSFUL} from '../Action/type'
+import {USER_LOADING,USER_LOADED,USER_AUTH_ERR,REGISTER_ERROR,REGISTER_SUCCESSFUL,LOGIN_ERROR,LOGIN_SUCCESSFUL, LOGOUT} from '../Action/type'
 const initialState = {
     token:localStorage.getItem('token'),
     isLoading:false,
@@ -38,7 +38,8 @@ const AuthReducer = (state=initialState,action)=>{
              break;
           case USER_AUTH_ERR:
           case REGISTER_ERROR: 
-          case LOGIN_ERROR:   
+          case LOGIN_ERROR:
+          case LOGOUT:       
               localStorage.removeItem('token')
               return{
                   ...state,
