@@ -12,12 +12,12 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-function Left_Page({ clearError, Login, error }) {
-  console.log(error);
+function Left_Page({ clearError, Login, error, isAuthenticated }) {
   const { state, handleChange, handleSubmit, Error } = useLogin(
-    clearError,
+    Login,
     error,
-    Login
+    clearError,
+    isAuthenticated
   );
   return (
     <div className="div">
@@ -75,7 +75,8 @@ function Left_Page({ clearError, Login, error }) {
 const mapStateToProps = (state) => {
   return {
     error: state.Error,
+    isAuthenticated: state.Auth.isAuthenticated,
   };
 };
 
-export default connect(mapStateToProps, { clearError, Login })(Left_Page);
+export default connect(mapStateToProps, { Login, clearError })(Left_Page);

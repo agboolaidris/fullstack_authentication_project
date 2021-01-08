@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-const useLogin = ({ Login, error, clearError }) => {
-  console.log(error);
+import { useHistory } from "react-router-dom";
+
+const useLogin = (Login, error, clearError, isAuthenticated) => {
   const [state, setstate] = useState({
     email: "",
     password: "",
   });
   const [Error, setError] = useState("");
+  const history = useHistory();
 
   const handleChange = (e) => {
     setstate({
@@ -15,10 +17,14 @@ const useLogin = ({ Login, error, clearError }) => {
     clearError();
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/");
+    }
+  }, [isAuthenticated]);
 
   useEffect(() => {
-    if (error === "LOGIN FAIL") {
+    if (error.id === "LOGIN FAIL") {
       setError(error.msg);
     } else {
       setError("");
