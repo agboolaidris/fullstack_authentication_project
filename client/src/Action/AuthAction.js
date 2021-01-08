@@ -35,7 +35,7 @@ export const Register = (user)=>{
       })
       .catch(err=>{
           dispatch({type:REGISTER_SUCCESSFUL_ERR})
-          dispatch(getError(err.response.data))
+          dispatch(getError(err.response,'REGISTERATION FAIL'))
       })       
     }
     catch(err){

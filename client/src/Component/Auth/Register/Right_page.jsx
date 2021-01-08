@@ -2,6 +2,7 @@ import React from "react";
 import useRegister from "./RegisterHook";
 import { Link } from "react-router-dom";
 import { Register } from "../../../Action/AuthAction";
+import { clearError } from "../../../Action/ErrorAction";
 import { connect } from "react-redux";
 import {
   faGooglePlusSquare,
@@ -11,8 +12,12 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-function Right_page({ Register }) {
-  const { state, handleChange, handleSubmit } = useRegister(Register);
+function Right_page({ Register, error, clearError }) {
+  const { state, handleChange, handleSubmit, Error } = useRegister(
+    Register,
+    error,
+    clearError
+  );
 
   return (
     <div className="div">
@@ -30,6 +35,7 @@ function Right_page({ Register }) {
       </div>
       <p> or use your email for registration</p>
       <form onSubmit={handleSubmit}>
+        <span className="error">{Error && Error}</span>
         <div className="input">
           <label htmlFor="username">
             <FontAwesomeIcon icon={faUser} />
@@ -93,4 +99,10 @@ function Right_page({ Register }) {
   );
 }
 
-export default connect(null, { Register })(Right_page);
+const mapStateToProps = (state) => {
+  return {
+    error: state.Error,
+  };
+};
+
+export default connect(mapStateToProps, { Register, clearError })(Right_page);
