@@ -4,7 +4,9 @@ import Login from './Component/Auth/Login/Login';
 import Register from './Component/Auth/Register/Register';
 import Navbar from './Component/Layout/Navbar/Navbar';
 import {checkAuth} from './Action/AuthAction'
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import ProtectedRoute from './ProtectRoute'
+import Dashboard from './Component/Dashboard/Dashboard';
 function App({checkAuth}) {
     useEffect(() => {
         checkAuth()
@@ -14,6 +16,8 @@ function App({checkAuth}) {
       <BrowserRouter>
       <Navbar />
       <Switch>
+        
+        <ProtectedRoute exact path='/' component={Dashboard}/>
       <Route path='/login'  component={Login} />
       <Route path='/register'  component={Register} />
       </Switch>
