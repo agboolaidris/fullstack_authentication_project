@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useLogin from "./LoginHook";
+import { Login } from "../../../Action/AuthAction";
+import { clearError } from "../../../Action/ErrorAction";
+import { connect } from "react-redux";
 import {
   faGooglePlusSquare,
   faFacebookSquare,
@@ -8,8 +11,14 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-function Left_Page() {
-  const { state, handleChange, handleSubmit } = useLogin();
+
+function Left_Page({ clearError, Login, error }) {
+  console.log(error);
+  const { state, handleChange, handleSubmit, Error } = useLogin(
+    clearError,
+    error,
+    Login
+  );
   return (
     <div className="div">
       <h1>SIGN IN</h1>
@@ -26,6 +35,7 @@ function Left_Page() {
       </div>
       <p> or use your email for registration</p>
       <form onSubmit={handleSubmit}>
+        <span className="error">{Error && Error}</span>
         <div className="input">
           <label htmlFor="email">
             <FontAwesomeIcon icon={faEnvelope} />
@@ -62,4 +72,10 @@ function Left_Page() {
   );
 }
 
-export default Left_Page;
+const mapStateToProps = (state) => {
+  return {
+    error: state.Error,
+  };
+};
+
+export default connect(mapStateToProps, { clearError, Login })(Left_Page);

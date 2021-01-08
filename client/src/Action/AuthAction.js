@@ -1,4 +1,4 @@
-import {USER_LOADED,USER_LOADING,USER_AUTH_ERR, REGISTER_SUCCESSFUL,REGISTER_SUCCESSFUL_ERR} from './type' 
+import {USER_LOADED,USER_LOADING,USER_AUTH_ERR, REGISTER_SUCCESSFUL,REGISTER_SUCCESSFUL_ERR,LOGIN_SUCCESSFUL_ERR,LOGIN_SUCCESSFUL} from './type' 
 import axios from 'axios'
 import {getError} from './ErrorAction'
 export const checkAuth = ()=>{
@@ -6,13 +6,11 @@ export const checkAuth = ()=>{
        try{ 
         dispatch({type:USER_LOADING})
         const token = getState().Auth.token
-        console.log(`tokennnnn : ${token}`)
         if(token){
            axios.get('http://localhost:5000/user',{headers:{'x-auth-token':token}})
            .then(res=>{
                dispatch({type:USER_LOADED, payload:res.data})
-               console.log(res)
-           })
+            })
            .catch(err=>{
                dispatch({type:USER_AUTH_ERR})
            })
@@ -38,6 +36,24 @@ export const Register = (user)=>{
       .catch(err=>{
           dispatch({type:REGISTER_SUCCESSFUL_ERR})
           dispatch(getError(err.response,'REGISTERATION FAIL'))
+      })       
+    }
+    catch(err){
+        console.log(err.message)
+    } 
+   }
+}
+export const Login = (user)=>{
+    return async(dispatch)=>{
+     try{ axios.post('http://localhost:5000/user/login',user)
+      .then(res=>{
+
+          dispatch({type:LOGIN_SUCCESSFUL,payload:res.data})
+        
+      })
+      .catch(err=>{
+          dispatch({type:LOGIN_SUCCESSFUL_ERR})
+          dispatch(getError(err.response,'LOGIN FAIL'))
       })       
     }
     catch(err){
