@@ -86,7 +86,8 @@ Route.post('/register',async(req,res)=>{
 })
 
 Route.post('/login', async(req,res)=>{
- try {  const {email, password} =req.body
+ try {  const {email, password} = req.body
+ console.log(req.body)
     const findUser =await User.findOne({email:email})
     if(!findUser){
      return res.status(400).json({msg:'no such an account is register'})
