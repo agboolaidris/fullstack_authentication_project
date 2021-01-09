@@ -5,7 +5,7 @@ const { json, urlencoded } = require('express')
 require('dotenv').config()
 
 
-mongoose.connect('mongodb://localhost:27017/datastorage',{useUnifiedTopology:true, useNewUrlParser:true},()=>{
+mongoose.connect(process.env.MONGODB ||'mongodb://localhost:27017/datastorage',{useUnifiedTopology:true, useNewUrlParser:true},()=>{
     console.log('connect to database')
 })
 
