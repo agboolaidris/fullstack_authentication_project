@@ -4,8 +4,7 @@ const cors = require('cors')
 const { json, urlencoded } = require('express')
 require('dotenv').config()
 
-
-mongoose.connect('mongodb+srv://Iristech:agboola123@users.eols5.mongodb.net/datastorage?retryWrites=true&w=majority',{useUnifiedTopology:true, useNewUrlParser:true},()=>{
+mongoose.connect('mongodb+srv://Iristech:nQrfzZE1y9dqKzF1@users.eols5.mongodb.net/datastorage?retryWrites=true&w=majority',{useUnifiedTopology:true, useNewUrlParser:true},()=>{
     console.log('connect to database')
 })
 
