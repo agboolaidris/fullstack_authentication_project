@@ -7,7 +7,7 @@ export const checkAuth = ()=>{
         dispatch({type:USER_LOADING})
         const token = getState().Auth.token
         if(token){
-           axios.get('http://localhost:5000/user',{headers:{'x-auth-token':token}})
+           axios.get('https://iriswebsite.herokuapp.com/user',{headers:{'x-auth-token':token}})
            .then(res=>{
                dispatch({type:USER_LOADED, payload:res.data})
             })
@@ -27,7 +27,7 @@ export const checkAuth = ()=>{
 
 export const Register = (user)=>{
     return async(dispatch)=>{
-     try{ axios.post('http://localhost:5000/user/register',user)
+     try{ axios.post('https://iriswebsite.herokuapp.com/user/login',user)
       .then(res=>{
 
           dispatch({type:REGISTER_SUCCESSFUL,payload:res.data})
@@ -45,7 +45,7 @@ export const Register = (user)=>{
 }
 export const Login = (user)=>{
     return async(dispatch)=>{
-     try{ axios.post('http://localhost:5000/user/login',user)
+     try{ axios.post('https://iriswebsite.herokuapp.com/user/login',user)
       .then(res=>{
           console.log(res)
         dispatch({type:LOGIN_SUCCESSFUL,payload:res.data})
