@@ -1,4 +1,26 @@
 const passport = require('passport')
+const User = require('../Module/AuthModule')
+
+//serialization and deserialization
+ passport.serializeUser((user,done)=>{
+     done(null,user.email)
+ })
+
+ passport.deserializeUser(async(id,done)=>{
+ try {
+   await User.findById(id)
+   .then(res=>{
+       done(null,res)
+   })
+   .catch(err=>{
+       done(err)
+   })
+  } 
+  catch(err){
+     done(err.message)
+  }
+ })
+
 
 //import all the strategies
 

@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const cookiesession = require('cookie-session')
 require('dotenv').config()
 const passport = require('./Passport')
 
@@ -25,13 +26,17 @@ app.use(cors())
 //body parser
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
+app.use(cookiesession({
+    name:'session',
+    keys:['key1','key2']
+}))
 
 //router
 app.use('/user', require('./Route/Auth_Route'))
 //init passportjs
 
 app.use(passport.initialize())
-//app.use(passport.session())
+app.use(passport.session())
 
 
 const PORT = process.env.PORT || 5000;

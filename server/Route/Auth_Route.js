@@ -5,20 +5,36 @@ const passport = require('../Passport')
 
 //passport.authenticated('register',()=>{})
 Route.post('/register',(req,res)=>{
-   passport.authenticate('Register',(error,response,info)=>{
+   passport.authenticate('Register',(error,data,info)=>{
       if(error){
         return res.status(400).json({msg:error})
       }
-      return res.json({msg:response})
+      //persistence login
+      req.logIn(data,(error)=>{
+        if(error){
+          return res.json({msg:'error'})
+        }
+        return res.json({msg:data})
+      })
+      
    })(req,res)
 })
 
 Route.post('/login',(req,res)=>{
-  passport.authenticate('Login',(error,response,info)=>{
+  passport.authenticate('Login',(error,data,info)=>{
     if(error){
       return res.status(400).json({msg:error})
     }
-    return res.json({msg:response})
+ //persistence login
+   req.logIn(data,(error)=>{
+   if(error){
+      return res.json({msg:error})
+   }
+    return res.json({msg:data})
+})
+
+
+
   })(req,res)
 })
 
