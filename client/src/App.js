@@ -8,8 +8,6 @@ import {connect} from 'react-redux';
 import ProtectedRoute from './ProtectRoute'
 import Dashboard from './Component/Dashboard/Dashboard';
 function App({checkAuth,isAuthenticated}) {
-  const location = window.location.pathname
-  console.log(location)
     useEffect(() => {
         checkAuth()
     }, [])
