@@ -27,7 +27,7 @@ export const checkAuth = ()=>{
 
 export const Register = (user)=>{
     return async(dispatch)=>{
-     try{ axios.post('https://iriswebsite.herokuapp.com/user/login',user)
+     try{ axios.post('http://localhost:5000/user/register',user)
       .then(res=>{
 
           dispatch({type:REGISTER_SUCCESSFUL,payload:res.data})
@@ -45,7 +45,7 @@ export const Register = (user)=>{
 }
 export const Login = (user)=>{
     return async(dispatch)=>{
-     try{ axios.post('https://iriswebsite.herokuapp.com/user/login',user)
+     try{ axios.post('http://localhost:5000/user/login',user)
       .then(res=>{
           console.log(res)
         dispatch({type:LOGIN_SUCCESSFUL,payload:res.data})

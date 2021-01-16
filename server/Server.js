@@ -2,9 +2,10 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 require('dotenv').config()
+const passport = require('./Passport')
 
 //init mongoose
-mongoose.connect('mongodb://localhost:27017/datastore',{
+mongoose.connect('mongodb://localhost:27017/authentication',{
     useNewUrlParser:true,
     useUnifiedTopology:true
 })
@@ -18,6 +19,10 @@ mongoose.connection.once('open',()=>{
 // init express
 const app = express()
 app.use(cors())
+
+//init passportjs
+app.use(passport.initialize())
+//app.use(passport.session())
  
 //body parser
 app.use(express.json())
