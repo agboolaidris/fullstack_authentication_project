@@ -3,7 +3,7 @@ const schema = mongoose.Schema
 
 
 const new_schema = new schema({
-    userName:{type:String, unique:true, required:true},
+    username:{type:String, unique:true, required:true},
     email:{type:String,required:true,unique:true},
     password:{type:String,required:true, unique:true}
 })
