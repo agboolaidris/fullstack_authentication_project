@@ -20,9 +20,7 @@ mongoose.connection.once('open',()=>{
 const app = express()
 app.use(cors())
 
-//init passportjs
-app.use(passport.initialize())
-//app.use(passport.session())
+
  
 //body parser
 app.use(express.json())
@@ -30,6 +28,11 @@ app.use(express.urlencoded({extended:false}))
 
 //router
 app.use('/user', require('./Route/Auth_Route'))
+//init passportjs
+
+app.use(passport.initialize())
+//app.use(passport.session())
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT,()=>{

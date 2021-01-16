@@ -1,7 +1,8 @@
 const Strategy = require('passport-local').Strategy
+const User = require('../Module/AuthModule')
 
-const RegisterStrategy = new Strategy((username, password , done)=>{
-
+const RegisterStrategy = new Strategy(function(username, password , done){
+  const usernames = username
 })
 
-module.export = RegisterStrategy
+module.exports = RegisterStrategy

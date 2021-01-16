@@ -4,4 +4,4 @@ const LoginStrategy = new Strategy((username, password , done)=>{
 
 })
 
-module.export = LoginStrategy
+module.exports = LoginStrategy
