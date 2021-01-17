@@ -21,9 +21,11 @@ const LoginStrategy = new Strategy({passReqToCallback:true},async(req,username, 
        await User.findOne({email:email})
         .then(res=>{
            const data = {
-               id: res._id,
+               _id: res._id,
                email:res.email,
-               username:res.username
+               username:res.username,
+               link:'confirm serialize'
+            
            }
            return done(null,data)
         })

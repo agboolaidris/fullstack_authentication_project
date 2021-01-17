@@ -3,12 +3,13 @@ const User = require('../Module/AuthModule')
 
 //serialization and deserialization
  passport.serializeUser((user,done)=>{
-     done(null,user.email)
+    done(null,user._id)
+    console.log(user)
  })
 
  passport.deserializeUser(async(id,done)=>{
  try {
-   await User.findOne({email:id})
+    await User.findById(id)
    .then(res=>{
        done(null,res)
    })
