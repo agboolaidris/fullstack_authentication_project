@@ -8,7 +8,7 @@ const User = require('../Module/AuthModule')
 
  passport.deserializeUser(async(id,done)=>{
  try {
-   await User.findById(id)
+   await User.findOne({email:id})
    .then(res=>{
        done(null,res)
    })
