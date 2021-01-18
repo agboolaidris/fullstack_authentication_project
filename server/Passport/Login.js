@@ -31,8 +31,6 @@ const LoginStrategy = new Strategy({usernameField:'email'},async(email, password
             return done(err)
         })
 
-    
-         return done(null,'is true')
     } 
     
     catch(err){
