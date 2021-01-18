@@ -16,20 +16,7 @@ const LoginStrategy = new Strategy({usernameField:'email'},async(email, password
             return done('email or password is invalid')
         }
 
-       await User.findOne({email:email})
-        .then(res=>{
-           const data = {
-               _id: res._id,
-               email:res.email,
-               username:res.username,
-               link:'confirm serialize'
-            
-           }
-           return done(null,data)
-        })
-        .catch(err=>{
-            return done(err)
-        })
+        return done(null, user)
 
     } 
     

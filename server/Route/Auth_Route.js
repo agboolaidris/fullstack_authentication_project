@@ -3,28 +3,33 @@ const express =  require('express')
 const Route = express.Router()
 const passport = require('../Passport')
 const Register = require('../Controller/Register')
+const jwt = require('jsonwebtoken')
 
 //register Route
 Route.route('/register').post(Register)
 
-
 //Login Route
-Route.post('/login',(req,res)=>{
-  passport.authenticate('Login',(error,data,info)=>{
-    if(error){
-      return res.status(400).json({msg:error})
+const signToken = USERID =>{
+  return jwt.sign( {iss:'USER ID', sub: USERID},'wale',{expiresIn:'1h'})
+ }
+
+Route.post('/login',passport.authenticate('Login',{session:false}),(req,res)=>{
+    if(req.isAuthenticated()){
+     const {_id, email, username } = req.user;
+     const token = signToken(_id)
+
+     res.cookie('access_token',token,{ httpOnly:true, sameSite:true} )
+     res.json({user:{email,username}, isAuthenticated:true})
     }
- //persistence login
-//     req.logIn(data,(error)=>{
-//    if(error){
-//        return res.json({msg:error})
-//    }
-//      return res.json({msg:data})
-//  })  
+     return res.status(400).json({msg:'nnnn'})
 
-   return res.json({msg:data})
+})
 
-  })(req,res)
+//logout Route
+Route.get('/logout', passport.authenticate('jwt',{session:false}),(req,res)=>{
+  console.log(req.cookies('access_token'))
+   res.clearCookie('access_token')
+   res.json({user:{username:'',email:''}})
 })
 
 
