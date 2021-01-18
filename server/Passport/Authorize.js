@@ -2,16 +2,16 @@ const JwtPassport = require('passport-jwt').Strategy;
 const User = require('../Module/AuthModule')
 
 const cookieExtractor = (req)=>{
-  let token;
-  if(req && req.cookie){
-      token = req.cookie['access_token']
-  }
+  let token = null
+  if(req && req.cookies){
+      token = req.cookies['access_token']
+    }
   return token
 }
 
 const JWTStrategy = new JwtPassport(
     {
-      secretOrKey:'wale',
+      secretOrKey:process.env.JWT_SECRET,
       jwtFromRequest:cookieExtractor
      },
       async(payload, done)=>{

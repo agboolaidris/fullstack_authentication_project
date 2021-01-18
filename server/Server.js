@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const cookiesession = require('cookie-session')
+const cookieparser = require('cookie-parser')
 require('dotenv').config()
 const passport = require('./Passport')
 
@@ -19,7 +19,11 @@ mongoose.connection.once('open',()=>{
 
 // init express
 const app = express()
+//cross origin resource sharing
 app.use(cors())
+
+//cokieparser
+app.use(cookieparser())
 
 
  
@@ -27,11 +31,6 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
-//cookie session middware
-//  app.use(cookiesession({
-//     name:'session',
-//     keys:['key1','key2']
-// }))
 
 
 //init passportjs
@@ -40,6 +39,7 @@ app.use(passport.initialize())
 
 //router
 app.use('/user', require('./Route/Auth_Route'))
+app.use('/post',require('./Route/Post_Route'))
 
 
 const PORT = process.env.PORT || 5000;

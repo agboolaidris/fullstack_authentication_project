@@ -10,7 +10,7 @@ Route.route('/register').post(Register)
 
 //Login Route
 const signToken = USERID =>{
-  return jwt.sign( {iss:'USER ID', sub: USERID},'wale',{expiresIn:'1h'})
+  return jwt.sign( {iss:'USER ID', sub: USERID},process.env.JWT_SECRET,{expiresIn:'1h'})
  }
 
 Route.post('/login',passport.authenticate('Login',{session:false}),(req,res)=>{
@@ -27,7 +27,6 @@ Route.post('/login',passport.authenticate('Login',{session:false}),(req,res)=>{
 
 //logout Route
 Route.get('/logout', passport.authenticate('jwt',{session:false}),(req,res)=>{
-  console.log(req.cookies('access_token'))
    res.clearCookie('access_token')
    res.json({user:{username:'',email:''}})
 })

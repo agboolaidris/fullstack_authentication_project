@@ -49,6 +49,8 @@ const Register = async(req, res, next)=>{
          .catch((err)=>{
            return res.status(400).json({msg:err})
          })
+
+         next()
     
         
     
