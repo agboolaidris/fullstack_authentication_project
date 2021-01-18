@@ -3,7 +3,7 @@ const passport = require('../Passport/index')
 const AddPost = require('../Controller/addPost') 
 
 
-Route.route('/add').all(passport.authenticate('jwt',{session:false})).get(AddPost)
+Route.route('/add').all(passport.authenticate('jwt',{session:false})).post(AddPost)
 
 
 module.exports = Route

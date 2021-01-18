@@ -31,6 +31,12 @@ Route.get('/logout', passport.authenticate('jwt',{session:false}),(req,res)=>{
    res.json({user:{username:'',email:''}})
 })
 
+//perstitence Route
+ Route.get('/authenticated', passport.authenticate('jwt',{session:false}),(req,res)=>{
+    const {email, username} = req.user
+    res.json({email,username})
+})
+
 
 
 
