@@ -2,25 +2,26 @@ const passport = require('passport')
 const User = require('../Module/AuthModule')
 
 //serialization and deserialization
- passport.serializeUser((user,done)=>{
-    done(null,user._id)
-    console.log(user)
- })
+// passport.serializeUser((user,done)=>{
+//    console.log(user)
+//     done(null,user._id)
+    
+//   })
 
- passport.deserializeUser(async(id,done)=>{
- try {
-    await User.findById(id)
-   .then(res=>{
-       done(null,res)
-   })
-   .catch(err=>{
-       done(err)
-   })
-  } 
-  catch(err){
-     done(err.message)
-  }
- })
+//   passport.deserializeUser(async(id,done)=>{
+// try {
+//     console.log(id)
+//    await User.findOne({_id:id})
+//   .then(res=>{
+//       done(null,res)
+//     })    .catch(err=>{
+//        done(err)
+//    })
+//   } 
+//    catch(err){
+//      done(err.message)
+//   }
+//  })
 
 
 //import all the strategies

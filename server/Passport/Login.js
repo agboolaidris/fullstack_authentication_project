@@ -2,11 +2,9 @@ const Strategy = require('passport-local').Strategy
 const User = require('../Module/AuthModule')
 const bcrypt = require ('bcryptjs')
 
-const LoginStrategy = new Strategy({passReqToCallback:true},async(req,username, password , done)=>{
+const LoginStrategy = new Strategy({usernameField:'email'},async(email, password , done)=>{
    try{ 
-       const { email, password  } = req.body
-       
-        if( !email || !password){
+       if( !email || !password){
            return done('the field is required', null)
           }
         const user= await User.findOne({email:email}) 

@@ -28,15 +28,15 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
 //cookie session middware
-app.use(cookiesession({
-    name:'session',
-    keys:['key1','key2']
-}))
+//  app.use(cookiesession({
+//     name:'session',
+//     keys:['key1','key2']
+// }))
 
 
 //init passportjs
 app.use(passport.initialize())
-app.use(passport.session())
+//app.use(passport.session())
 
 //router
 app.use('/user', require('./Route/Auth_Route'))

@@ -3,7 +3,9 @@ const User = require('../Module/AuthModule')
 const bcrypt = require('bcryptjs')
 
 const RegisterStrategy = new Strategy({passReqToCallback:true}, async(req, username,password, done)=>{
-  try{ const {email,password2} = req.body;
+  try{ 
+    const {username,password,email,password2} = req.body;
+    
     if(!email || !password || !username || !password2){
      return done('the field is required',null)
     }
@@ -33,8 +35,9 @@ const RegisterStrategy = new Strategy({passReqToCallback:true}, async(req, usern
        password:genpassword,
        username:username
      })
+     console.log(user)
 
-     user.save()
+    await user.save()
      .then((res)=>{
        const response = {
          id:res._id,
