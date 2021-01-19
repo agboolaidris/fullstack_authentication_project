@@ -1,4 +1,5 @@
 import React from "react";
+import Facebook from "./Facebook";
 import RegisterForm from "./registerForm";
 
 function Register() {
@@ -13,7 +14,9 @@ function Register() {
       <div className="social-register">
         <div>
           <p>Login in with</p>
-          <div>Hell</div>
+          <div>
+            <Facebook />
+          </div>
         </div>
       </div>
     </div>
