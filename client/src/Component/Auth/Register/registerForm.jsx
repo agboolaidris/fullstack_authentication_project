@@ -4,15 +4,10 @@ import { Link } from "react-router-dom";
 import { Register } from "../../../Action/AuthAction";
 import { clearError } from "../../../Action/ErrorAction";
 import { connect } from "react-redux";
-import {
-  faGooglePlusSquare,
-  faFacebookSquare,
-  faTwitterSquare,
-} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-function Right_page({ Register, error, clearError, isAuthenticated }) {
+function RegisterForm({ Register, error, clearError, isAuthenticated }) {
   const { state, handleChange, handleSubmit, Error } = useRegister(
     Register,
     error,
@@ -23,18 +18,6 @@ function Right_page({ Register, error, clearError, isAuthenticated }) {
   return (
     <div className="div">
       <h1>Create Account</h1>
-      <div className="icon">
-        <a>
-          <FontAwesomeIcon icon={faFacebookSquare} size="2x" />
-        </a>
-        <a>
-          <FontAwesomeIcon icon={faGooglePlusSquare} size="2x" />
-        </a>
-        <a>
-          <FontAwesomeIcon icon={faTwitterSquare} size="2x" />
-        </a>
-      </div>
-      <p> or use your email for registration</p>
       <form onSubmit={handleSubmit}>
         <span className="error">{Error && Error}</span>
         <div className="input">
@@ -107,4 +90,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { Register, clearError })(Right_page);
+export default connect(mapStateToProps, { Register, clearError })(RegisterForm);
