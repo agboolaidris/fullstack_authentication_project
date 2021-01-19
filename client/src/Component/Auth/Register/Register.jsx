@@ -1,5 +1,6 @@
 import React from "react";
 import Facebook from "./Facebook";
+import Google from "./Google";
 import RegisterForm from "./registerForm";
 
 function Register() {
@@ -13,9 +14,10 @@ function Register() {
       </div>
       <div className="social-register">
         <div>
-          <p>Login in with</p>
-          <div>
+          <p>Register with</p>
+          <div className="social">
             <Facebook />
+            <Google />
           </div>
         </div>
       </div>

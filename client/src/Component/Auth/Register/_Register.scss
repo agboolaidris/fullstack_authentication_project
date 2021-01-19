@@ -4,7 +4,7 @@
   justify-content: center;
   align-content: center;
   grid-template-columns: max-content max-content;
-  grid-template-rows: 350px 50px 50px;
+  grid-template-rows: 360px 50px 50px;
   background: linear-gradient(to right, $primary, $primary2);
 
   .register-form {
@@ -42,6 +42,7 @@
           margin: 3px 0;
           align-items: center;
           border-bottom: 1px solid darken($color: $neutral, $amount: 20);
+          box-shadow: 1px 2px darken($color: $neutral, $amount: 5);
           input {
             width: 90%;
             height: 35px;
@@ -49,9 +50,7 @@
             border: none;
             outline: none;
           }
-          input:focus {
-            border-bottom: 1px solid $primary;
-          }
+
           label {
             color: darken($color: $neutral, $amount: 10);
             width: 10%;
@@ -63,7 +62,7 @@
           border-bottom: 1px solid $primary;
         }
         .check {
-          margin: 0.5em 0;
+          margin: 1em 0;
           text-align: left;
           span {
             margin-left: 1em;
@@ -118,6 +117,22 @@
       p {
         width: 40%;
         text-align: center;
+        color: $secondary;
+      }
+      .social {
+        width: 60%;
+        display: flex;
+        justify-content: space-around;
+        button {
+          background: none;
+          border: none;
+          outline: none;
+          color: $primary2;
+        }
+        button:hover,
+        button:focus {
+          color: $neutral;
+        }
       }
     }
   }
