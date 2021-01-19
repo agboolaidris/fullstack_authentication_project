@@ -72,11 +72,8 @@ function RegisterForm({ Register, error, clearError, isAuthenticated }) {
           <input type="checkbox" required />
           <span>i agree with the term and condition of this website </span>
         </div>
-        <button>Register</button>
-        <div className="login-link">
-          <span>
-            already have an account <Link to="/login">SIGN IN</Link>
-          </span>
+        <div className="">
+          <button>Register</button>
         </div>
       </form>
     </div>
