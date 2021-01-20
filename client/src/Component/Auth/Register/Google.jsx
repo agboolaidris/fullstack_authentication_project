@@ -1,5 +1,7 @@
 import React from "react";
 import { GoogleLogin } from "react-google-login";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGooglePlus } from "@fortawesome/free-brands-svg-icons";
 
 function Google() {
   const responseGoogle = (response) => {
@@ -11,7 +13,7 @@ function Google() {
       clientId="652675837021-ia411pocr3npqdsfl65uagh1g4r61fc6.apps.googleusercontent.com"
       render={(renderProps) => (
         <button onClick={renderProps.onClick} disabled={renderProps.disabled}>
-          hello
+          <FontAwesomeIcon icon={faGooglePlus} size="3x" />
         </button>
       )}
       buttonText="Login"
