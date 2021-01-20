@@ -9,12 +9,17 @@ function Facebook() {
     alert("hello");
   };
 
+  const handleClick = () => {
+    console.log("click");
+  };
+
   return (
     <>
       <FacebookLogin
         appId="756129875011975"
-        autoLoad
+        autoLoad="false"
         callback={responseFacebook}
+        onClick={handleClick}
         render={(renderProps) => (
           <button onClick={renderProps.onClick} className="facebook-icon">
             <FontAwesomeIcon icon={faFacebook} size="3x" />
