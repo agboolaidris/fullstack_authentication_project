@@ -6,13 +6,14 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 function Facebook() {
   const responseFacebook = (res) => {
     console.log(res);
+    alert("hello");
   };
 
   return (
     <>
       <FacebookLogin
         appId="756129875011975"
-        autoLoad="false"
+        autoLoad
         callback={responseFacebook}
         render={(renderProps) => (
           <button onClick={renderProps.onClick} className="facebook-icon">
