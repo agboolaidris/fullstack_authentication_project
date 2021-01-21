@@ -5,7 +5,13 @@ import { faGooglePlus } from "@fortawesome/free-brands-svg-icons";
 
 function Google() {
   const responseGoogle = (response) => {
-    console.log(response);
+    if(response){
+      console.log(response);
+
+    }
+    else{
+      alert('error')
+    }
   };
 
   return (
