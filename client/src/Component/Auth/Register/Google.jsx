@@ -7,7 +7,7 @@ function Google() {
   const responseGoogle = (response) => {
     if(response){
       console.log(response);
-
+      
     }
     else{
       alert('error')
