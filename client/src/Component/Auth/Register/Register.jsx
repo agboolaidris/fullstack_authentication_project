@@ -1,4 +1,5 @@
 import React from "react";
+import Facebooks from "../Oauth/Facebook";
 import Facebook from "./Facebook";
 import Google from "./Google";
 import RegisterForm from "./registerForm";
@@ -18,6 +19,7 @@ function Register() {
           <div className="social">
             <Facebook />
             <Google />
+            <Facebooks />
           </div>
         </div>
       </div>

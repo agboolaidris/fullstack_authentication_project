@@ -63,6 +63,18 @@ export const Login = (user)=>{
    }
 }
 
+export const Facebook = ()=>{
+    return async()=>{
+        axios.get('/user/facebook')
+        .then(res=>{
+            console.log(res)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    }
+}
+
 export const Logout = ()=>{
     return (dispatch)=>{
       dispatch({type:LOGOUT})

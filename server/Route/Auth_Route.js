@@ -37,6 +37,11 @@ Route.get('/logout', passport.authenticate('jwt',{session:false}),(req,res)=>{
     res.json({email,username})
 })
 
+Route.get('/facebook',passport.authenticate('Facebook',{session:false}),()=>{})
+Route.get('/auth,callback',passport.authenticate('Facebook',{session:false}),(req, res)=>{
+   res.redirect('/')
+})
+
 
 
 
