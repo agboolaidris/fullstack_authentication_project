@@ -12,7 +12,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-function Left_Page({ clearError, Login, error, isAuthenticated }) {
+function LoginForm({ clearError, Login, error, isAuthenticated }) {
   const { state, handleChange, handleSubmit, Error } = useLogin(
     Login,
     error,
@@ -22,18 +22,6 @@ function Left_Page({ clearError, Login, error, isAuthenticated }) {
   return (
     <div className="div">
       <h1>SIGN IN</h1>
-      <div className="icon">
-        <a>
-          <FontAwesomeIcon icon={faFacebookSquare} size="2x" />
-        </a>
-        <a>
-          <FontAwesomeIcon icon={faGooglePlusSquare} size="2x" />
-        </a>
-        <a>
-          <FontAwesomeIcon icon={faTwitterSquare} size="2x" />
-        </a>
-      </div>
-      <p> or use your email for registration</p>
       <form onSubmit={handleSubmit}>
         <span className="error">{Error && Error}</span>
         <div className="input">
@@ -60,13 +48,11 @@ function Left_Page({ clearError, Login, error, isAuthenticated }) {
             id="password"
           />
         </div>
-
-        <button>LOG IN</button>
-        <div className="register-link">
-          <span>
-            don't have an account <Link to="/register">Register</Link>
-          </span>
-        </div>
+         <div className="btn-container">
+          <Link to='/register'>Register</Link>
+          <button>LOG IN</button>
+         </div>
+      
       </form>
     </div>
   );
@@ -79,4 +65,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { Login, clearError })(Left_Page);
+export default connect(mapStateToProps, { Login, clearError })(LoginForm);

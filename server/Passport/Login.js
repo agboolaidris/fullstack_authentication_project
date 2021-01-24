@@ -3,17 +3,18 @@ const User = require('../Module/AuthModule')
 const bcrypt = require ('bcryptjs')
 
 const LoginStrategy = new Strategy({usernameField:'email'},async(email, password , done)=>{
-   try{ 
+     
+    try{ 
        if( !email || !password){
-           return done('the field is required', null)
+           return done(null, false,{msg:'the field is reguired'})
           }
         const user= await User.findOne({email:email}) 
         if(!user){
-            return done('no user found')
+            return done(null,false,{msg:'user is not exist'})
         }
         const compare_password = await bcrypt.compare(password,user.password)
         if(!compare_password){
-            return done('email or password is invalid')
+            return done(null, false, {msg:'email or password is invalid'})
         }
 
         return done(null, user)

@@ -1,6 +1,5 @@
 import {USER_LOADING,USER_LOADED,USER_AUTH_ERR,REGISTER_ERROR,REGISTER_SUCCESSFUL,LOGIN_ERROR,LOGIN_SUCCESSFUL, LOGOUT} from '../Action/type'
 const initialState = {
-    token:localStorage.getItem('token'),
     isLoading:false,
     isAuthenticated:false,
     user:{}
@@ -26,11 +25,9 @@ const AuthReducer = (state=initialState,action)=>{
 
          case REGISTER_SUCCESSFUL:
          case LOGIN_SUCCESSFUL:    
-              localStorage.setItem('token',action.payload.token)
              return{
                  ...state,
                  isLoading:false,
-                 token:action.payload.token,
                  isAuthenticated:true,
                  user:action.payload.user
                  
@@ -40,12 +37,10 @@ const AuthReducer = (state=initialState,action)=>{
           case REGISTER_ERROR: 
           case LOGIN_ERROR:
           case LOGOUT:       
-              localStorage.removeItem('token')
               return{
                   ...state,
                   isLoading:false,
                   isAuthenticated:false,
-                  token:'',
                   user:{}
                  }      
         default:

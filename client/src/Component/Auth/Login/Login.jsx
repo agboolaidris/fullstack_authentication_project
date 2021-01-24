@@ -1,15 +1,22 @@
 import React from "react";
-import Left_page from "./Left_Page";
-import Right_page from "./Right_page";
+import Facebook from "../Oauth/Facebook";
+import Google from "../Oauth/Google";
+import LoginForm from "./loginForm";
 
 function Login() {
   return (
     <div className="login">
-      <div className="col-1">
-        <Left_page />
+      <div className="login-form">
+        <LoginForm />
       </div>
-      <div className="col-2">
-        <Right_page />
+      <div className="social-login">
+        <div>
+        <p>Login with</p>
+        <div className="social">
+        <Facebook />
+        <Google />
+        </div>
+        </div>
       </div>
     </div>
   );

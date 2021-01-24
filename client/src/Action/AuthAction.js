@@ -34,6 +34,7 @@ export const checkAuth = ()=>{
 export const Register = (user)=>{
     return async(dispatch)=>{
      try{
+      dispatch({type:USER_LOADING})
        axios.post('http://localhost:5000/user/register',user)
       .then(res=>{
         axios.post('http://localhost:5000/user/login',user)
@@ -59,6 +60,7 @@ export const Login = (user)=>{
     return async(dispatch)=>{
      try{ axios.post('http://localhost:5000/user/login',user)
       .then(res=>{
+          console.log(res)
         dispatch({type:LOGIN_SUCCESSFUL,payload:res.data})
         
       })
