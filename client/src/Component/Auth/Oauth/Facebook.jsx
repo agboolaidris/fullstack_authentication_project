@@ -8,8 +8,10 @@ const handleClick = ()=>{
 }
 
     return (
-        <button onClick={handleClick}>
+        <button>
+            <a href='http://localhost:5000/user/facebook'>
            Facebook 
+           </a>
         </button>
     )
 

@@ -4,6 +4,7 @@ const Route = express.Router()
 const passport = require('../Passport')
 const Register = require('../Controller/Register')
 const jwt = require('jsonwebtoken')
+const { config } = require('dotenv/types')
 
 //register Route
 Route.route('/register').post(Register)
@@ -37,9 +38,9 @@ Route.get('/logout', passport.authenticate('jwt',{session:false}),(req,res)=>{
     res.json({email,username})
 })
 
-Route.get('/facebook',passport.authenticate('Facebook',{session:false}),()=>{})
-Route.get('/auth,callback',passport.authenticate('Facebook',{session:false}),(req, res)=>{
-   res.redirect('/')
+Route.get('/facebook',passport.authenticate('Facebook'),()=>{})
+Route.get('/auth/callback',passport.authenticate('Facebook',{session:false,failureRedirect:`${config.FRONTEND_HOST}/register`}),(req, res)=>{
+   res.json({msg:'hello'})
 })
 
 
