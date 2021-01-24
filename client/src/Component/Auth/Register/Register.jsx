@@ -8,6 +8,7 @@ import {oauthRegister} from '../../../Action/AuthAction'
 
 
 function Register({isLoading, oauthRegister}) {
+  console.log(oauthRegister)
   return (
     <>
     <div className={isLoading ? 'isloading' : 'not-loading'}><span></span></div>

@@ -6,7 +6,7 @@ const LoginStrategy = new Strategy({usernameField:'email'},async(email, password
      
     try{ 
        if( !email || !password){
-           return done(null, false,{msg:'the field is reguired'})
+           return done(null, false, {msg:'the field is reguired'})
           }
         const user= await User.findOne({email:email}) 
         if(!user){
