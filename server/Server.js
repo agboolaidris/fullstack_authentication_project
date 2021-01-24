@@ -6,16 +6,16 @@ require('dotenv').config()
 const passport = require('./Passport')
 
 //init mongoose
-// mongoose.connect('mongodb://localhost:27017/authentication',{
-//     useNewUrlParser:true,
-//     useUnifiedTopology:true
-// })
-// mongoose.connection.once('open',()=>{
-//    console.log('connected successful...........')
-// })
-// .on('error',()=>{
-//     console.log('error occur during the connection to database')
-// })
+ mongoose.connect('mongodb://localhost:27017/authentication',{
+     useNewUrlParser:true,
+     useUnifiedTopology:true
+ })
+ mongoose.connection.once('open',()=>{
+    console.log('connected successful...........')
+ })
+ .on('error',()=>{
+     console.log('error occur during the connection to database')
+ })
 
 
 // init express
