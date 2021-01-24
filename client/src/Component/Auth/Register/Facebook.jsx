@@ -2,36 +2,18 @@ import React, {useState} from "react";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import {oauthRegister} from '../../../Action/AuthAction'
+import {connect} from 'react-redux'
 
-function Facebook() {
-  const[state,setstate] =useState({
-    username:'',
-    email:'',
-    password:'',
-    password2:'',
-    picture:''
-  })
+function Facebook({oauthRegister}) {
+  
 
   const responseFacebook = (res) => {
-    console.log(res)
-    if(res){
-      alert('true')
-    }
-    else{
-      alert('false')
-    }
-    setstate({
-      username:res.name,
-      email:res.email,
-      password:res.id,
-      password2:res.id,
-      picture:res.picture
-    })
-  
+      oauthRegister(res)
   };
 
   const handleClick = () => {
-   // console.log(state);
+    //c//onsole.log(state);
   };
 
   return (
@@ -39,7 +21,7 @@ function Facebook() {
       <FacebookLogin
         appId="756129875011975"
         callback={responseFacebook}
-        onClick={handleClick}
+        fields='name, email, picture'
         render={(renderProps) => (
           <button onClick={renderProps.onClick} className="facebook-icon">
             <FontAwesomeIcon icon={faFacebook} size="3x" />
@@ -50,4 +32,4 @@ function Facebook() {
   );
 }
 
-export default Facebook;
+export default connect(null, { oauthRegister})(Facebook);
