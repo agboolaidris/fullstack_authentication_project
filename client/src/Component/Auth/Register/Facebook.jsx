@@ -14,6 +14,12 @@ function Facebook() {
 
   const responseFacebook = (res) => {
     console.log(res)
+    if(res){
+      alert('true')
+    }
+    else{
+      alert('false')
+    }
     setstate({
       username:res.name,
       email:res.email,
@@ -25,7 +31,7 @@ function Facebook() {
   };
 
   const handleClick = () => {
-    console.log(state);
+   // console.log(state);
   };
 
   return (
