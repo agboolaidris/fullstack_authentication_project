@@ -3,8 +3,7 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const cookieparser = require('cookie-parser')
 require('dotenv').config()
-const passport = require('./Passport')
-const flash = require('connect-flash')
+
 
 //init mongoose
  mongoose.connect('mongodb://localhost:27017/authentication',{
@@ -27,7 +26,6 @@ app.use(cors())
 
 //cokieparser
 app.use(cookieparser())
-app.use(flash())
 
  
 //body parser
@@ -35,10 +33,6 @@ app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
 
-
-//init passportjs
-app.use(passport.initialize())
-app.use(passport.session())
 
 //router
 app.use('/user', require('./Route/Auth_Route'))
