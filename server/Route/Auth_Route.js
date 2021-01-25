@@ -10,23 +10,11 @@ const jwt = require('jsonwebtoken')
 Route.route('/register').post(Register)
 
 //Login Route
-const signToken = USERID =>{
-  return jwt.sign( {iss:'USER ID', sub: USERID},process.env.JWT_SECRET,{expiresIn:'1h'})
- }
-
 Route.route('/login').post(Login)
-    
-
-    
-    // const token = signToken(_id)
-
-     //.cookie('access_token',token,{ httpOnly:true, sameSite:true} )
-     //res.json({user:{email,username}, isAuthenticated:true})
-
 
 //logout Route
 Route.get('/logout',(req,res)=>{
-   res.clearCookie('access_token')
+   res.clearCookie('access-token')
    res.json({user:{username:'',email:''}})
 })
 
