@@ -1,9 +1,9 @@
 const express =  require('express')
 const Route = express.Router()
-const passport = require('../Passport')
 const Register = require('../Controller/Register')
 const Login = require('../Controller/Login')
-const jwt = require('jsonwebtoken')
+const Authorize = require('../Middleware/Authorize')
+const Logout = require('../Controller/Logout')
 
 
 //register Route
@@ -13,10 +13,8 @@ Route.route('/register').post(Register)
 Route.route('/login').post(Login)
 
 //logout Route
-Route.get('/logout',(req,res)=>{
-   res.clearCookie('access-token')
-   res.json({user:{username:'',email:''}})
-})
+Route.route('/logout').all(Authorize).get(Logout)
+   
 
 //perstitence Route
  Route.get('/authenticated',(req,res)=>{

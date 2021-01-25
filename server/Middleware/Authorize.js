@@ -1,17 +1,21 @@
 const jwt = require('jsonwebtoken')
 
 const verifyToken = (token)=>{
-    const token = jwt.verify(token, process.env.JWT_SECRET)
-    console.log(token)
+    const id = jwt.verify(token, process.env.JWT_SECRET)
+    return id
 }
+
 const Authorize = (req,res,next)=>{
-   const token = req.cookie['access-token']
+   const token = req.cookies['access-token']
    if(!token){
     return res.status(400).json({msg:'unathorize'})
    }
-   
-   return res.json({msg})
-   
+   const id = verifyToken(token)
+   if(!id){
+       return res.status({msg:'error occur during the process'})
+   }
+   req.userID = id
+    next()
 }
 
 module.exports = Authorize
