@@ -2,9 +2,9 @@
   background: linear-gradient(to right, $primary, $primary2);
   display: grid;
   justify-content: center;
+  align-content: center;
   grid-template-columns: max-content max-content;
   grid-template-rows: 280px 50px 50px;
-  align-content: center;
   height: 100vh;
   .login-form {
     background: $neutral;

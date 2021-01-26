@@ -14,7 +14,6 @@ html {
   background: $neutral;
 }
 
-
 *,
 *::after,
 ::before {
@@ -32,11 +31,11 @@ html {
   color: $neutral;
 }
 
-.not-loading{
-  display: none
+.not-loading {
+  display: none;
 }
 
-.isloading{
+.isloading {
   z-index: 10;
   position: absolute;
   background: $neutral;
@@ -47,28 +46,28 @@ html {
   height: 100%;
   justify-content: center;
   align-items: center;
-  span{
+  span {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     background: $secondary;
-     animation-name: span;
-     animation-duration: 2s;
-     animation-iteration-count: infinite
-    }
+    animation-name: span;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
 
-    @keyframes span {
-        0%{
-          background: $primary2;
-          width: 10%;
-          height: 10%;
-        }
-        100%{
-          background-color: $secondary;
-          width:100px;
-          height: 100px;;
-        }
+  @keyframes span {
+    0% {
+      background: $primary2;
+      width: 10%;
+      height: 10%;
     }
+    100% {
+      background-color: $secondary;
+      width: 200px;
+      height: 200px;
+    }
+  }
 }
 
 @import "./Component/Auth/Login/Login";
