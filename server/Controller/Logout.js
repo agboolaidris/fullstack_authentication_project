@@ -6,7 +6,7 @@ const Logout = async(req,res)=>{
         return res.status(400).json({msg:'error occur during the process'})
       }
      res.clearCookie('access-token')
-     res.json({msg:'logout successful'})
+    return res.json({msg:'logout successful'})
   } 
 
    catch(err){

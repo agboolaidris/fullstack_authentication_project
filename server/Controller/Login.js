@@ -25,7 +25,7 @@ const Login = async(req,res)=>{
      } 
   
      const access_token = await signToken(user._id)
-     res.cookie('access-token',access_token)
+     res.cookie('access-token',access_token,{})
      return res.json({msg:'successful'})
          
    }
