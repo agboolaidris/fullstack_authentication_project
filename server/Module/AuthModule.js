@@ -5,8 +5,8 @@ const new_schema = new schema({
   username: { type: String, unique: true, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, unique: true },
-  forgetpasswordToken: { type: String },
-  forgetpasswordDurattion: { type: Date },
+  resetpasswordToken: { type: String },
+  resetpasswordExpire: { type: Date },
 });
 
 const User = mongoose.model("User", new_schema);
