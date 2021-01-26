@@ -1,9 +1,9 @@
 const express =  require('express')
 const Route = express.Router()
-const Register = require('../Controller/Register')
-const Login = require('../Controller/Login')
+const Register = require('../Controller/authController/Register')
+const Login = require('../Controller/authController/Login')
 const Authorize = require('../Middleware/Authorize')
-const Logout = require('../Controller/Logout')
+const Logout = require('../Controller/authController/Logout')
 
 
 //register Route
@@ -17,9 +17,6 @@ Route.route('/logout').all(Authorize).get(Logout)
    
 
 //perstitence Route
- Route.get('/authenticated',(req,res)=>{
-    const {email, username} = req.user
-    res.json({email,username})
-})
+ Route.route('/authenticated').all(Authorize).get('')
 
 module.exports = Route

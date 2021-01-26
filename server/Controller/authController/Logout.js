@@ -1,4 +1,4 @@
-const User = require('../Module/AuthModule')
+const User = require('../../Module/AuthModule')
 const Logout = async(req,res)=>{
   try{
     const user = await User.findById(req.userID)

@@ -52,7 +52,6 @@ function LoginForm({ clearError, Login, error, isAuthenticated }) {
           <Link to='/register'>Register</Link>
           <button>LOG IN</button>
          </div>
-      
       </form>
     </div>
   );
