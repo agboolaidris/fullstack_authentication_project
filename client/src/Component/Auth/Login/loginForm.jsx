@@ -48,10 +48,10 @@ function LoginForm({ clearError, Login, error, isAuthenticated }) {
             id="password"
           />
         </div>
-         <div className="btn-container">
-          <Link to='/register'>Register</Link>
+        <div className="btn-container">
+          <Link to="/register">Register</Link>
           <button>LOG IN</button>
-         </div>
+        </div>
       </form>
     </div>
   );
