@@ -2,10 +2,11 @@ const User = require('../Module/AuthModule')
 const Logout = async(req,res)=>{
   try{
     const user = await User.findById(req.userID)
-    if(user){   
-         res.cookie()
-         res.json({msg:'logout successful'})
+    if(!user){   
+        return res.status(400).json({msg:'error occur during the process'})
       }
+     res.clearCookie('access-token')
+     res.json({msg:'logout successful'})
   } 
 
    catch(err){
