@@ -1,9 +1,3 @@
-const Route = require('express').Router()
-const passport = require('../Passport/index')
-const AddPost = require('../Controller/addPost') 
+const Route = require("express").Router();
 
-
-Route.route('/add').all(passport.authenticate('jwt',{session:false})).post(AddPost)
-
-
-module.exports = Route
+module.exports = Route;
