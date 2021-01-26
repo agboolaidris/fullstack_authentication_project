@@ -11,11 +11,11 @@ function Login() {
       </div>
       <div className="social-login">
         <div>
-        <p>Login with</p>
-        <div className="social">
-        <Facebook />
-        <Google />
-        </div>
+          <p>Login with</p>
+          <div className="social">
+            <Facebook />
+            <Google />
+          </div>
         </div>
       </div>
     </div>
