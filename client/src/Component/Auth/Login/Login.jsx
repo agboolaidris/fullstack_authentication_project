@@ -9,7 +9,7 @@ function Login() {
       <div className="login-form">
         <LoginForm />
       </div>
-      <div className="social-login">
+      <div className="login-social">
         <div>
           <p>Login with</p>
           <div className="social">

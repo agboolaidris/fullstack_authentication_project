@@ -48,9 +48,15 @@ function LoginForm({ clearError, Login, error, isAuthenticated }) {
             id="password"
           />
         </div>
+
         <div className="btn-container">
           <Link to="/register">Register</Link>
           <button>LOG IN</button>
+        </div>
+        <div className="forgetpassword">
+          <p>
+            forget password ?<Link to="/forgetpassword">CLICK</Link>
+          </p>
         </div>
       </form>
     </div>

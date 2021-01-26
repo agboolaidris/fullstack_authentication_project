@@ -3,7 +3,7 @@
   display: grid;
   justify-content: center;
   align-content: center;
-  grid-template-columns: max-content max-content;
+  grid-template-columns: 200px 200px;
   grid-template-rows: 360px 50px 50px;
   background: linear-gradient(to right, $primary, $primary2);
 
