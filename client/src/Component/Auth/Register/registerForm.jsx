@@ -71,10 +71,8 @@ function RegisterForm({ Register, error, clearError, isAuthenticated }) {
         <span>i agree with the term and condition of this website </span>
       </div>
       <div className="btn-container">
-        <Link to="/login" className="login-btn">
-          Login
-        </Link>
-        <button className="register-btn">Register</button>
+        <Link to="/login">Login</Link>
+        <button>Register</button>
       </div>
     </form>
   );

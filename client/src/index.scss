@@ -25,9 +25,9 @@ html {
 
 .error {
   background: $secondary;
-  width: 80%;
+  width: 100%;
   text-align: center;
-
+  display: block;
   color: $neutral;
 }
 
@@ -74,3 +74,4 @@ html {
 @import "./Component/Auth/Register/Register";
 @import "./Component/Dashboard/Dashboard";
 @import "./Component/Layout/Navbar/Navbar";
+@import "./Component/Auth/Forgetpassword/forget";

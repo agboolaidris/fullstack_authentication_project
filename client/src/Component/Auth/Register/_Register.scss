@@ -18,10 +18,10 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      height: 260px;
+      height: 360px;
       padding: 2em;
       h1 {
-        font-size: 40px;
+        font-size: 30px;
       }
 
       form {
@@ -77,17 +77,10 @@
           }
         }
 
-        .forgetpassword {
-          margin-top: 1em;
-          a {
-            text-decoration: none;
-            margin-left: 0.5em;
-            font-weight: bolder;
-            color: $secondary;
-          }
-          a:hover {
-            color: $primary2;
-            font-size: 18px;
+        .check {
+          margin: 1em;
+          span {
+            padding-left: 1em;
           }
         }
       }
