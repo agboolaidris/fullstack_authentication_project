@@ -23,6 +23,7 @@ function RegisterForm({ Register, error, clearError, isAuthenticated }) {
           <FontAwesomeIcon icon={faUser} />
         </label>
         <input
+          required
           type="text"
           placeholder="Username"
           onChange={handleChange}
@@ -35,6 +36,7 @@ function RegisterForm({ Register, error, clearError, isAuthenticated }) {
           <FontAwesomeIcon icon={faEnvelope} />
         </label>
         <input
+          required
           type="email"
           placeholder="Email"
           onChange={handleChange}
@@ -47,6 +49,7 @@ function RegisterForm({ Register, error, clearError, isAuthenticated }) {
           <FontAwesomeIcon icon={faKey} />
         </label>
         <input
+          required
           type="password"
           placeholder=" Password"
           onChange={handleChange}
@@ -59,6 +62,7 @@ function RegisterForm({ Register, error, clearError, isAuthenticated }) {
           <FontAwesomeIcon icon={faKey} />
         </label>
         <input
+          required
           type="password"
           placeholder="Confirm Password"
           onChange={handleChange}

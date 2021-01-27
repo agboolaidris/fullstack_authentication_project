@@ -25,6 +25,7 @@ function Forgetpassword() {
               <FontAwesomeIcon icon={faEnvelope} />
             </label>
             <input
+              required
               type="email"
               placeholder="Email"
               onChange={(e) => setstate({ ...state, email: e.target.value })}

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 function Reset() {
   const [state, setstate] = useState({
-    email: "",
+    password: "",
+    password2: "",
   });
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,19 +22,34 @@ function Reset() {
         </p>
         <form onSubmit={handleSubmit}>
           <div className="input">
-            <label htmlFor="email">
-              <FontAwesomeIcon icon={faEnvelope} />
+            <label htmlFor="password">
+              <FontAwesomeIcon icon={faKey} />
             </label>
             <input
-              type="email"
-              placeholder="Email"
-              onChange={(e) => setstate({ ...state, email: e.target.value })}
+              required
+              type="password"
+              placeholder="enter your new password"
+              onChange={(e) => setstate({ ...state, password: e.target.value })}
               value={state.email}
-              id="email"
+              id="password"
+            />
+          </div>
+          <div className="input">
+            <label htmlFor="password2">
+              <FontAwesomeIcon icon={faKey} />
+            </label>
+            <input
+              required
+              type="password"
+              placeholder="confirm your password"
+              onChange={(e) =>
+                setstate({ ...state, password2: e.target.value })
+              }
+              value={state.email}
+              id="password2"
             />
           </div>
           <div className="btn-container">
-            <Link to="/login">LOG IN</Link>
             <button>SUBMIT</button>
           </div>
         </form>

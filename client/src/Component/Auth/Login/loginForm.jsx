@@ -29,6 +29,7 @@ function LoginForm({ clearError, Login, error, isAuthenticated }) {
             <FontAwesomeIcon icon={faEnvelope} />
           </label>
           <input
+            required
             type="email"
             placeholder="Email"
             onChange={handleChange}
@@ -41,6 +42,7 @@ function LoginForm({ clearError, Login, error, isAuthenticated }) {
             <FontAwesomeIcon icon={faKey} />
           </label>
           <input
+            required
             type="password"
             placeholder=" Password"
             onChange={handleChange}

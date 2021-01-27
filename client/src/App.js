@@ -22,7 +22,7 @@ function App({ checkAuth, isAuthenticated }) {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/forgetpassword" component={Forgetpassword} />
-          <Route path="/resetpassword" component={Reset} />
+          <Route path="/resetpassword/:id" component={Reset} />
         </Switch>
       </BrowserRouter>
     </div>
