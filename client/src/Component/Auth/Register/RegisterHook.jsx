@@ -9,6 +9,7 @@ const useRegister = (Register, error, clearError, isAuthenticated) => {
   });
   const [Error, setError] = useState("");
   const history = useHistory();
+
   const handleChange = (e) => {
     setstate({
       ...state,
