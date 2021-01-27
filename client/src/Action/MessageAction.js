@@ -1,12 +1,12 @@
-import { GET_ERROR, CLEAR_ERROR } from "./type";
+import { GET_MESSAGE, CLEAR_MESSAGE } from "./type";
 export const getMessage = (payload, id) => {
   return (dispatch) => {
-    dispatch({ type: GET_ERROR, payload, id });
+    dispatch({ type: GET_MESSAGE, payload, id });
   };
 };
 
 export const clearMessage = () => {
   return (dispatch) => {
-    dispatch({ type: CLEAR_ERROR });
+    dispatch({ type: CLEAR_MESSAGE });
   };
 };

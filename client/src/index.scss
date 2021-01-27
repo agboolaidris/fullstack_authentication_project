@@ -30,6 +30,12 @@ html {
   display: block;
   color: $neutral;
 }
+.suc {
+  background: rgb(110, 175, 110);
+}
+.err {
+  background: #fc5185;
+}
 
 .not-loading {
   display: none;

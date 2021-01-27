@@ -7,6 +7,8 @@ import {
   REGISTER_ERROR,
   LOGIN_ERROR,
   LOGIN_SUCCESSFUL,
+  FORGETPASSWORD_SUCCESSFUL,
+  FORGETPASSWORD_ERR,
 } from "./type";
 import axios from "axios";
 import { getMessage } from "./MessageAction";
@@ -145,10 +147,12 @@ export const ForgetPassword = (email) => {
       axios
         .post("user/forgetpassword", email)
         .then((res) => {
-          console.log(res);
+          dispatch(getMessage(res, "FORGETPASSWORD SUCCESSFUL"));
+          dispatch({ type: FORGETPASSWORD_SUCCESSFUL });
         })
         .catch((err) => {
-          console.log(err.response);
+          dispatch({ type: FORGETPASSWORD_ERR });
+          dispatch(getMessage(err.response, "FORGETPASSWORD ERROR"));
         });
     } catch (err) {
       console.log(err.message);

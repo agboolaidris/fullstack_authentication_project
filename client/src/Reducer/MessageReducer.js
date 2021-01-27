@@ -1,4 +1,4 @@
-import { GET_ERROR, CLEAR_ERROR } from "../Action/type";
+import { GET_MESSAGE, CLEAR_MESSAGE } from "../Action/type";
 const initialState = {
   msg: "",
   status: "",
@@ -7,7 +7,7 @@ const initialState = {
 
 const MessageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_ERROR:
+    case GET_MESSAGE:
       return {
         ...state,
         msg: action.payload ? action.payload.data.msg : "BAD NETWORK",
@@ -15,7 +15,7 @@ const MessageReducer = (state = initialState, action) => {
         id: action.id,
       };
       break;
-    case CLEAR_ERROR:
+    case CLEAR_MESSAGE:
       return {
         ...state,
         msg: "",

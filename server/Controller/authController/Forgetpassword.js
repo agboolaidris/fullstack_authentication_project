@@ -23,11 +23,11 @@ const Forgetpassword = async (req, res) => {
 
     await user.save();
 
-    const URL = `https://localhost:3000/forgetpassword/${param}`;
+    const URL = `https://localhost:3000/resetpassword/${param}`;
     const message = `
     <h1>Password Reset</h1>
     <p>kindly click the below link to change reset your password</P>
-     <a href=${URL}></a> 
+     <a href=${URL}>${URL}</a> 
     `;
 
     await SendMail({ email, message, subject: "RESET PASSWORD" });
