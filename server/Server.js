@@ -21,7 +21,13 @@ mongoose.connection
 const app = express();
 
 //cross origin resource sharing
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://localhost:3000",
+    credentials: true,
+    exposedHeaders: ["access-token"],
+  })
+);
 
 //cokieparser
 app.use(cookieparser());

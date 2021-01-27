@@ -16,7 +16,9 @@ export const checkAuth = () => {
       dispatch({ type: USER_LOADING });
 
       axios
-        .get("http://localhost:5000/user/authenticated")
+        .get("http://localhost:5000/user/authenticated", {
+          withCredentials: true,
+        })
         .then((res) => {
           console.log(res);
           dispatch({ type: USER_LOADED, payload: res.data });
@@ -65,11 +67,15 @@ export const Login = (user) => {
   return async (dispatch) => {
     try {
       axios
-        .post("http://localhost:5000/user/login", user)
+        .post("http://localhost:5000/user/login", user, {
+          withCredentials: true,
+        })
         .then((res) => {
+          console.log(res);
           dispatch({ type: LOGIN_SUCCESSFUL, payload: res.data });
         })
         .catch((err) => {
+          console.log(err);
           dispatch({ type: LOGIN_ERROR });
           dispatch(getError(err.response, "LOGIN FAIL"));
         });
