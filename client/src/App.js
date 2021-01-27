@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import ProtectedRoute from "./ProtectRoute";
 import Dashboard from "./Component/Dashboard/Dashboard";
 import Forgetpassword from "./Component/Auth/Forgetpassword/Forgetpassword";
+import Reset from "./Component/Auth/Resetpassword/Reset";
 function App({ checkAuth, isAuthenticated }) {
   useEffect(() => {
     checkAuth();
@@ -21,6 +22,7 @@ function App({ checkAuth, isAuthenticated }) {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/forgetpassword" component={Forgetpassword} />
+          <Route path="/resetpassword" component={Reset} />
         </Switch>
       </BrowserRouter>
     </div>
