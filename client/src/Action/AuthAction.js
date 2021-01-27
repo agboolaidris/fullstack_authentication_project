@@ -55,7 +55,7 @@ export const Register = (user) => {
           dispatch(getError(err.response, "REGISTERATION FAIL"));
         });
     } catch (err) {
-      console.log(err.message);
+      dispatch(getError(err.message, "REGISTERATION FAIL"));
     }
   };
 };
@@ -67,11 +67,9 @@ export const Login = (user) => {
       axios
         .post("http://localhost:5000/user/login", user)
         .then((res) => {
-          console.log(res);
           dispatch({ type: LOGIN_SUCCESSFUL, payload: res.data });
         })
         .catch((err) => {
-          console.log(err.response);
           dispatch({ type: LOGIN_ERROR });
           dispatch(getError(err.response, "LOGIN FAIL"));
         });
