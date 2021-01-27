@@ -10,21 +10,19 @@ import {
 } from "./type";
 import axios from "axios";
 import { getError } from "./ErrorAction";
+
 export const checkAuth = () => {
   return async (dispatch) => {
     try {
       dispatch({ type: USER_LOADING });
-
       axios
-        .get("http://localhost:5000/user/authenticated", {
+        .get("/user/authenticated", {
           withCredentials: true,
         })
         .then((res) => {
-          console.log(res);
           dispatch({ type: USER_LOADED, payload: res.data });
         })
         .catch((err) => {
-          console.log(err.response);
           dispatch({ type: USER_AUTH_ERR });
         });
     } catch (err) {
@@ -39,10 +37,10 @@ export const Register = (user) => {
     try {
       dispatch({ type: USER_LOADING });
       axios
-        .post("http://localhost:5000/user/register", user)
+        .post("/user/register", user)
         .then((res) => {
           axios
-            .post("http://localhost:5000/user/login", user)
+            .post("/user/login", user, { withCredentials: true })
             .then((res) => {
               console.log(res);
               dispatch({ type: REGISTER_SUCCESSFUL, payload: res.data });
@@ -67,7 +65,7 @@ export const Login = (user) => {
   return async (dispatch) => {
     try {
       axios
-        .post("http://localhost:5000/user/login", user, {
+        .post("/user/login", user, {
           withCredentials: true,
         })
         .then((res) => {
@@ -87,41 +85,56 @@ export const Login = (user) => {
 
 //oauthRegister Action
 export const oauthRegister = (user) => {
-  const data = {
-    username: user.name,
-    email: user.email,
-    password: user.id,
-    password2: user.id,
-  };
-  return async (dispatch) => {
-    try {
-      dispatch({ type: USER_LOADING });
-      axios
-        .post("http://localhost:5000/user/register", data)
-        .then((res) => {
-          console.log(res);
-          axios
-            .post("http://localhost:5000/user/login", data)
-            .then((res) => {
-              dispatch({ type: REGISTER_SUCCESSFUL, payload: res.data });
-            })
-            .catch((err) => {
-              dispatch(getError(err.response, "REGISTERATION FAIL"));
-              dispatch({ type: REGISTER_ERROR });
-            });
-        })
-        .catch((err) => {
-          console.log(err.response);
-        });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  console.log(user);
+  // const data = {
+  //   username: user.name,
+  //   email: user.email,
+  //   password: user.id,
+  //   password2: user.id,
+  // };
+  // return async (dispatch) => {
+  //   try {
+  //     dispatch({ type: USER_LOADING });
+  //     axios
+  //       .post("/user/register", data)
+  //       .then((res) => {
+  //         console.log(res);
+  //         axios
+  //           .post("/user/login", data)
+  //           .then((res) => {
+  //             dispatch({ type: REGISTER_SUCCESSFUL, payload: res.data });
+  //           })
+  //           .catch((err) => {
+  //             dispatch(getError(err.response, "REGISTERATION FAIL"));
+  //             dispatch({ type: REGISTER_ERROR });
+  //           });
+  //       })
+  //       .catch((err) => {
+  //         console.log(err.response);
+  //       });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 };
 
 //logout Action
 export const Logout = () => {
-  return (dispatch) => {
-    dispatch({ type: LOGOUT });
+  return async (dispatch) => {
+    try {
+      dispatch({ type: USER_LOADING });
+
+      axios
+        .get("/user/logout", { withCredentials: true })
+        .then((res) => {
+          console.log(res);
+          dispatch({ type: LOGOUT });
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    } catch (err) {
+      console.log(err.message);
+    }
   };
 };
