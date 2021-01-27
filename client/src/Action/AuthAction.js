@@ -9,7 +9,7 @@ import {
   LOGIN_SUCCESSFUL,
 } from "./type";
 import axios from "axios";
-import { getError } from "./ErrorAction";
+import { getMessage } from "./MessageAction";
 
 export const checkAuth = () => {
   return async (dispatch) => {
@@ -46,16 +46,16 @@ export const Register = (user) => {
               dispatch({ type: REGISTER_SUCCESSFUL, payload: res.data });
             })
             .catch((err) => {
-              dispatch(getError(err.response, "REGISTERATION FAIL"));
+              dispatch(getMessage(err.response, "REGISTERATION FAIL"));
               dispatch({ type: REGISTER_ERROR });
             });
         })
         .catch((err) => {
           dispatch({ type: REGISTER_ERROR });
-          dispatch(getError(err.response, "REGISTERATION FAIL"));
+          dispatch(getMessage(err.response, "REGISTERATION FAIL"));
         });
     } catch (err) {
-      dispatch(getError(err.message, "REGISTERATION FAIL"));
+      dispatch(getMessage(err.message, "REGISTERATION FAIL"));
     }
   };
 };
@@ -69,13 +69,11 @@ export const Login = (user) => {
           withCredentials: true,
         })
         .then((res) => {
-          console.log(res);
           dispatch({ type: LOGIN_SUCCESSFUL, payload: res.data });
         })
         .catch((err) => {
-          console.log(err);
           dispatch({ type: LOGIN_ERROR });
-          dispatch(getError(err.response, "LOGIN FAIL"));
+          dispatch(getMessage(err.response, "LOGIN FAIL"));
         });
     } catch (err) {
       console.log(err.message);
@@ -127,11 +125,30 @@ export const Logout = () => {
       axios
         .get("/user/logout", { withCredentials: true })
         .then((res) => {
-          console.log(res);
           dispatch({ type: LOGOUT });
         })
         .catch((err) => {
           console.log(err.message);
+        });
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+};
+
+// Forgetpassword Action
+
+export const ForgetPassword = (email) => {
+  console.log(email);
+  return async (dispatch) => {
+    try {
+      axios
+        .post("user/forgetpassword", email)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err.response);
         });
     } catch (err) {
       console.log(err.message);

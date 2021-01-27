@@ -1,12 +1,10 @@
-import { combineReducers} from 'redux'
-import AuthReducer from './AuthReducer';
-import ErrorReducer from './ErrReducer'
-
+import { combineReducers } from "redux";
+import AuthReducer from "./AuthReducer";
+import MessageReducer from "./MessageReducer";
 
 const RootReducer = combineReducers({
-    Auth:AuthReducer,
-    Error:ErrorReducer
-    
-})
+  Auth: AuthReducer,
+  Msg: MessageReducer,
+});
 
-export default RootReducer
+export default RootReducer;

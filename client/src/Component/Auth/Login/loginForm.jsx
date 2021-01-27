@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useLogin from "./LoginHook";
 import { Login } from "../../../Action/AuthAction";
-import { clearError } from "../../../Action/ErrorAction";
+import { clearMessage } from "../../../Action/MessageAction";
 import { connect } from "react-redux";
 import {
   faGooglePlusSquare,
@@ -12,11 +12,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-function LoginForm({ clearError, Login, error, isAuthenticated }) {
+function LoginForm({ clearMessage, Login, msg, isAuthenticated }) {
   const { state, handleChange, handleSubmit, Error } = useLogin(
     Login,
-    error,
-    clearError,
+    msg,
+    clearMessage,
     isAuthenticated
   );
   return (
@@ -67,9 +67,9 @@ function LoginForm({ clearError, Login, error, isAuthenticated }) {
 
 const mapStateToProps = (state) => {
   return {
-    error: state.Error,
+    msg: state.Msg,
     isAuthenticated: state.Auth.isAuthenticated,
   };
 };
 
-export default connect(mapStateToProps, { Login, clearError })(LoginForm);
+export default connect(mapStateToProps, { Login, clearMessage })(LoginForm);

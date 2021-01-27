@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-function Forgetpassword() {
+import { ForgetPassword } from "../../../Action/AuthAction";
+import { connect } from "react-redux";
+function Forgetpassword({ ForgetPassword }) {
   const [state, setstate] = useState({
     email: "",
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(state);
+    ForgetPassword(state);
   };
   return (
     <div className="forget">
@@ -43,4 +45,4 @@ function Forgetpassword() {
   );
 }
 
-export default Forgetpassword;
+export default connect(null, { ForgetPassword })(Forgetpassword);

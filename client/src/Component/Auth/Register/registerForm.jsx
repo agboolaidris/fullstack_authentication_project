@@ -2,16 +2,16 @@ import React from "react";
 import useRegister from "./RegisterHook";
 import { Link } from "react-router-dom";
 import { Register } from "../../../Action/AuthAction";
-import { clearError } from "../../../Action/ErrorAction";
+import { clearMessage } from "../../../Action/MessageAction";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-function RegisterForm({ Register, error, clearError, isAuthenticated }) {
+function RegisterForm({ Register, msg, clearMessage, isAuthenticated }) {
   const { state, handleChange, handleSubmit, Error } = useRegister(
     Register,
-    error,
-    clearError,
+    msg,
+    clearMessage,
     isAuthenticated
   );
 
@@ -84,9 +84,11 @@ function RegisterForm({ Register, error, clearError, isAuthenticated }) {
 
 const mapStateToProps = (state) => {
   return {
-    error: state.Error,
+    msg: state.Msg,
     isAuthenticated: state.Auth.isAuthenticated,
   };
 };
 
-export default connect(mapStateToProps, { Register, clearError })(RegisterForm);
+export default connect(mapStateToProps, { Register, clearMessage })(
+  RegisterForm
+);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-const useLogin = (Login, error, clearError, isAuthenticated) => {
+const useLogin = (Login, msg, clearMessage, isAuthenticated) => {
   const [state, setstate] = useState({
     email: "",
     password: "",
@@ -14,7 +14,7 @@ const useLogin = (Login, error, clearError, isAuthenticated) => {
       ...state,
       [e.target.id]: e.target.value,
     });
-    clearError();
+    clearMessage();
   };
 
   useEffect(() => {
@@ -24,12 +24,12 @@ const useLogin = (Login, error, clearError, isAuthenticated) => {
   }, [isAuthenticated]);
 
   useEffect(() => {
-    if (error.id === "LOGIN FAIL") {
-      setError(error.msg);
+    if (msg.id === "LOGIN FAIL") {
+      setError(msg.msg);
     } else {
       setError("");
     }
-  }, [error]);
+  }, [msg]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

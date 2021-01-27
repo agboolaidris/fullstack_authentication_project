@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-const useRegister = (Register, error, clearError, isAuthenticated) => {
+const useRegister = (Register, msg, clearError, isAuthenticated) => {
   const [state, setstate] = useState({
     username: "",
     email: "",
@@ -19,12 +19,12 @@ const useRegister = (Register, error, clearError, isAuthenticated) => {
   };
 
   useEffect(() => {
-    if (error.id === "REGISTERATION FAIL") {
-      setError(error.msg);
+    if (msg.id === "REGISTERATION FAIL") {
+      setError(msg.msg);
     } else {
       setError("");
     }
-  }, [error]);
+  }, [msg]);
 
   useEffect(() => {
     if (isAuthenticated) {
