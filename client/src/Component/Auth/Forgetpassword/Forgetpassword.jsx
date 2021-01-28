@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ForgetPassword } from "../../../Action/AuthAction";
 import { connect } from "react-redux";
 import Message from "../../../Utlits/Message";
+import Loading from "../../../Utlits/Loading";
 
 function Forgetpassword({ ForgetPassword }) {
   const [state, setstate] = useState({
@@ -17,36 +18,39 @@ function Forgetpassword({ ForgetPassword }) {
   };
 
   return (
-    <div className="forget">
-      <div className="forget-form">
-        <h1>FORGET PASSWORD</h1>
-        <Message err="FORGETPASSWORD ERROR" suc="FORGETPASSWORD SUCCESSFUL" />
-        <p>
-          kindly insert the email address you register our account with, a mail
-          will be sent to the email with a link to change your password as soon
-          as you submit the correct email address.
-        </p>
-        <form onSubmit={handleSubmit}>
-          <div className="input">
-            <label htmlFor="email">
-              <FontAwesomeIcon icon={faEnvelope} />
-            </label>
-            <input
-              required
-              type="email"
-              placeholder="Email"
-              onChange={(e) => setstate({ ...state, email: e.target.value })}
-              value={state.email}
-              id="email"
-            />
-          </div>
-          <div className="btn-container">
-            <Link to="/login">LOG IN</Link>
-            <button>SUBMIT</button>
-          </div>
-        </form>
+    <>
+      <Loading />
+      <div className="forget">
+        <div className="forget-form">
+          <h1>FORGET PASSWORD</h1>
+          <Message err="FORGETPASSWORD ERROR" suc="FORGETPASSWORD SUCCESSFUL" />
+          <p>
+            kindly insert the email address you register our account with, a
+            mail will be sent to the email with a link to change your password
+            as soon as you submit the correct email address.
+          </p>
+          <form onSubmit={handleSubmit}>
+            <div className="input">
+              <label htmlFor="email">
+                <FontAwesomeIcon icon={faEnvelope} />
+              </label>
+              <input
+                required
+                type="email"
+                placeholder="Email"
+                onChange={(e) => setstate({ ...state, email: e.target.value })}
+                value={state.email}
+                id="email"
+              />
+            </div>
+            <div className="btn-container">
+              <Link to="/login">LOG IN</Link>
+              <button>SUBMIT</button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

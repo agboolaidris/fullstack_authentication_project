@@ -4,13 +4,12 @@ import Google from "../Oauth/Google";
 import RegisterForm from "./registerForm";
 import { connect } from "react-redux";
 import { OauthRegister } from "../../../Action/AuthAction";
+import Loading from "../../../Utlits/Loading";
 
-function Register({ isLoading, OauthRegister }) {
+function Register({ OauthRegister }) {
   return (
     <>
-      <div className={isLoading ? "isloading" : "not-loading"}>
-        <span></span>
-      </div>
+      <Loading />
       <div className="register">
         <div className="register-form">
           <div className="div">
@@ -32,10 +31,4 @@ function Register({ isLoading, OauthRegister }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    isLoading: state.Auth.isLoading,
-  };
-};
-
-export default connect(mapStateToProps, { OauthRegister })(Register);
+export default connect(null, { OauthRegister })(Register);

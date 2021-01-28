@@ -43,6 +43,7 @@ export const Register = (user) => {
       axios
         .post("/user/register", user)
         .then(() => {
+          dispatch({ type: USER_LOADING });
           axios
             .post("/user/login", user, { withCredentials: true })
             .then((res) => {
@@ -67,6 +68,7 @@ export const Register = (user) => {
 export const Login = (user) => {
   return async (dispatch) => {
     try {
+      dispatch({ type: USER_LOADING });
       axios
         .post("/user/login", user, {
           withCredentials: true,
@@ -111,7 +113,7 @@ export const OauthRegister = (user, id) => {
       axios
         .post("/user/register", data)
         .then((res) => {
-          console.log(res);
+          dispatch({ type: USER_LOADING });
           axios
             .post("/user/login", data, { withCredentials: true })
             .then((res) => {
@@ -194,9 +196,9 @@ export const Logout = () => {
 // Forgetpassword Action
 
 export const ForgetPassword = (email) => {
-  console.log(email);
   return async (dispatch) => {
     try {
+      dispatch({ type: USER_LOADING });
       axios
         .post("user/forgetpassword", email)
         .then((res) => {
@@ -218,6 +220,7 @@ export const ForgetPassword = (email) => {
 export const ResetPassword = (user, params) => {
   return async (dispatch) => {
     try {
+      dispatch({ type: USER_LOADING });
       axios
         .put(`/user/resetpassword/${params}`, user)
         .then((res) => {
