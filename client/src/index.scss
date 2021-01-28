@@ -23,18 +23,27 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
-.error {
-  background: $secondary;
+%msg {
   width: 100%;
   text-align: center;
   display: block;
   color: $neutral;
+  height: 20px;
+  span {
+    color: $primary2;
+    padding: 0 1em;
+  }
+}
+.err {
+  background: $secondary;
+  @extend %msg;
 }
 .suc {
   background: rgb(110, 175, 110);
+  @extend %msg;
 }
-.err {
-  background: #fc5185;
+.msg-none {
+  display: none;
 }
 
 .not-loading {

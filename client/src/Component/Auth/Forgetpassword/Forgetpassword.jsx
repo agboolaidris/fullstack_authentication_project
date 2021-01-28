@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { ForgetPassword } from "../../../Action/AuthAction";
 import { connect } from "react-redux";
-function Forgetpassword({ ForgetPassword, msg }) {
+import { clearMessage } from "../../../Action/MessageAction";
+function Forgetpassword({ ForgetPassword, msg, clearMessage }) {
   const [state, setstate] = useState({
     email: "",
   });
@@ -27,7 +28,14 @@ function Forgetpassword({ ForgetPassword, msg }) {
     <div className="forget">
       <div className="forget-form">
         <h1>FORGET PASSWORD</h1>
-        <span className={msg.status === 200 ? "suc" : "err"}>{Msg}</span>
+        <span
+          className={msg.status === 200 ? "suc" : msg.msg ? "err " : "msg-none"}
+        >
+          {Msg}
+          <span onClick={() => clearMessage()}>
+            <FontAwesomeIcon icon={faTimes} />{" "}
+          </span>
+        </span>
         <p>
           kindly insert the email address you register our account with, a mail
           will be sent to the email with a link to change your password as soon
@@ -64,4 +72,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { ForgetPassword })(Forgetpassword);
+export default connect(mapStateToProps, { ForgetPassword, clearMessage })(
+  Forgetpassword
+);
