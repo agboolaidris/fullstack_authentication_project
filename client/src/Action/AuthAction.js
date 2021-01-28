@@ -159,3 +159,16 @@ export const ForgetPassword = (email) => {
     }
   };
 };
+
+//Resetpassword Action
+
+export const ResetPassword = (user,params){
+  return async dispatch=>{
+    try{
+
+    }
+    catch(err){
+      console.log(err.message)
+    }
+  }
+}

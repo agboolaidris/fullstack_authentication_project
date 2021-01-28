@@ -1,20 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faKey } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-function Reset() {
+import { faKey, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { connect } from "react-redux";
+import { clearMessage } from "../../../Action/MessageAction";
+function Reset({ clearMessage, msg, match }) {
+  console.log(match.params);
   const [state, setstate] = useState({
     password: "",
     password2: "",
   });
+  const [Msg, setMsg] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(state);
   };
+
+  useEffect(() => {
+    if (msg.id === "FORGETPASSWORD ERROR") {
+      setMsg(msg.msg);
+    } else if (msg.id === "FORGETPASSWORD SUCCESSFUL") {
+      setMsg(msg.msg);
+    } else {
+      setMsg("");
+    }
+  }, [msg]);
   return (
     <div className="reset">
       <div className="reset-form">
         <h1>RESET PASSWORD</h1>
+        <span
+          className={msg.status === 200 ? "suc" : msg.msg ? "err " : "msg-none"}
+        >
+          {Msg}
+          <span onClick={() => clearMessage()}>
+            <FontAwesomeIcon icon={faTimes} />{" "}
+          </span>
+        </span>
         <p>
           fill up the field below as required inorder to change your password,
           remember that password is a secret code that most not expose to
@@ -57,5 +78,11 @@ function Reset() {
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    msg: state.Msg,
+    isAuthenticated: state.Auth.isAuthenticated,
+  };
+};
 
-export default Reset;
+export default connect(mapStateToProps, { clearMessage })(Reset);
