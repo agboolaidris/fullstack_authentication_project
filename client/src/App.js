@@ -9,6 +9,7 @@ import ProtectedRoute from "./ProtectRoute";
 import Dashboard from "./Component/Dashboard/Dashboard";
 import Forgetpassword from "./Component/Auth/Forgetpassword/Forgetpassword";
 import Reset from "./Component/Auth/Resetpassword/Reset";
+import UnprotectRoute from "./UnprotectRoute";
 function App({ checkAuth, isAuthenticated }) {
   useEffect(() => {
     checkAuth();
@@ -19,10 +20,14 @@ function App({ checkAuth, isAuthenticated }) {
         {isAuthenticated && <Navbar />}
         <Switch>
           <ProtectedRoute exact path="/" component={Dashboard} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/forgetpassword" component={Forgetpassword} />
-          <Route path="/resetpassword/:id" component={Reset} />
+          <UnprotectRoute exact path="/login" component={Login} />
+          <UnprotectRoute exact path="/register" component={Register} />
+          <UnprotectRoute
+            exact
+            path="/forgetpassword"
+            component={Forgetpassword}
+          />
+          <UnprotectRoute exact path="/resetpassword/:id" component={Reset} />
         </Switch>
       </BrowserRouter>
     </div>

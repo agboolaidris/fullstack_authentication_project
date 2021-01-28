@@ -4,26 +4,18 @@ import useLogin from "./LoginHook";
 import { Login } from "../../../Action/AuthAction";
 import { clearMessage } from "../../../Action/MessageAction";
 import { connect } from "react-redux";
-import {
-  faGooglePlusSquare,
-  faFacebookSquare,
-  faTwitterSquare,
-} from "@fortawesome/free-brands-svg-icons";
+import Message from "../../../Utlits/Message";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
-function LoginForm({ clearMessage, Login, msg, isAuthenticated }) {
-  const { state, handleChange, handleSubmit, Error } = useLogin(
-    Login,
-    msg,
-    clearMessage,
-    isAuthenticated
-  );
+function LoginForm({ Login }) {
+  const { state, handleChange, handleSubmit } = useLogin(Login);
+
   return (
     <div className="div">
       <h1>SIGN IN</h1>
       <form onSubmit={handleSubmit}>
-        <span className="error">{Error && Error}</span>
+        <Message err="LOGIN FAIL" />
         <div className="input">
           <label htmlFor="email">
             <FontAwesomeIcon icon={faEnvelope} />
@@ -65,11 +57,4 @@ function LoginForm({ clearMessage, Login, msg, isAuthenticated }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    msg: state.Msg,
-    isAuthenticated: state.Auth.isAuthenticated,
-  };
-};
-
-export default connect(mapStateToProps, { Login, clearMessage })(LoginForm);
+export default connect(null, { Login })(LoginForm);

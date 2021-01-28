@@ -1,41 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faKey, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { clearMessage } from "../../../Action/MessageAction";
 import { ResetPassword } from "../../../Action/AuthAction";
-function Reset({ clearMessage, msg, match, ResetPassword }) {
+import Message from "../../../Utlits/Message";
+function Reset({ match, ResetPassword }) {
   const [state, setstate] = useState({
     password: "",
     password2: "",
   });
-  const [Msg, setMsg] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     ResetPassword(state, match.params.id);
   };
 
-  useEffect(() => {
-    if (msg.id === "RESETPASSWORD FAIL") {
-      setMsg(msg.msg);
-    } else if (msg.id === "RESETPASSWORD SUCCESSFUL") {
-      setMsg(msg.msg);
-    } else {
-      setMsg("");
-    }
-  }, [msg]);
   return (
     <div className="reset">
       <div className="reset-form">
         <h1>RESET PASSWORD</h1>
-        <span
-          className={msg.status === 200 ? "suc" : msg.msg ? "err " : "msg-none"}
-        >
-          {Msg}
-          <span onClick={() => clearMessage()}>
-            <FontAwesomeIcon icon={faTimes} />{" "}
-          </span>
-        </span>
+        <Message err="RESETPASSWORD FAIL" suc="RESETPASSWORD SUCCESSFUL" />
         <p>
           fill up the field below as required inorder to change your password,
           remember that password is a secret code that most not expose to
@@ -78,11 +63,5 @@ function Reset({ clearMessage, msg, match, ResetPassword }) {
     </div>
   );
 }
-const mapStateToProps = (state) => {
-  return {
-    msg: state.Msg,
-    isAuthenticated: state.Auth.isAuthenticated,
-  };
-};
 
-export default connect(mapStateToProps, { clearMessage, ResetPassword })(Reset);
+export default connect(null, { ResetPassword })(Reset);

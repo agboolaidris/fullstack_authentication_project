@@ -2,22 +2,16 @@ import React from "react";
 import useRegister from "./RegisterHook";
 import { Link } from "react-router-dom";
 import { Register } from "../../../Action/AuthAction";
-import { clearMessage } from "../../../Action/MessageAction";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-
-function RegisterForm({ Register, msg, clearMessage, isAuthenticated }) {
-  const { state, handleChange, handleSubmit, Error } = useRegister(
-    Register,
-    msg,
-    clearMessage,
-    isAuthenticated
-  );
+import Message from "../../../Utlits/Message";
+function RegisterForm({ Register }) {
+  const { state, handleChange, handleSubmit } = useRegister(Register);
 
   return (
     <form onSubmit={handleSubmit}>
-      <span className="error">{Error && Error}</span>
+      <Message err="REGISTERATION FAIL" />
       <div className="input">
         <label htmlFor="username">
           <FontAwesomeIcon icon={faUser} />
@@ -82,13 +76,4 @@ function RegisterForm({ Register, msg, clearMessage, isAuthenticated }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    msg: state.Msg,
-    isAuthenticated: state.Auth.isAuthenticated,
-  };
-};
-
-export default connect(mapStateToProps, { Register, clearMessage })(
-  RegisterForm
-);
+export default connect(null, { Register })(RegisterForm);

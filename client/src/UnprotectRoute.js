@@ -2,9 +2,9 @@ import { Route, Redirect } from "react-router-dom";
 import React from "react";
 import { connect } from "react-redux";
 
-function ProtectedRoute({ component: Component, ...rest }) {
-  return !rest.isAuthenticated ? (
-    <Redirect to="/login" />
+function UnProtectedRoute({ component: Component, ...rest }) {
+  return rest.isAuthenticated ? (
+    <Redirect to="/" />
   ) : (
     <Route
       {...rest}
@@ -20,4 +20,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ProtectedRoute);
+export default connect(mapStateToProps)(UnProtectedRoute);

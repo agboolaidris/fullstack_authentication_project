@@ -165,14 +165,13 @@ export const ForgetPassword = (email) => {
 //Resetpassword Action
 
 export const ResetPassword = (user, params) => {
-  console.log(user);
-  console.log(params);
   return async (dispatch) => {
     try {
       axios
         .put(`/user/resetpassword/${params}`, user)
         .then((res) => {
-          console.log(res);
+          dispatch({ type: RESETPASSWORD_SUCCESSFUL });
+          dispatch(getMessage(res, "RESETPASSWORD SUCCESSFUL"));
         })
         .catch((err) => {
           dispatch({ type: RESETPASSWORD_ERR });
