@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import Logout from "./Logout";
 function Profile() {
   return (
     <div className="div">
@@ -8,18 +8,18 @@ function Profile() {
         <div className="img">
           <img src="" alt="" />
         </div>
-        <span>Idris Agboola</span>
+        <span className="username">Idris Agboola</span>
+        <span className="tagname">@idrisagboola</span>
       </div>
 
       <div className="edit-profile">
         <button>Edit Profile</button>
       </div>
-      <div className="profile">
+      <div className="profile-info">
         <span>lagos Nigeria</span>
         <span>Web Developer</span>
       </div>
-
-      <button>Logout</button>
+      <Logout />
     </div>
   );
 }
