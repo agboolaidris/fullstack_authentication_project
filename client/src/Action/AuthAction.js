@@ -162,13 +162,21 @@ export const ForgetPassword = (email) => {
 
 //Resetpassword Action
 
-export const ResetPassword = (user,params){
-  return async dispatch=>{
-    try{
-
+export const ResetPassword = (user, params) => {
+  console.log(user);
+  console.log(params);
+  return async (dispatch) => {
+    try {
+      axios
+        .put(`/user/resetpassword/${params}`, user)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err.response);
+        });
+    } catch (err) {
+      console.log(err.message);
     }
-    catch(err){
-      console.log(err.message)
-    }
-  }
-}
+  };
+};

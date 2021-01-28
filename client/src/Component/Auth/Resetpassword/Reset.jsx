@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { clearMessage } from "../../../Action/MessageAction";
-function Reset({ clearMessage, msg, match }) {
-  console.log(match.params);
+import { ResetPassword } from "../../../Action/AuthAction";
+function Reset({ clearMessage, msg, match, ResetPassword }) {
   const [state, setstate] = useState({
     password: "",
     password2: "",
@@ -12,7 +12,7 @@ function Reset({ clearMessage, msg, match }) {
   const [Msg, setMsg] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(state);
+    ResetPassword(state, match.params.id);
   };
 
   useEffect(() => {
@@ -85,4 +85,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { clearMessage })(Reset);
+export default connect(mapStateToProps, { clearMessage, ResetPassword })(Reset);
