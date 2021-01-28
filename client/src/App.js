@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Route, useLocation, Switch } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
 import Login from "./Component/Auth/Login/Login";
 import Register from "./Component/Auth/Register/Register";
 import Navbar from "./Component/Layout/Navbar/Navbar";

@@ -23,7 +23,7 @@ const AuthReducer = (state = initialState, action) => {
         ...state,
         isLoading: true,
       };
-      break;
+
     case USER_LOADED:
       return {
         ...state,
@@ -31,7 +31,6 @@ const AuthReducer = (state = initialState, action) => {
         isAuthenticated: true,
         user: action.payload.user,
       };
-      break;
 
     case REGISTER_SUCCESSFUL:
     case LOGIN_SUCCESSFUL:
@@ -41,7 +40,7 @@ const AuthReducer = (state = initialState, action) => {
         isAuthenticated: true,
         user: action.payload.user,
       };
-      break;
+
     case USER_AUTH_ERR:
     case REGISTER_ERROR:
     case LOGIN_ERROR:

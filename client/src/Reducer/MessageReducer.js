@@ -14,7 +14,7 @@ const MessageReducer = (state = initialState, action) => {
         status: action.payload ? action.payload.status : "",
         id: action.id,
       };
-      break;
+
     case CLEAR_MESSAGE:
       return {
         ...state,
@@ -22,11 +22,9 @@ const MessageReducer = (state = initialState, action) => {
         status: "",
         id: "",
       };
-      break;
 
     default:
       return state;
-      break;
   }
 };
 

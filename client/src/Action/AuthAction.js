@@ -42,11 +42,10 @@ export const Register = (user) => {
       dispatch({ type: USER_LOADING });
       axios
         .post("/user/register", user)
-        .then((res) => {
+        .then(() => {
           axios
             .post("/user/login", user, { withCredentials: true })
             .then((res) => {
-              console.log(res);
               dispatch({ type: REGISTER_SUCCESSFUL, payload: res.data });
             })
             .catch((err) => {
@@ -133,6 +132,7 @@ export const OauthRegister = (user, id) => {
   };
 };
 
+//oauthLogin Action
 export const OauthLogin = (user, id) => {
   let data = {};
   if (id === "FACEBOOK") {
@@ -159,7 +159,6 @@ export const OauthLogin = (user, id) => {
       axios
         .post("/user/login", data, { withCredentials: true })
         .then((res) => {
-          console.log(res);
           dispatch({ type: LOGIN_SUCCESSFUL, payload: res });
         })
         .catch((err) => {
