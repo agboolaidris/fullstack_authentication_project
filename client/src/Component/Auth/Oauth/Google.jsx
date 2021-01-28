@@ -3,9 +3,9 @@ import { GoogleLogin } from "react-google-login";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGooglePlus } from "@fortawesome/free-brands-svg-icons";
 
-function Google({oauthRegister}) {
+function Google({ Oauth }) {
   const responseGoogle = (response) => {
-      oauthRegister(response)
+    Oauth(response, "GOOGLE");
   };
 
   return (
@@ -18,7 +18,7 @@ function Google({oauthRegister}) {
       )}
       buttonText="Login"
       onSuccess={responseGoogle}
-     // onFailure={responseGoogle}
+      // onFailure={responseGoogle}
       cookiePolicy={"single_host_origin"}
     />
   );

@@ -1,16 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
-function Facebook({ oauthRegister }) {
-  console.log(oauthRegister);
+function Facebook({ Oauth }) {
   const responseFacebook = (res) => {
-    if (res) {
-      console.log(res);
-    } else {
-      console.log(false);
-    }
+    Oauth(res, "FACEBOOK");
   };
 
   return (

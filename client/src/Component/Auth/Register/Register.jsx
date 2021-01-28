@@ -3,10 +3,9 @@ import Facebook from "../Oauth/Facebook";
 import Google from "../Oauth/Google";
 import RegisterForm from "./registerForm";
 import { connect } from "react-redux";
-import { oauthRegister } from "../../../Action/AuthAction";
+import { OauthRegister } from "../../../Action/AuthAction";
 
-function Register({ isLoading, oauthRegister }) {
-  console.log(oauthRegister);
+function Register({ isLoading, OauthRegister }) {
   return (
     <>
       <div className={isLoading ? "isloading" : "not-loading"}>
@@ -23,8 +22,8 @@ function Register({ isLoading, oauthRegister }) {
           <div>
             <p>Register with</p>
             <div className="social">
-              <Facebook oauthRegister={oauthRegister} />
-              <Google oauthRegister={oauthRegister} />
+              <Facebook Oauth={OauthRegister} />
+              <Google Oauth={OauthRegister} />
             </div>
           </div>
         </div>
@@ -39,4 +38,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { oauthRegister })(Register);
+export default connect(mapStateToProps, { OauthRegister })(Register);

@@ -86,38 +86,90 @@ export const Login = (user) => {
 };
 
 //oauthRegister Action
-export const oauthRegister = (user) => {
-  console.log(user);
-  // const data = {
-  //   username: user.name,
-  //   email: user.email,
-  //   password: user.id,
-  //   password2: user.id,
-  // };
-  // return async (dispatch) => {
-  //   try {
-  //     dispatch({ type: USER_LOADING });
-  //     axios
-  //       .post("/user/register", data)
-  //       .then((res) => {
-  //         console.log(res);
-  //         axios
-  //           .post("/user/login", data)
-  //           .then((res) => {
-  //             dispatch({ type: REGISTER_SUCCESSFUL, payload: res.data });
-  //           })
-  //           .catch((err) => {
-  //             dispatch(getError(err.response, "REGISTERATION FAIL"));
-  //             dispatch({ type: REGISTER_ERROR });
-  //           });
-  //       })
-  //       .catch((err) => {
-  //         console.log(err.response);
-  //       });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+export const OauthRegister = (user, id) => {
+  let data = {};
+  if (id === "FACEBOOK") {
+    data = {
+      username: user.name,
+      email: user.email,
+      password: user.id,
+      password2: user.id,
+    };
+  } else if (id === "GOOGLE") {
+    data = {
+      username: user.Mt.Ed,
+      email: user.Mt.tu,
+      password: user.Mt.OU,
+      password2: user.Mt.OU,
+    };
+  } else {
+    data = {};
+  }
+
+  return async (dispatch) => {
+    try {
+      dispatch({ type: USER_LOADING });
+      axios
+        .post("/user/register", data)
+        .then((res) => {
+          console.log(res);
+          axios
+            .post("/user/login", data, { withCredentials: true })
+            .then((res) => {
+              dispatch({ type: REGISTER_SUCCESSFUL, payload: res.data });
+            })
+            .catch((err) => {
+              dispatch(getMessage(err.response, "REGISTERATION FAIL"));
+              dispatch({ type: REGISTER_ERROR });
+            });
+        })
+        .catch((err) => {
+          dispatch({ type: REGISTER_ERROR });
+          dispatch(getMessage(err.response, "REGISTERATION FAIL"));
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const OauthLogin = (user, id) => {
+  let data = {};
+  if (id === "FACEBOOK") {
+    data = {
+      username: user.name,
+      email: user.email,
+      password: user.id,
+      password2: user.id,
+    };
+  } else if (id === "GOOGLE") {
+    data = {
+      username: user.Mt.Ed,
+      email: user.Mt.tu,
+      password: user.Mt.OU,
+      password2: user.Mt.OU,
+    };
+  } else {
+    data = {};
+  }
+
+  return async (dispatch) => {
+    try {
+      dispatch({ type: USER_LOADING });
+      axios
+        .post("/user/login", data, { withCredentials: true })
+        .then((res) => {
+          console.log(res);
+          dispatch({ type: LOGIN_SUCCESSFUL, payload: res });
+        })
+        .catch((err) => {
+          dispatch({ type: LOGIN_ERROR });
+          dispatch(getMessage(err.response, "LOGIN FAIL"));
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
 };
 
 //logout Action
