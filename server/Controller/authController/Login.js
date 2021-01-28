@@ -28,6 +28,7 @@ const Login = async (req, res) => {
       .cookie("access-token", access_token, {
         httpOnly: true,
         sameSite: true,
+        expires: new Date("21 july 2023"),
       })
       .json({ msg: "successful" });
   } catch (err) {

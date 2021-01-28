@@ -38,6 +38,8 @@ const Resetpassword = async (req, res) => {
     const hashPassword = await bcrypt.hash(password, salt);
 
     user.password = hashPassword;
+    user.resetpasswordExpire = undefined;
+    user.resetpasswordToken = undefined;
     await user.save();
     return res.json({ msg: "the password was change successfully" });
   } catch (err) {
