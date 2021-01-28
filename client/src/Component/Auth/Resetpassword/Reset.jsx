@@ -16,9 +16,9 @@ function Reset({ clearMessage, msg, match, ResetPassword }) {
   };
 
   useEffect(() => {
-    if (msg.id === "FORGETPASSWORD ERROR") {
+    if (msg.id === "RESETPASSWORD FAIL") {
       setMsg(msg.msg);
-    } else if (msg.id === "FORGETPASSWORD SUCCESSFUL") {
+    } else if (msg.id === "RESETPASSWORD SUCCESSFUL") {
       setMsg(msg.msg);
     } else {
       setMsg("");

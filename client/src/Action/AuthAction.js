@@ -9,6 +9,8 @@ import {
   LOGIN_SUCCESSFUL,
   FORGETPASSWORD_SUCCESSFUL,
   FORGETPASSWORD_ERR,
+  RESETPASSWORD_SUCCESSFUL,
+  RESETPASSWORD_ERR,
 } from "./type";
 import axios from "axios";
 import { getMessage } from "./MessageAction";
@@ -173,7 +175,8 @@ export const ResetPassword = (user, params) => {
           console.log(res);
         })
         .catch((err) => {
-          console.log(err.response);
+          dispatch({ type: RESETPASSWORD_ERR });
+          dispatch(getMessage(err.response, "RESETPASSWORD FAIL"));
         });
     } catch (err) {
       console.log(err.message);
