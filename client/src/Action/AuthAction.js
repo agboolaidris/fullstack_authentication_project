@@ -98,10 +98,10 @@ export const OauthRegister = (user, id) => {
     };
   } else if (id === "GOOGLE") {
     data = {
-      username: user.Mt.Ed,
-      email: user.Mt.tu,
-      password: user.Mt.OU,
-      password2: user.Mt.OU,
+      username: user.profileObj.name,
+      email: user.profileObj.email,
+      password: user.profileObj.googleId,
+      password2: user.profileObj.googleId,
     };
   } else {
     data = {};
@@ -145,11 +145,12 @@ export const OauthLogin = (user, id) => {
       password2: user.id,
     };
   } else if (id === "GOOGLE") {
+    console.log(user.mt);
     data = {
-      username: user.Mt.Ed,
-      email: user.Mt.tu,
-      password: user.Mt.OU,
-      password2: user.Mt.OU,
+      username: user.profileObj.name,
+      email: user.profileObj.email,
+      password: user.profileObj.googleId,
+      password2: user.profileObj.googleId,
     };
   } else {
     data = {};
