@@ -1,7 +1,23 @@
 .dashboard {
+  margin-top: 0;
   width: 75%;
   min-height: 100vh;
   background: $primary;
   z-index: 9;
   display: inline-block;
+  background-color: paleturquoise;
+}
+
+@media only screen and (max-width: 992px) {
+  .dashboard {
+    width: 70%;
+    background: yellowgreen;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .dashboard {
+    padding: 0.5em 5%;
+    width: 100%;
+    background: yellow;
+  }
 }

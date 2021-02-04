@@ -2,8 +2,8 @@ header {
   width: 25%;
   min-height: 100vh;
   display: inline-block;
-  position: sticky;
-  top: 0;
+  //position: sticky;
+  //top: 0;
   nav {
     margin: 0 auto;
     width: 80%;
@@ -13,6 +13,9 @@ header {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    .harmburger {
+      display: none;
+    }
     .logo {
       font-size: 1.5em;
       .underline {
@@ -102,7 +105,10 @@ header {
 
 @media only screen and (max-width: 992px) {
   header {
-    width: 35%;
+    width: 30%;
+    nav {
+      width: 100%;
+    }
   }
 }
 @media only screen and (max-width: 576px) {
@@ -112,10 +118,19 @@ header {
     nav {
       width: 100%;
       flex-direction: row;
+      justify-content: space-between;
+      padding: 0 5%;
+      min-height: 8vh;
+      align-items: center;
       .logo {
         .underline {
           display: none;
         }
+      }
+      .harmburger {
+        display: block;
+        color: $neutral;
+        font-size: 35px;
       }
       .div {
         position: absolute;

@@ -4,7 +4,7 @@ import Profile from "./profile";
 import Nav from "./nav";
 import Logout from "../../Auth/Logout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faHamburger } from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 function Navbar() {
   const [harmburger, setharmburger] = useState(false);
   return (
@@ -12,9 +12,9 @@ function Navbar() {
       <nav>
         <div className="harmburger">
           {harmburger ? (
-            <FontAwesomeIcon icon={faHamburger} />
+            <FontAwesomeIcon icon={faBars} />
           ) : (
-            <FontAwesomeIcon icon={faHamburger} />
+            <FontAwesomeIcon icon={faTimes} />
           )}
         </div>
         <div className="logo">
