@@ -1,34 +1,126 @@
-nav {
-  padding: 0 5%;
-  background: $primary;
-  display: flex;
-  justify-content: space-between;
-  min-height: 8vh;
-  align-items: center;
-  a {
-    color: $neutral;
-    text-decoration: none;
-  }
-
-  ul {
+header {
+  width: 25%;
+  min-height: 100vh;
+  display: inline-block;
+  position: sticky;
+  top: 0;
+  nav {
+    margin: 0 auto;
+    width: 80%;
+    min-height: inherit;
+    background: lighten($color: $primary, $amount: 10);
+    padding: 1.5em 0.5em;
     display: flex;
-    list-style: none;
-    li {
-      margin: 0 2em;
+    justify-content: flex-start;
+    flex-direction: column;
+    .logo {
+      font-size: 1.5em;
+      .underline {
+        margin-top: 0.3em;
+        display: block;
+        background: $neutral;
+        height: 4px;
+        width: 80%;
+        border-radius: 2px;
+      }
     }
+    a {
+      text-decoration: none;
+      color: $neutral;
+    }
+    .div {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .profile {
+        width: 100%;
+        margin-top: 1em;
+        display: flex;
+        justify-content: flex-start;
+        color: $neutral;
+        .info {
+          margin-left: 1em;
+          margin-top: 0.5em;
+          .job {
+            font-size: 12px;
+          }
+        }
+        .img-container {
+          width: 60px;
+          height: 60px;
+          overflow: hidden;
+          background: $neutral;
+          border-radius: 50%;
 
-    #login {
-      background: $primary2;
-      padding: 0.5em 1em;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      .nav {
+        list-style: none;
+        li {
+          padding: 0.2em 0;
+          margin: 0.5em auto;
+          color: $neutral;
+          a {
+            padding-left: 1em;
+          }
+        }
+        li:hover {
+          background: $primary;
+        }
+        .underline {
+          margin: 1.5em 0;
+          display: block;
+          background: $neutral;
+          height: 4px;
+          width: 80%;
+          border-radius: 2px;
+        }
+      }
+      .logout:hover {
+        background: $primary;
+      }
+      .logout {
+        padding: 0.5em auto;
+        color: $neutral;
+
+        button {
+          font-size: 15px;
+          margin-left: 1.5em;
+          color: $neutral;
+          background: none;
+          border: none;
+          outline: none;
+        }
+      }
     }
-    #register {
-      background: lighten($color: $primary, $amount: 20);
-      padding: 0.5em 1em;
-      margin: 0;
-    }
-    #register:hover,
-    #login:hover {
-      background: $secondary;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  header {
+    width: 35%;
+  }
+}
+@media only screen and (max-width: 576px) {
+  header {
+    width: 100%;
+    min-height: max-content;
+    nav {
+      width: 100%;
+      flex-direction: row;
+      .logo {
+        .underline {
+          display: none;
+        }
+      }
+      .div {
+        position: absolute;
+        display: none;
+      }
     }
   }
 }

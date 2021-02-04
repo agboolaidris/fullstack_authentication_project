@@ -10,6 +10,7 @@ import Dashboard from "./Component/Dashboard/Dashboard";
 import Forgetpassword from "./Component/Auth/Forgetpassword/Forgetpassword";
 import Reset from "./Component/Auth/Resetpassword/Reset";
 import UnprotectRoute from "./UnprotectRoute";
+
 function App({ checkAuth, isAuthenticated }) {
   useEffect(() => {
     checkAuth();
