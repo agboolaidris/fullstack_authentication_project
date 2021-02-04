@@ -2,33 +2,32 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faBlog } from "@fortawesome/free-solid-svg-icons";
-import Logout from "../../Auth/Logout";
 
-function Nav() {
+function Nav({ handleHarmburger }) {
   return (
-    <ul className="nav">
-      <li>
+    <ul className={"nav"}>
+      <li onClick={handleHarmburger} onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHome} />
         <Link to="/">Home</Link>
       </li>
-      <li to="/">
+      <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faBlog} />
         <Link>Recent Blog</Link>
       </li>
-      <li to="/">
+      <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHome} />
         <Link>Trending Blog</Link>
       </li>
-      <li to="/">
+      <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHome} />
         <Link>Favorite Blog</Link>
       </li>
-      <li>
+      <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHome} />
         <Link>Post Blog</Link>
       </li>
       <span className="underline"></span>
-      <li to="/">
+      <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHome} />
         <Link>Setting</Link>
       </li>

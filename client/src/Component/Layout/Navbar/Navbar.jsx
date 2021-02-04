@@ -28,9 +28,9 @@ function Navbar() {
           <Link to="/">Iris Blog</Link>
           <span className="underline"></span>
         </div>
-        <div className="div">
+        <div className={harmburger ? "div" : "div div-mobile"}>
           <Profile />
-          <Nav />
+          <Nav handleHarmburger={handleHarmburger} />
           <Logout />
         </div>
       </nav>
