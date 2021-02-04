@@ -1,7 +1,7 @@
 import React from "react";
 
 function Trend() {
-  return <div>Trend</div>;
+  return <div className="trend">Trend</div>;
 }
 
 export default Trend;

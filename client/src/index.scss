@@ -13,14 +13,6 @@ html {
   margin: 0;
   background: $primary;
 }
-.App {
-  display: flex;
-}
-@media only screen and (max-width: 576px) {
-  .App {
-    flex-direction: column;
-  }
-}
 
 *,
 *::after,
@@ -99,3 +91,7 @@ html {
 @import "./Component/Layout/Navbar/Navbar";
 @import "./Component/Auth/Forgetpassword/forget";
 @import "./Component/Auth/Resetpassword/reset";
+@import "./Component/Dashboard/Favourite/favourite";
+@import "./Component/Dashboard/PostBlog/post";
+@import "./Component/Dashboard/Setting/setting";
+@import "./Component/Dashboard/Trending/trend.scss";

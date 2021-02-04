@@ -12,24 +12,24 @@ function Nav({ handleHarmburger }) {
       </li>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faBlog} />
-        <Link>Recent Blog</Link>
+        <Link to="/recent">Recent Blog</Link>
       </li>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHome} />
-        <Link>Trending Blog</Link>
+        <Link to="/trending">Trending Blog</Link>
       </li>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHome} />
-        <Link>Favorite Blog</Link>
+        <Link to="favourite">Favorite Blog</Link>
       </li>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHome} />
-        <Link>Post Blog</Link>
+        <Link to="/post">Post Blog</Link>
       </li>
       <span className="underline"></span>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHome} />
-        <Link>Setting</Link>
+        <Link to="/setting">Setting</Link>
       </li>
     </ul>
   );

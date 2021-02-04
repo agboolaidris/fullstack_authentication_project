@@ -1,4 +1,4 @@
-.dashboard {
+.favourite {
   width: 75%;
   min-height: 200vh;
   margin-left: 25%;
@@ -7,14 +7,14 @@
 }
 
 @media only screen and (max-width: 992px) {
-  .dashboard {
+  .favourite {
     margin-left: 30%;
     width: 70%;
     background: yellowgreen;
   }
 }
 @media only screen and (max-width: 576px) {
-  .dashboard {
+  .favourite {
     //padding: 0.5em 5%;
     margin-top: 8vh;
     margin-left: 0;

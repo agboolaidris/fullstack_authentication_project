@@ -1,8 +1,7 @@
 header {
   width: 25%;
   min-height: 100vh;
-  display: inline-block;
-  position: sticky;
+  position: fixed;
   top: 0;
   nav {
     margin: 0 auto;
@@ -134,7 +133,7 @@ header {
         z-index: 15;
       }
       .div {
-        transform: translateX(-400px);
+        transform: translateX(-900px);
         position: absolute;
         width: 80%;
         background: $primary;
