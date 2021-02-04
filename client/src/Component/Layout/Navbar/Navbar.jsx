@@ -6,11 +6,18 @@ import Logout from "../../Auth/Logout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 function Navbar() {
-  const [harmburger, setharmburger] = useState(false);
+  const [harmburger, setharmburger] = useState(true);
+  const handleHarmburger = () => {
+    if (harmburger) {
+      setharmburger(false);
+    } else {
+      setharmburger(true);
+    }
+  };
   return (
     <header>
       <nav>
-        <div className="harmburger">
+        <div className="harmburger" onClick={handleHarmburger}>
           {harmburger ? (
             <FontAwesomeIcon icon={faBars} />
           ) : (

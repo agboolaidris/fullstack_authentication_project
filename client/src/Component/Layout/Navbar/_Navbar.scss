@@ -131,10 +131,26 @@ header {
         display: block;
         color: $neutral;
         font-size: 35px;
+        z-index: 15;
       }
       .div {
         position: absolute;
-        display: none;
+        width: 80%;
+        background: $primary;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        justify-content: flex-start;
+        padding: 0 1em;
+        .profile {
+          margin-top: 4em;
+        }
+        .nav {
+          margin-top: 2em;
+        }
+        .logout {
+          margin-top: 3em;
+        }
       }
     }
   }
