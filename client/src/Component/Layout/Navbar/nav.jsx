@@ -8,6 +8,7 @@ import {
   faStickyNote,
   faChartLine,
   faCog,
+  faPencilAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
 function Nav({ handleHarmburger }) {
@@ -30,7 +31,7 @@ function Nav({ handleHarmburger }) {
         <Link to="favourite">Favorite Blog</Link>
       </li>
       <li onClick={handleHarmburger}>
-        <FontAwesomeIcon icon={faStickyNote} />
+        <FontAwesomeIcon icon={faPencilAlt} />
         <Link to="/post">Post Blog</Link>
       </li>
       <span className="underline"></span>
