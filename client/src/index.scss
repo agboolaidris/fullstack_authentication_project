@@ -13,6 +13,14 @@ html {
   margin: 0;
   background: $primary;
 }
+.App {
+  display: flex;
+}
+@media only screen and (max-width: 576px) {
+  .App {
+    flex-direction: column;
+  }
+}
 
 *,
 *::after,
