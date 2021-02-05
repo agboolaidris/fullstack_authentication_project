@@ -1,5 +1,8 @@
 const Route = require("express").Router();
-const Post = require("../Controller/BlogController/Post");
+const POST = require("../Controller/BlogController/Post");
+const GET = require("../Controller/BlogController/Get");
 const Authorize = require("../Middleware/Authorize");
-Route.get("/", Post);
+
+Route.post("/", [Authorize], POST);
+Route.get("/", [Authorize], GET);
 module.exports = Route;

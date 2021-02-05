@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { postBlog } from "../../../Action/BlogAction";
+import FileBase from "react-file-base64";
 function Post() {
   const [state, setstate] = useState({
     title: "",
@@ -7,6 +9,7 @@ function Post() {
     image: "",
     body: "",
   });
+  const Dispatch = useDispatch();
   const handleChange = (e) => {
     setstate({
       ...state,
@@ -15,7 +18,7 @@ function Post() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(state);
+    Dispatch(postBlog(state));
   };
   return (
     <div className="post">
@@ -38,7 +41,7 @@ function Post() {
             value={state.category}
             id="category"
           >
-            <option>------select------</option>
+            <option value="">------select------</option>
             <option value="education">Education</option>
             <option value="technology">Technology</option>
             <option value="business">Business</option>
@@ -51,13 +54,11 @@ function Post() {
         </div>
         <div>
           <label>image</label>
-          <input
-            onChange={handleChange}
+          <FileBase
             type="file"
-            required
+            multiple={false}
+            onDone={({ base64 }) => setstate({ ...state, image: base64 })}
             className="img-input"
-            id="image"
-            value={state.image}
           />
         </div>
         <div>

@@ -1,7 +1,7 @@
-const moongose = require("mongoose");
-const schema = moongose.Schema;
+const mongose = require("mongoose");
+const schema = mongose.Schema;
 
-const Blog = new schema({
+const blogSchema = new schema({
   user: { required: true, type: String },
   title: { required: true, type: String },
   body: { required: true, type: String },
@@ -13,3 +13,6 @@ const Blog = new schema({
     default: new Date(),
   },
 });
+
+const Blog = mongose.model("Blog", blogSchema);
+module.exports = Blog;
