@@ -13,7 +13,7 @@ function Dashboard() {
           </div>
           <div className="content">
             <p class="title">Is Apple a Design Company?</p>
-            <p>
+            <p className="p">
               Apple is more than a tech company; it became a culture unto
               itself, a passion of most of people and the birthplace of the
               world’s most revolutionized products.{" "}
@@ -22,7 +22,7 @@ function Dashboard() {
               </Link>
             </p>
             <div>
-              <button>Delete</button>
+              <button className="delete">Delete</button>
               <button>Like</button>
             </div>
           </div>

@@ -144,6 +144,8 @@ header {
         justify-content: flex-start;
         padding: 0 1em;
         transition: all 1s ease-out;
+        z-index: 10;
+
         .profile {
           margin-top: 4em;
         }

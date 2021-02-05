@@ -1,17 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Post() {
-  const handleChange = () => {};
+  const [state, setstate] = useState({
+    title: "",
+    category: "",
+    image: "",
+    body: "",
+  });
+  const handleChange = (e) => {
+    setstate({
+      ...state,
+      [e.target.id]: e.target.value,
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(state);
+  };
   return (
     <div className="post">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label>Title</label>
-          <input type="text" required />
+          <input
+            type="text"
+            required
+            value={state.title}
+            id="title"
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label>Categories</label>
-          <select onChange={handleChange} required>
+          <select
+            onChange={handleChange}
+            required
+            value={state.category}
+            id="category"
+          >
             <option>------select------</option>
             <option value="education">Education</option>
             <option value="technology">Technology</option>
@@ -30,11 +56,18 @@ function Post() {
             type="file"
             required
             className="img-input"
+            id="image"
+            value={state.image}
           />
         </div>
         <div>
           <label>Body</label>
-          <textarea onChange={handleChange} required></textarea>
+          <textarea
+            onChange={handleChange}
+            required
+            value={state.body}
+            id="body"
+          ></textarea>
         </div>
         <div>
           <button>SUBMIT</button>

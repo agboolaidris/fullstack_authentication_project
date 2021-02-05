@@ -7,7 +7,7 @@
   padding-top: 2em;
   .card {
     width: 90%;
-    background-color: darkgreen;
+    background-color: lighten($color: $primary, $amount: 10);
     .img-container {
       width: 100%;
       height: 200px;
@@ -18,6 +18,24 @@
     }
     .content {
       padding: 1em;
+      .title {
+        font-size: 1.3em;
+        font-weight: bolder;
+        color: $neutral;
+      }
+      .p {
+        font-size: 12px;
+        margin: 0.3em 0;
+      }
+      div {
+        text-align: right;
+        button {
+          padding: 0.3em 0.5em;
+        }
+        .delete {
+          margin-right: 0.5em;
+        }
+      }
     }
   }
 }
@@ -33,5 +51,10 @@
     margin-top: 8vh;
     margin-left: 0;
     width: 100%;
+    padding: 1em 5%;
+    grid-template-columns: 100%;
+    .card {
+      width: 100%;
+    }
   }
 }
