@@ -33,7 +33,7 @@ app.use(
 app.use(cookieparser());
 
 //body parser
-app.use(express.json());
+app.use(express.json({ limit: "30mb", extended: false }));
 app.use(express.urlencoded({ extended: false }));
 
 //router
