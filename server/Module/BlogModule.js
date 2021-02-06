@@ -7,7 +7,7 @@ const blogSchema = new schema({
   body: { required: true, type: String },
   image: { type: String, required: true },
   like: { default: 0, type: Number },
-  tags: [],
+  category: { type: String, required: true },
   createAt: {
     type: Date,
     default: new Date(),

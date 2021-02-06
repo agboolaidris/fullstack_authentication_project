@@ -20,5 +20,7 @@ export const FORGETPASSWORD_ERR = "FORGET_PAASSWORD_ERR";
 export const RESETPASSWORD_SUCCESSFUL = "RESET_PASSWORD_SUCCESSFUL";
 export const RESETPASSWORD_ERR = "RESET_PASSWORD_ERR";
 
-export const BLOG_CREATE = "BLOG-CREATE";
-export const BLOG_ERROR = "BLOG-ERROR";
+// blog types
+export const POST = "POST-BLOG";
+export const POST_ERROR = "POST-ERROR";
+export const FETCH = "FETCH-BLOG";

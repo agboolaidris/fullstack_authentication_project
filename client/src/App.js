@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 import { checkAuth } from "./Action/AuthAction";
 import { useDispatch, useSelector } from "react-redux";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 import ProtectedRoute from "./ProtectRoute";
 import UnprotectRoute from "./UnprotectRoute";
 //compontent
@@ -26,6 +28,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         {isAuthenticated && <Navbar />}
+        <ToastContainer />
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
           <ProtectedRoute exact path="/post" component={Post} />

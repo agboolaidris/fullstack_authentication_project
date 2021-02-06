@@ -20,8 +20,14 @@ const Post = async (req, res) => {
       user: user.username,
     });
     const response = await blog.save();
+    if (!response) {
+      return json(500).status({ msg: "error occur" });
+    }
+    user.blogs.push(response);
+    await user.save();
     res.json(response);
   } catch (err) {
+    console.log(err.message);
     res.status(400).json({ msg: "error occur" });
   }
 };

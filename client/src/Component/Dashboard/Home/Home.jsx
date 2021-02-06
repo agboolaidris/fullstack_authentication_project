@@ -1,33 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+
+import { useDispatch, useSelector } from "react-redux";
+import { fetch } from "../../../Action/BlogAction";
+import Card from "./card";
 
 function Dashboard() {
+  const Blogs = useSelector((state) => state.Blog);
+  const Dispatch = useDispatch();
+  useEffect(() => {
+    Dispatch(fetch());
+  }, [Dispatch]);
   return (
-    <div className="dashboard">
-      <div className="div">
-        <div class="card">
-          <div className="img-container">
-            <img
-              src={`https://images.unsplash.com/photo-1612490020092-e4f7a3d17dec?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80`}
-            />
-          </div>
-          <div className="content">
-            <p class="title">Is Apple a Design Company?</p>
-            <p className="p">
-              Apple is more than a tech company; it became a culture unto
-              itself, a passion of most of people and the birthplace of the
-              world’s most revolutionized products.{" "}
-              <Link class="button" to="/">
-                Read More
-              </Link>
-            </p>
-            <div>
-              <button className="delete">Delete</button>
-              <button>Like</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className={!Blogs.length ? "no-blog" : "dashboard"}>
+      {!Blogs.length ? (
+        <div className="div">No Blog is posted yet</div>
+      ) : (
+        <>
+          {Blogs.map((blog) => {
+            return (
+              <div key={blog._id}>
+                <Card blog={blog} />
+              </div>
+            );
+          })}
+        </>
+      )}
     </div>
   );
 }

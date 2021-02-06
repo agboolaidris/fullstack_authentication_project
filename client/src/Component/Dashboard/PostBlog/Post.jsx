@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { postBlog } from "../../../Action/BlogAction";
+import { post } from "../../../Action/BlogAction";
 import FileBase from "react-file-base64";
 function Post() {
   const [state, setstate] = useState({
@@ -10,6 +11,7 @@ function Post() {
     body: "",
   });
   const Dispatch = useDispatch();
+  const history = useHistory();
   const handleChange = (e) => {
     setstate({
       ...state,
@@ -18,7 +20,8 @@ function Post() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    Dispatch(postBlog(state));
+    Dispatch(post(state));
+    history.push("/");
   };
   return (
     <div className="post">

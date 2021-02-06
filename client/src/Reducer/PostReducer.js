@@ -2,13 +2,20 @@ import * as type from "../Action/type";
 import { toast } from "react-toastify";
 const Blog = (state = [], action) => {
   switch (action.type) {
-    case type.BLOG_CREATE:
-      toast.success("the post have been save");
-      console.log(action.payload);
-      return [...state, action.payload];
-
+    case type.FETCH:
+      toast.success("welcome");
+      return action.payload;
       break;
-    case type.BLOG_ERROR:
+
+    case type.POST:
+      toast.success("the post have been save");
+      return [...state, action.payload];
+      break;
+
+    case type.POST_ERROR:
+      toast.error("An error occur");
+      return state;
+      break;
 
     default:
       return state;
