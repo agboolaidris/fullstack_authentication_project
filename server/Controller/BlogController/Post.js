@@ -1,4 +1,4 @@
-const User = require("../../Module/AuthModule");
+const User = require("../../Module/UserModule");
 const Blog = require("../../Module/BlogModule");
 const Post = async (req, res) => {
   try {

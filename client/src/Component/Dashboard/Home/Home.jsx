@@ -5,7 +5,7 @@ import { fetch } from "../../../Action/BlogAction";
 import Card from "./card";
 
 function Dashboard() {
-  const Blogs = useSelector((state) => state.Blog);
+  const Blogs = useSelector((state) => state.Blog.blogs);
   const Dispatch = useDispatch();
   useEffect(() => {
     Dispatch(fetch());

@@ -1,5 +1,4 @@
 const nodemailer = require("nodemailer");
-const { options } = require("../Route/Auth_Route");
 
 const SendMail = (options) => {
   const Tranporter = nodemailer.createTransport({

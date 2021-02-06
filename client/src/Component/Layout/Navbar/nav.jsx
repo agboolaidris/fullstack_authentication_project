@@ -20,7 +20,7 @@ function Nav({ handleHarmburger }) {
       </li>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faBlog} />
-        <Link to="/recent">Recent Blog</Link>
+        <Link to="/user/blogs">My Blogs</Link>
       </li>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faChartLine} />

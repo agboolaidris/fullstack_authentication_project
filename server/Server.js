@@ -37,8 +37,8 @@ app.use(express.json({ limit: "30mb", extended: false }));
 app.use(express.urlencoded({ extended: false }));
 
 //router
-app.use("/user", require("./Route/Auth_Route"));
-app.use("/blog", require("./Route/Blog_Route"));
+app.use("/user", require("./Route/UserRoute"));
+app.use("/blog", require("./Route/BlogRoute"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

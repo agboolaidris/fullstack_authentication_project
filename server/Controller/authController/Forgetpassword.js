@@ -1,4 +1,4 @@
-const User = require("../../Module/AuthModule");
+const User = require("../../Module/UserModule");
 const SendMail = require("../../Utils/SendMail");
 const crypto = require("crypto");
 

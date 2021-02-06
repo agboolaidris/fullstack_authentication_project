@@ -5,7 +5,7 @@ const initialState = {
   id: "",
 };
 
-const MessageReducer = (state = initialState, action) => {
+const Msg = (state = initialState, action) => {
   switch (action.type) {
     case GET_MESSAGE:
       return {
@@ -28,4 +28,4 @@ const MessageReducer = (state = initialState, action) => {
   }
 };
 
-export default MessageReducer;
+export default Msg;
