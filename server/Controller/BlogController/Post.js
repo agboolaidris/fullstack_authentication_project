@@ -19,14 +19,8 @@ const Post = async (req, res) => {
       category,
       user: user.username,
     });
-    await blog.save();
-    Blog.find()
-      .then((response) => {
-        res.json({ msg: response });
-      })
-      .then((err) => {
-        res.status(500).json({ msg: err });
-      });
+    const response = await blog.save();
+    res.json(response);
   } catch (err) {
     res.status(400).json({ msg: "error occur" });
   }
