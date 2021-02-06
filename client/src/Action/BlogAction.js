@@ -15,8 +15,18 @@ export const fetch = () => {
   return async (dispatch) => {
     try {
       const { data } = await api.Fetch();
-      console.log(data);
       dispatch({ type: type.FETCH, payload: data });
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+};
+
+export const userFetch = () => {
+  return async () => {
+    try {
+      const { data } = await api.userFetch();
+      console.log(data);
     } catch (err) {
       console.log(err.message);
     }
