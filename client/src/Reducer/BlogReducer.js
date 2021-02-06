@@ -26,6 +26,12 @@ const Blog = (state = initialState, action) => {
       toast.error("An error occur");
       return state;
       break;
+    case type.USER_FETCH:
+      return {
+        ...state,
+        userBlogs: action.payload,
+      };
+      break;
 
     default:
       return state;

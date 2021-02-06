@@ -11,7 +11,6 @@ import Navbar from "./Component/Layout/Navbar/Navbar";
 function App() {
   const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
   const Dispatch = useDispatch();
-  console.log(isAuthenticated);
   useEffect(() => {
     Dispatch(checkAuth());
   }, [Dispatch]);

@@ -3,7 +3,7 @@ const userGet = async (req, res) => {
   try {
     const user = await User.findById(req.userID);
     if (!user) {
-      return res.status(400).send("an error occur during the process");
+      return res.status(400).json({ msg: "an error occur during the process" });
     }
     res.json(user.blogs);
   } catch (err) {

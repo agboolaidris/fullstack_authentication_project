@@ -24,3 +24,4 @@ export const RESETPASSWORD_ERR = "RESET_PASSWORD_ERR";
 export const POST = "POST-BLOG";
 export const POST_ERROR = "POST-ERROR";
 export const FETCH = "FETCH-BLOG";
+export const USER_FETCH = "USER_FETCH";

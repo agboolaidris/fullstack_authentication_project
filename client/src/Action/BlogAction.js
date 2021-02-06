@@ -23,10 +23,10 @@ export const fetch = () => {
 };
 
 export const userFetch = () => {
-  return async () => {
+  return async (dispatch) => {
     try {
       const { data } = await api.userFetch();
-      console.log(data);
+      dispatch({ type: type.USER_FETCH, payload: data });
     } catch (err) {
       console.log(err.message);
     }
