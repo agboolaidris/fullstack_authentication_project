@@ -1,11 +1,13 @@
-const User = require("../../Module/UserModule");
+const Blog = require("../../Module/BlogModule");
+
 const userGet = async (req, res) => {
   try {
-    const user = await User.findById(req.userID);
-    if (!user) {
-      return res.status(400).json({ msg: "an error occur during the process" });
+    const userID = req.userID;
+    const blog = await Blog.find({ userID });
+    if (!blog) {
+      res.status(400).json({ msg: "user doesn't not have any post yet" });
     }
-    res.json(user.blogs);
+    res.json(blog);
   } catch (err) {
     res.status(400).send(err.message);
   }

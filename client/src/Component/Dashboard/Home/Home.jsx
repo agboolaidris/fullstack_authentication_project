@@ -13,7 +13,7 @@ function Dashboard() {
   return (
     <div className={!Blogs.length ? "no-blog" : "dashboard"}>
       {!Blogs.length ? (
-        <div className="div">No Blog is posted yet</div>
+        <div>No Blog is posted yet</div>
       ) : (
         <>
           {Blogs.map((blog) => {

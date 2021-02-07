@@ -51,10 +51,16 @@
   }
 }
 @media only screen and (max-width: 576px) {
-  .user {
-    //padding: 0.5em 5%;
+  .no-blog {
     margin-top: 8vh;
     margin-left: 0;
     width: 100%;
+  }
+  .post {
+    margin-top: 8vh;
+    margin-left: 0;
+    width: 100%;
+    padding: 1em 5%;
+    grid-template-columns: 100%;
   }
 }

@@ -5,6 +5,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 function Facebook({ Oauth }) {
   const responseFacebook = (res) => {
+    console.log(res);
     Oauth(res, "FACEBOOK");
   };
 

@@ -2,7 +2,7 @@ const mongose = require("mongoose");
 const schema = mongose.Schema;
 
 const blogSchema = new schema({
-  user: { required: true, type: String },
+  userID: { required: true, type: String },
   title: { required: true, type: String },
   body: { required: true, type: String },
   image: { type: String, required: true },
