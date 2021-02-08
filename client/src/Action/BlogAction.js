@@ -44,3 +44,15 @@ export const userFetch = () => {
     }
   };
 };
+
+export const Delete = (id) => {
+  console.log(id);
+  return async () => {
+    try {
+      const { data } = await api.Delete(id);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};

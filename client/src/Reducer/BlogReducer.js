@@ -22,9 +22,13 @@ const Blog = (state = initialState, action) => {
       };
       break;
     case type.PATCH:
+      toast.success("updated successful");
       return {
         ...state,
         blogs: state.blogs.map((blog) =>
+          blog._id === action.payload._id ? action.payload : blog
+        ),
+        userBlogs: state.userBlogs.map((blog) =>
           blog._id === action.payload._id ? action.payload : blog
         ),
       };

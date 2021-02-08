@@ -26,3 +26,4 @@ export const POST_ERROR = "POST-ERROR";
 export const FETCH = "FETCH-BLOG";
 export const USER_FETCH = "USER-FETCH";
 export const PATCH = "PATCH-BLOG";
+export const DELETE = "DELETE-BLOG";
