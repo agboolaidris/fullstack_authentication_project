@@ -21,7 +21,14 @@ const Blog = (state = initialState, action) => {
         blogs: [...state.blogs, action.payload],
       };
       break;
-
+    case type.PATCH:
+      return {
+        ...state,
+        blogs: state.blogs.map((blog) =>
+          blog._id === action.payload._id ? action.payload : blog
+        ),
+      };
+      break;
     case type.POST_ERROR:
       toast.error("An error occur");
       return state;

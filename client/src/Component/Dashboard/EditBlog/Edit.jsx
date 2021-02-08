@@ -16,6 +16,7 @@ function Edit({ blogID }) {
     image: editBlog.image,
     body: editBlog.body,
   });
+
   //mapDispatch to props
   const Dispatch = useDispatch();
 
@@ -35,7 +36,15 @@ function Edit({ blogID }) {
     e.preventDefault();
     Dispatch(patch(blogID, state));
     history.push("/");
+    setstate({
+      ...state,
+      title: "",
+      category: "",
+      body: "",
+      image: "",
+    });
   };
+
   return (
     <div className="edit">
       <form onSubmit={handleSubmit}>

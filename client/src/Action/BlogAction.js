@@ -27,7 +27,7 @@ export const patch = (id, blog) => {
   return async (dispatch) => {
     try {
       const data = await api.patch(id, blog);
-      console.log(data);
+      dispatch({ type: type.PATCH, payload: data });
     } catch (err) {
       console.log(err.message);
     }
