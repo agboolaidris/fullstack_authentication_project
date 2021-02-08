@@ -21,6 +21,7 @@ const Blog = (state = initialState, action) => {
         blogs: [...state.blogs, action.payload],
       };
       break;
+
     case type.PATCH:
       toast.success("updated successful");
       return {
@@ -33,10 +34,12 @@ const Blog = (state = initialState, action) => {
         ),
       };
       break;
+
     case type.POST_ERROR:
       toast.error("An error occur");
       return state;
       break;
+
     case type.USER_FETCH:
       return {
         ...state,
@@ -44,6 +47,15 @@ const Blog = (state = initialState, action) => {
       };
       break;
 
+    case type.DELETE:
+      toast.success("blog deleted");
+      return {
+        ...state,
+        userBlogs: state.userBlogs.filter(
+          (blog) => blog._id !== action.payload._id
+        ),
+        blogs: state.blogs.filter((blog) => blog._id !== action.payload._id),
+      };
     default:
       return state;
       break;

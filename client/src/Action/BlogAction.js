@@ -47,10 +47,10 @@ export const userFetch = () => {
 
 export const Delete = (id) => {
   console.log(id);
-  return async () => {
+  return async (dispatch) => {
     try {
       const { data } = await api.Delete(id);
-      console.log(data);
+      dispatch({ type: type.DELETE, payload: data });
     } catch (err) {
       console.log(err);
     }

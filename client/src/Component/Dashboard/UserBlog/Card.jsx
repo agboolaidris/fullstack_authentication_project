@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Delete } from "../../../Action/BlogAction";
+import { useDispatch } from "react-redux";
 function Card({ blog, setblogID }) {
-  console.log(setblogID);
+  const Dispatch = useDispatch();
   return (
     <div className="card">
       <div className="img-container">
@@ -17,8 +18,8 @@ function Card({ blog, setblogID }) {
           </Link>
         </p>
         <div>
-          <button className="delete" onClick={() => Delete(blog._id)}>
-            Deletes
+          <button className="delete" onClick={() => Dispatch(Delete(blog._id))}>
+            Delete
           </button>
           <Link to="/edit" onClick={() => setblogID(blog._id)}>
             Edit
