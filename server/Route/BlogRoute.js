@@ -7,7 +7,7 @@ const Authorize = require("../Middleware/Authorize");
 
 Route.post("/", [Authorize], POST);
 Route.get("/", [Authorize], GET);
-Route.put("/", [Authorize], UPDATE);
+Route.patch("/:id", [Authorize], UPDATE);
 
 //user fetch for is blog
 Route.get("/user", [Authorize], USERGET);

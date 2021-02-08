@@ -17,7 +17,9 @@ function Card({ blog, setblogID }) {
         </p>
         <div>
           <button className="delete">Delete</button>
-          <Link to="/edit">Edit</Link>
+          <Link to="/edit" onClick={() => setblogID(blog._id)}>
+            Edit
+          </Link>
         </div>
       </div>
     </div>

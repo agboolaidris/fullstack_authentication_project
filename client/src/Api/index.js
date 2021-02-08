@@ -6,3 +6,5 @@ export const Post = (user) => axios.post(URL, user, { withCredentials: true });
 export const Fetch = () => axios.get(URL, { withCredentials: true });
 export const userFetch = () =>
   axios.get(`${URL}/user`, { withCredentials: true });
+export const patch = (id, blog) =>
+  axios.patch(`${URL}/${id}`, blog, { withCredentials: true });

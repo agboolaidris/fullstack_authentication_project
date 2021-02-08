@@ -1,30 +1,39 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { post } from "../../../Action/BlogAction";
+import { patch } from "../../../Action/BlogAction";
 import FileBase from "react-file-base64";
 function Edit({ blogID }) {
-  console.log(blogID);
+  // mapStateToprops
   const editBlog = useSelector((state) =>
     state.Blog.userBlogs.find((blog) => blog._id === blogID)
   );
+
+  //data
   const [state, setstate] = useState({
-    title: "",
-    category: "",
-    image: "",
-    body: "",
+    title: editBlog.title,
+    category: editBlog.category,
+    image: editBlog.image,
+    body: editBlog.body,
   });
+  //mapDispatch to props
   const Dispatch = useDispatch();
+
+  //redirect
   const history = useHistory();
+
+  //handle form change
   const handleChange = (e) => {
     setstate({
       ...state,
       [e.target.id]: e.target.value,
     });
   };
+
+  // handle submit function
   const handleSubmit = (e) => {
     e.preventDefault();
-    Dispatch(post(state));
+    Dispatch(patch(blogID, state));
     history.push("/");
   };
   return (

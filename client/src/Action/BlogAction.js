@@ -1,5 +1,6 @@
 import * as api from "../Api/index";
 import * as type from "./type";
+
 export const post = (blog) => {
   return async (dispatch) => {
     try {
@@ -16,6 +17,17 @@ export const fetch = () => {
     try {
       const { data } = await api.Fetch();
       dispatch({ type: type.FETCH, payload: data });
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+};
+
+export const patch = (id, blog) => {
+  return async (dispatch) => {
+    try {
+      const data = await api.patch(id, blog);
+      console.log(data);
     } catch (err) {
       console.log(err.message);
     }
