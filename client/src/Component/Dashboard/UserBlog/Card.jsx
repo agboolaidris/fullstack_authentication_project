@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Card({ blog }) {
+function Card({ blog, setblogID }) {
+  console.log(setblogID);
   return (
     <div className="card">
       <div className="img-container">
@@ -16,7 +17,7 @@ function Card({ blog }) {
         </p>
         <div>
           <button className="delete">Delete</button>
-          <button>Like</button>
+          <Link to="/edit">Edit</Link>
         </div>
       </div>
     </div>

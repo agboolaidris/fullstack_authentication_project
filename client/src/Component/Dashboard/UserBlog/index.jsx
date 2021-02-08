@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userFetch } from "../../../Action/BlogAction";
 import Card from "./Card";
-function Index() {
+function Index({ setblogID }) {
   const Dispatch = useDispatch();
   const blogs = useSelector((state) => state.Blog.userBlogs);
 
@@ -19,7 +19,7 @@ function Index() {
           {blogs.map((blog) => {
             return (
               <div key={blog._id}>
-                <Card blog={blog} />
+                <Card blog={blog} setblogID={setblogID} />
               </div>
             );
           })}

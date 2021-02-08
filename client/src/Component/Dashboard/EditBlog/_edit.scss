@@ -1,0 +1,64 @@
+.edit {
+  width: 75%;
+  min-height: 100vh;
+  margin-left: 25%;
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+  form {
+    width: 80%;
+    div {
+      width: 100%;
+      margin-top: 0.5em;
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.5em;
+        font-size: 15px;
+        background: darken($color: $neutral, $amount: 10);
+        outline: none;
+        border: none;
+      }
+      textarea {
+        min-height: 200px;
+      }
+      .img-input {
+        width: 50%;
+        display: block;
+      }
+      button {
+        border: 1px solid $secondary;
+        background: $secondary;
+        color: $neutral;
+        width: 100px;
+        padding: 0.8em;
+        float: right;
+        font-size: 16px;
+        transition: all 1s ease-out;
+      }
+      button:hover {
+        background: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .edit {
+    margin-left: 30%;
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .edit {
+    margin-top: 8vh;
+    margin-left: 0;
+    width: 100%;
+    padding: 0.5em 5%;
+    form {
+      width: 100%;
+    }
+  }
+}
