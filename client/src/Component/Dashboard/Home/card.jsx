@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { LikeBlog } from "../../../Redux/Action/BlogAction";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 function Card({ blog }) {
   const Dispatch = useDispatch();
   return (
@@ -11,18 +13,14 @@ function Card({ blog }) {
       </div>
       <div className="content">
         <p className="title">{blog.title}</p>
-        <p className="p">
-          {blog.body}
-          <Link className="button" to="/">
-            Read More
-          </Link>
-        </p>
+        <p className="p">{blog.body}</p>
         <div>
           <button
             onClick={() => Dispatch(LikeBlog(blog._id))}
-            className={blog.like > 0 ? "color" : ""}
+            className={blog.like.length > 0 ? "color" : ""}
           >
-            Like{blog.like}
+            <FontAwesomeIcon icon={faThumbsUp} />
+            &nbsp;{blog.like.length}
           </button>
         </div>
       </div>
