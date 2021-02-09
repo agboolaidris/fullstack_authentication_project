@@ -46,7 +46,6 @@ export const userFetch = () => {
 };
 
 export const Delete = (id) => {
-  console.log(id);
   return async (dispatch) => {
     try {
       const { data } = await api.Delete(id);
