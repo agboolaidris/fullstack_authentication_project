@@ -42,11 +42,15 @@
       }
       div {
         text-align: right;
+        .color {
+          color: $secondary;
+        }
         button {
           padding: 0.3em 0.5em;
-        }
-        .delete {
-          margin-right: 0.5em;
+          color: chartreuse;
+          background: none;
+          border: none;
+          outline: none;
         }
       }
     }

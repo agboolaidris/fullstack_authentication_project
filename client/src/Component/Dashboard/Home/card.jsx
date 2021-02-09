@@ -12,13 +12,16 @@ function Card({ blog }) {
       <div className="content">
         <p className="title">{blog.title}</p>
         <p className="p">
-          {blog.body}.{" "}
+          {blog.body}
           <Link className="button" to="/">
             Read More
           </Link>
         </p>
         <div>
-          <button onClick={() => Dispatch(LikeBlog(blog._id))}>
+          <button
+            onClick={() => Dispatch(LikeBlog(blog._id))}
+            className={blog.like > 0 ? "color" : ""}
+          >
             Like{blog.like}
           </button>
         </div>
