@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { ForgetPassword } from "../../../Action/AuthAction";
+import { ForgetPassword } from "../../../Redux/Action/AuthAction";
 import { connect } from "react-redux";
 import Message from "../../../Utlits/Message";
 import Loading from "../../../Utlits/Loading";

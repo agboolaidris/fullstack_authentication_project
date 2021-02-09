@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { LikeBlog } from "../../../Action/BlogAction";
+import { LikeBlog } from "../../../Redux/Action/BlogAction";
 function Card({ blog }) {
   const Dispatch = useDispatch();
   return (

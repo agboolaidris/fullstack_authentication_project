@@ -6,7 +6,11 @@
   width: 75%;
   min-height: 100vh;
   margin-left: 25%;
-  color: $neutral;
+  color: $primary;
+
+  div {
+    color: $primary;
+  }
 }
 .dashboard {
   width: 75%;

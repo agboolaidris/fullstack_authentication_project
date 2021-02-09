@@ -60,8 +60,8 @@ const Blog = (state = initialState, action) => {
     case type.BLOG_LIKE:
       return {
         ...state,
-        blogs: state.blogs.map(
-          (blog) => (blog._id = action.payload._id ? action.payload : blog)
+        blogs: state.blogs.map((blog) =>
+          blog._id === action.payload._id ? action.payload : blog
         ),
       };
       break;

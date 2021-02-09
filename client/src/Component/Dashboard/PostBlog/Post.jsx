@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { post } from "../../../Action/BlogAction";
+import { post } from "../../../Redux/Action/BlogAction";
 import FileBase from "react-file-base64";
 function Post() {
   const [state, setstate] = useState({

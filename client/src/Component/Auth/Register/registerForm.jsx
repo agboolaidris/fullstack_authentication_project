@@ -1,7 +1,7 @@
 import React from "react";
 import useRegister from "./RegisterHook";
 import { Link } from "react-router-dom";
-import { Register } from "../../../Action/AuthAction";
+import { Register } from "../../../Redux/Action/AuthAction";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";

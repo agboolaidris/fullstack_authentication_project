@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { checkAuth } from "./Action/AuthAction";
+import { checkAuth } from "./Redux/Action/AuthAction";
 import { useDispatch, useSelector } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";

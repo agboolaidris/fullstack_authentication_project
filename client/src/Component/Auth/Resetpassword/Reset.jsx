@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
-import { clearMessage } from "../../../Action/MessageAction";
-import { ResetPassword } from "../../../Action/AuthAction";
+import { ResetPassword } from "../../../Redux/Action/AuthAction";
 import Message from "../../../Utlits/Message";
 function Reset({ match, ResetPassword }) {
   const [state, setstate] = useState({

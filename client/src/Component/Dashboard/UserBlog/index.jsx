@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { userFetch } from "../../../Action/BlogAction";
+import { userFetch } from "../../../Redux/Action/BlogAction";
 import Card from "./Card";
 function Index({ setblogID }) {
   const Dispatch = useDispatch();

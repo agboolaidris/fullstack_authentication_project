@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Delete } from "../../../Action/BlogAction";
+import { Delete } from "../../../Redux/Action/BlogAction";
 import { useDispatch } from "react-redux";
 function Card({ blog, setblogID }) {
   const Dispatch = useDispatch();
