@@ -2,19 +2,22 @@ const Blog = require("../../Module/BlogModule");
 
 const likeBlog = async (req, res) => {
   try {
-    const { _id } = req.params.id;
-    const blog = await Blog.findById(_id);
+    const { id } = req.params;
+    const blog = await Blog.findById(id);
+
+    if (!blog) return res.status(400).json({ msg: "the param is invalid" });
     const updateblog = await Blog.findByIdAndUpdate(
-      _id,
+      id,
       {
         like: blog.like + 1,
       },
       { new: true }
     );
+    if (!updateblog)
+      return res.status(400).json({ msg: "the params is invalid" });
     res.json(updateblog);
   } catch (err) {
     res.status(400).json({ msg: err.message });
-    console.log(err);
   }
 };
 module.exports = likeBlog;

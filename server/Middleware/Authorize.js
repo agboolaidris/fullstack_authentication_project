@@ -8,7 +8,7 @@ const verifyToken = (token) => {
 const Authorize = (req, res, next) => {
   const token = req.cookies["access-token"];
   if (!token) {
-    return res.status(400).send("unathorize");
+    return res.status(400).json({ msg: "unathorize" });
   }
   const id = verifyToken(token);
   if (!id) {

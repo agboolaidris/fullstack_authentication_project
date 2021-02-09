@@ -56,6 +56,15 @@ const Blog = (state = initialState, action) => {
         ),
         blogs: state.blogs.filter((blog) => blog._id !== action.payload._id),
       };
+      break;
+    case type.BLOG_LIKE:
+      return {
+        ...state,
+        blogs: state.blogs.map(
+          (blog) => (blog._id = action.payload._id ? action.payload : blog)
+        ),
+      };
+      break;
     default:
       return state;
       break;

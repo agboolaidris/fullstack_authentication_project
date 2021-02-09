@@ -2,17 +2,18 @@ const Blog = require("../../Module/BlogModule");
 const Update = async (req, res) => {
   try {
     const { title, body, image, category } = req.body;
-    const _id = req.params.id;
+    const { id } = req.params;
 
     if (!title || !body || !image || !category)
       return res.status(400).json({ msg: "the feild is required" });
 
     const response = await Blog.findByIdAndUpdate(
-      _id,
+      id,
       { title, body, image, category },
       { new: true }
     );
-
+    if (!response)
+      return res.status(400).json({ msg: "the params is incorrect" });
     res.json(response);
   } catch (err) {
     res.status(400).json({ msg: err.message });

@@ -26,7 +26,7 @@ export const fetch = () => {
 export const patch = (id, blog) => {
   return async (dispatch) => {
     try {
-      const data = await api.patch(id, blog);
+      const data = await api.Patch(id, blog);
       dispatch({ type: type.PATCH, payload: data });
     } catch (err) {
       console.log(err.message);
@@ -52,6 +52,17 @@ export const Delete = (id) => {
       dispatch({ type: type.DELETE, payload: data });
     } catch (err) {
       console.log(err);
+    }
+  };
+};
+
+export const LikeBlog = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await api.LikeCount(id);
+      dispatch({ type: type.BLOG_LIKE, payload: data });
+    } catch (err) {
+      console.log(err.response);
     }
   };
 };

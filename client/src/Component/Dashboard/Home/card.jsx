@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function card({ blog }) {
+import { useDispatch } from "react-redux";
+import { LikeBlog } from "../../../Action/BlogAction";
+function Card({ blog }) {
+  const Dispatch = useDispatch();
   return (
     <div className="card">
       <div className="img-container">
@@ -15,12 +18,13 @@ function card({ blog }) {
           </Link>
         </p>
         <div>
-          <button className="delete">Delete</button>
-          <button>Like</button>
+          <button onClick={() => Dispatch(LikeBlog(blog._id))}>
+            Like{blog.like}
+          </button>
         </div>
       </div>
     </div>
   );
 }
 
-export default card;
+export default Card;
