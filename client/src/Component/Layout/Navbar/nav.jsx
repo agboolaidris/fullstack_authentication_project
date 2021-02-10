@@ -28,7 +28,7 @@ function Nav({ handleHarmburger }) {
       </li>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHeart} />
-        <Link to="favourite">Favorite Blog</Link>
+        <Link to="/favourite">Favorite Blog</Link>
       </li>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faPencilAlt} />
@@ -37,7 +37,7 @@ function Nav({ handleHarmburger }) {
       <span className="underline"></span>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faCog} />
-        <Link to="/setting">Setting</Link>
+        <Link to="/profile">Setting</Link>
       </li>
     </ul>
   );

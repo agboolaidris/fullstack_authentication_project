@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { patch } from "../../../Redux/Action/BlogAction";
+import { patch } from "../../../Redux/Action/Blog";
 import FileBase from "react-file-base64";
 function Edit({ blogID }) {
   // mapStateToprops

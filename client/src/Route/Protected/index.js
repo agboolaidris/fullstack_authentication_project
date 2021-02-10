@@ -14,7 +14,7 @@ function Index() {
     <>
       <ProtectedRoute exact path="/" component={Home} />
       <ProtectedRoute exact path="/post" component={Post} />
-      <ProtectedRoute exact path="/user/profile" component={Setting} />
+      <ProtectedRoute exact path="/profile" component={Setting} />
       <ProtectedRoute exact path="/trending" component={Trend} />
       <ProtectedRoute exact path="/favourite" component={Favourite} />
       <ProtectedRoute

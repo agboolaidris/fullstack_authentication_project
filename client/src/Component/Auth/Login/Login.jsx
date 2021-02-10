@@ -3,7 +3,7 @@ import Facebook from "../Oauth/Facebook";
 import Google from "../Oauth/Google";
 import LoginForm from "./loginForm";
 import { connect } from "react-redux";
-import { OauthLogin } from "../../../Redux/Action/AuthAction";
+import { OauthLogin } from "../../../Redux/Action/Auth";
 import Loading from "../../../Utlits/Loading";
 function Login({ OauthLogin }) {
   return (

@@ -1,4 +1,4 @@
-import * as api from "../Api/index";
+import * as api from "../Api/blog";
 import * as type from "./type";
 
 export const post = (blog) => {

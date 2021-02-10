@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
-import Auth from "./AuthReducer";
-import Msg from "./MessageReducer";
-import Blog from "./BlogReducer";
+import Auth from "./Auth";
+import Msg from "./Message";
+import Blog from "./Blog";
+import User from "./User";
 
 const RootReducer = combineReducers({
   Auth,
   Blog,
   Msg,
+  User,
 });
 
 export default RootReducer;

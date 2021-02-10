@@ -13,7 +13,7 @@ import {
   RESETPASSWORD_ERR,
 } from "./type";
 import axios from "axios";
-import { getMessage } from "./MessageAction";
+import { getMessage } from "./Message";
 
 export const checkAuth = () => {
   return async (dispatch) => {

@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { LikeBlog } from "../../../Redux/Action/BlogAction";
+import { LikeBlog } from "../../../Redux/Action/Blog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 function Card({ blog }) {

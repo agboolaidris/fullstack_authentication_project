@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useLogin from "./LoginHook";
-import { Login } from "../../../Redux/Action/AuthAction";
+import { Login } from "../../../Redux/Action/Auth";
 import { connect } from "react-redux";
 import Message from "../../../Utlits/Message";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

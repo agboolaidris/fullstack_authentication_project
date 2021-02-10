@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { fetch } from "../../../Redux/Action/BlogAction";
+import { fetch } from "../../../Redux/Action/Blog";
 import Card from "./card";
 
 function Dashboard() {

@@ -28,3 +28,7 @@ export const USER_FETCH = "USER-FETCH";
 export const PATCH = "PATCH-BLOG";
 export const DELETE = "DELETE-BLOG";
 export const BLOG_LIKE = "LIKE-UPDATE";
+
+//user
+export const FETCH_USER = "FETCH_USER";
+export const POST_USER = "POST-USER";

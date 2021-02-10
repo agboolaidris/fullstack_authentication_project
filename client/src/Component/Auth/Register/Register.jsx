@@ -3,7 +3,7 @@ import Facebook from "../Oauth/Facebook";
 import Google from "../Oauth/Google";
 import RegisterForm from "./registerForm";
 import { connect } from "react-redux";
-import { OauthRegister } from "../../../Redux/Action/AuthAction";
+import { OauthRegister } from "../../../Redux/Action/Auth";
 import Loading from "../../../Utlits/Loading";
 
 function Register({ OauthRegister }) {

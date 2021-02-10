@@ -1,57 +1,42 @@
-import {
-  USER_LOADING,
-  USER_LOADED,
-  USER_AUTH_ERR,
-  REGISTER_ERROR,
-  REGISTER_SUCCESSFUL,
-  LOGIN_ERROR,
-  LOGIN_SUCCESSFUL,
-  LOGOUT,
-  FORGETPASSWORD_ERR,
-  FORGETPASSWORD_SUCCESSFUL,
-} from "../Action/type";
+import * as type from "../Action/type";
 const initialState = {
   isLoading: false,
   isAuthenticated: false,
-  user: {},
 };
 
 const Auth = (state = initialState, action) => {
   switch (action.type) {
-    case USER_LOADING:
+    case type.USER_LOADING:
       return {
         ...state,
         isLoading: true,
       };
 
-    case USER_LOADED:
+    case type.USER_LOADED:
       return {
         ...state,
         isLoading: false,
         isAuthenticated: true,
-        user: action.payload.user,
       };
 
-    case REGISTER_SUCCESSFUL:
-    case LOGIN_SUCCESSFUL:
+    case type.REGISTER_SUCCESSFUL:
+    case type.LOGIN_SUCCESSFUL:
       return {
         ...state,
         isLoading: false,
         isAuthenticated: true,
-        user: action.payload.user,
       };
 
-    case USER_AUTH_ERR:
-    case REGISTER_ERROR:
-    case LOGIN_ERROR:
-    case LOGOUT:
-    case FORGETPASSWORD_ERR:
-    case FORGETPASSWORD_SUCCESSFUL:
+    case type.USER_AUTH_ERR:
+    case type.REGISTER_ERROR:
+    case type.LOGIN_ERROR:
+    case type.LOGOUT:
+    case type.FORGETPASSWORD_ERR:
+    case type.FORGETPASSWORD_SUCCESSFUL:
       return {
         ...state,
         isLoading: false,
         isAuthenticated: false,
-        user: {},
       };
     default:
       return state;

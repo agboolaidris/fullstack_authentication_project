@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
-import { clearMessage } from "../Redux/Action/MessageAction";
+import { clearMessage } from "../Redux/Action/Message";
 import { useHistory } from "react-router-dom";
 function Message({ clearMessage, msg, err, suc }) {
   const [Msg, setMsg] = useState("");
