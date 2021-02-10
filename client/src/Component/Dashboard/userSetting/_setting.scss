@@ -4,11 +4,14 @@
   margin-left: 25%;
   padding: 2em 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
 
   .profile {
-    width: 60%;
-    min-height: 50%;
+    width: 70%;
+    min-height: 80vh;
+    background: darken($color: $neutral, $amount: 20);
+    padding: 2em;
     .imgbx {
       background: gray;
       width: 300px;

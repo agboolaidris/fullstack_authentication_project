@@ -13,6 +13,10 @@ function Setting() {
           <div className="imgbx">
             <img alt="profile pic" scr={Profile.image && Profile.image} />
           </div>
+          <div>
+            <p>Agboola idris</p>
+            <p>Software developer</p>
+          </div>
         </div>
       )}
     </div>
