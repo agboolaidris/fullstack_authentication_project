@@ -3,19 +3,19 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieparser = require("cookie-parser");
 require("dotenv").config();
+const DEV = "mongodb://localhost:27017/authentication";
 
 //init mongoose
-mongoose.connect("mongodb://localhost:27017/authentication", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-mongoose.connection
-  .once("open", () => {
+mongoose.connect(
+  process.env.MONGODB_SECRET,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  () => {
     console.log("connected successful...........");
-  })
-  .on("error", () => {
-    console.log("error occur during the connection to database");
-  });
+  }
+);
 
 // init express
 const app = express();
