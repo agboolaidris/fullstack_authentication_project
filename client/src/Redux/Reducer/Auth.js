@@ -27,12 +27,8 @@ const Auth = (state = initialState, action) => {
         isAuthenticated: true,
       };
 
-    case type.USER_AUTH_ERR:
-    case type.REGISTER_ERROR:
-    case type.LOGIN_ERROR:
+    case type.AUTH_ERR:
     case type.LOGOUT:
-    case type.FORGETPASSWORD_ERR:
-    case type.FORGETPASSWORD_SUCCESSFUL:
       return {
         ...state,
         isLoading: false,

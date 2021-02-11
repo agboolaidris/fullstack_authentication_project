@@ -1,36 +1,16 @@
-import {
-  USER_LOADED,
-  LOGOUT,
-  USER_LOADING,
-  USER_AUTH_ERR,
-  REGISTER_SUCCESSFUL,
-  REGISTER_ERROR,
-  LOGIN_ERROR,
-  LOGIN_SUCCESSFUL,
-  FORGETPASSWORD_SUCCESSFUL,
-  FORGETPASSWORD_ERR,
-  RESETPASSWORD_SUCCESSFUL,
-  RESETPASSWORD_ERR,
-} from "./type";
-import axios from "axios";
+import * as type from "./type";
+import * as api from "../Api/Auth";
 import { getMessage } from "./Message";
 
 export const checkAuth = () => {
   return async (dispatch) => {
     try {
-      dispatch({ type: USER_LOADING });
-      axios
-        .get("/user/authenticated", {
-          withCredentials: true,
-        })
-        .then((res) => {
-          dispatch({ type: USER_LOADED, payload: res.data });
-        })
-        .catch((err) => {
-          dispatch({ type: USER_AUTH_ERR });
-        });
+      dispatch({ type: type.USER_LOADING });
+      const { data } = await api.Persitence();
+      dispatch({ type: type.USER_LOADED, payload: data });
     } catch (err) {
-      console.log(err.message);
+      dispatch({ type: type.USER_AUTH_ERR });
+      console.log(err.response);
     }
   };
 };
@@ -39,27 +19,16 @@ export const checkAuth = () => {
 export const Register = (user) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: USER_LOADING });
-      axios
-        .post("/user/register", user)
-        .then(() => {
-          dispatch({ type: USER_LOADING });
-          axios
-            .post("/user/login", user, { withCredentials: true })
-            .then((res) => {
-              dispatch({ type: REGISTER_SUCCESSFUL, payload: res.data });
-            })
-            .catch((err) => {
-              dispatch(getMessage(err.response, "REGISTERATION FAIL"));
-              dispatch({ type: REGISTER_ERROR });
-            });
-        })
-        .catch((err) => {
-          dispatch({ type: REGISTER_ERROR });
-          dispatch(getMessage(err.response, "REGISTERATION FAIL"));
-        });
+      dispatch({ type: type.USER_LOADING });
+      const { data } = await api.Register(user);
+      if (data) {
+        const { data } = await api.Login(user);
+        dispatch({ type: type.LOGIN_SUCCESSFUL, payload: data });
+      }
     } catch (err) {
-      dispatch(getMessage(err.message, "REGISTERATION FAIL"));
+      console.log(err.response);
+      dispatch({ type: type.LOGIN_ERROR });
+      dispatch(getMessage(err.response, "REGISTERATION FAIL"));
     }
   };
 };
@@ -68,126 +37,53 @@ export const Register = (user) => {
 export const Login = (user) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: USER_LOADING });
-      axios
-        .post("/user/login", user, {
-          withCredentials: true,
-        })
-        .then((res) => {
-          dispatch({ type: LOGIN_SUCCESSFUL, payload: res.data });
-        })
-        .catch((err) => {
-          dispatch({ type: LOGIN_ERROR });
-          dispatch(getMessage(err.response, "LOGIN FAIL"));
-        });
+      dispatch({ type: type.USER_LOADING });
+      const { data } = await api.Login(user);
+      dispatch({ type: type.LOGIN_SUCCESSFUL, payload: data });
     } catch (err) {
-      console.log(err.message);
+      dispatch({ type: type.LOGIN_ERROR });
+      dispatch(getMessage(err.response, "LOGIN FAIL"));
     }
   };
 };
 
-//oauthRegister Action
-export const OauthRegister = (user, id) => {
-  let data = {};
-  if (id === "FACEBOOK") {
-    data = {
-      username: user.name,
-      email: user.email,
-      password: user.id,
-      password2: user.id,
-    };
-  } else if (id === "GOOGLE") {
-    data = {
-      username: user.profileObj.name,
-      email: user.profileObj.email,
-      password: user.profileObj.googleId,
-      password2: user.profileObj.googleId,
-    };
-  } else {
-    data = {};
-  }
+// //oauthLogin Action
+// export const OauthLogin = (user, id) => {
+//   let data = {};
+//   if (id === "FACEBOOK") {
+//     data = {
+//       username: user.name,
+//       email: user.email,
+//       password: user.id,
+//       password2: user.id,
+//     };
+//   } else if (id === "GOOGLE") {
+//     console.log(user.mt);
+//     data = {
+//       username: user.profileObj.name,
+//       email: user.profileObj.email,
+//       password: user.profileObj.googleId,
+//       password2: user.profileObj.googleId,
+//     };
+//   } else {
+//     data = {};
+//   }
 
-  return async (dispatch) => {
-    try {
-      dispatch({ type: USER_LOADING });
-      axios
-        .post("/user/register", data)
-        .then((res) => {
-          dispatch({ type: USER_LOADING });
-          axios
-            .post("/user/login", data, { withCredentials: true })
-            .then((res) => {
-              dispatch({ type: REGISTER_SUCCESSFUL, payload: res.data });
-            })
-            .catch((err) => {
-              dispatch(getMessage(err.response, "REGISTERATION FAIL"));
-              dispatch({ type: REGISTER_ERROR });
-            });
-        })
-        .catch((err) => {
-          dispatch({ type: REGISTER_ERROR });
-          dispatch(getMessage(err.response, "REGISTERATION FAIL"));
-        });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-};
-
-//oauthLogin Action
-export const OauthLogin = (user, id) => {
-  let data = {};
-  if (id === "FACEBOOK") {
-    data = {
-      username: user.name,
-      email: user.email,
-      password: user.id,
-      password2: user.id,
-    };
-  } else if (id === "GOOGLE") {
-    console.log(user.mt);
-    data = {
-      username: user.profileObj.name,
-      email: user.profileObj.email,
-      password: user.profileObj.googleId,
-      password2: user.profileObj.googleId,
-    };
-  } else {
-    data = {};
-  }
-
-  return async (dispatch) => {
-    try {
-      dispatch({ type: USER_LOADING });
-      axios
-        .post("/user/login", data, { withCredentials: true })
-        .then((res) => {
-          dispatch({ type: LOGIN_SUCCESSFUL, payload: res });
-        })
-        .catch((err) => {
-          dispatch({ type: LOGIN_ERROR });
-          dispatch(getMessage(err.response, "LOGIN FAIL"));
-        });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-};
-
-//logout Action
+//   return async (dispatch) => {
+//     try {
+//       dispatch({ type: USER_LOADING });
+//       axios
+//         .post("/user/login", data, { withCredentials: true })
+//         .then((res) => {
+//           dispatch({ type: LOGIN_SUCCESSFUL, payload: res });
+//         })
+//         .catch(
 export const Logout = () => {
   return async (dispatch) => {
     try {
-      dispatch({ type: USER_LOADING });
-
-      axios
-        .get("/user/logout", { withCredentials: true })
-        .then((res) => {
-          dispatch({ type: LOGOUT });
-        })
-        .catch((err) => {
-          console.log(err.message);
-        });
+      dispatch({ type: type.USER_LOADING });
+      const { data } = await api.Logout();
+      dispatch({ type: type.LOGOUT, payload: data });
     } catch (err) {
       console.log(err.message);
     }
@@ -195,45 +91,33 @@ export const Logout = () => {
 };
 
 // Forgetpassword Action
-
 export const ForgetPassword = (email) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: USER_LOADING });
-      axios
-        .post("user/forgetpassword", email)
-        .then((res) => {
-          dispatch(getMessage(res, "FORGETPASSWORD SUCCESSFUL"));
-          dispatch({ type: FORGETPASSWORD_SUCCESSFUL });
-        })
-        .catch((err) => {
-          dispatch({ type: FORGETPASSWORD_ERR });
-          dispatch(getMessage(err.response, "FORGETPASSWORD ERROR"));
-        });
+      dispatch({ type: type.USER_LOADING });
+      const { data } = await api.Forgetpassword(email);
+      dispatch(getMessage(data, "FORGETPASSWORD SUCCESSFUL"));
+      dispatch({ type: type.FORGETPASSWORD_SUCCESSFUL });
     } catch (err) {
       console.log(err.message);
+      dispatch({ type: type.FORGETPASSWORD_ERR });
+      dispatch(getMessage(err.response, "FORGETPASSWORD ERROR"));
     }
   };
 };
 
 //Resetpassword Action
-
 export const ResetPassword = (user, params) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: USER_LOADING });
-      axios
-        .put(`/user/resetpassword/${params}`, user)
-        .then((res) => {
-          dispatch({ type: RESETPASSWORD_SUCCESSFUL });
-          dispatch(getMessage(res, "RESETPASSWORD SUCCESSFUL"));
-        })
-        .catch((err) => {
-          dispatch({ type: RESETPASSWORD_ERR });
-          dispatch(getMessage(err.response, "RESETPASSWORD FAIL"));
-        });
+      dispatch({ type: type.USER_LOADING });
+      const { data } = await api.Resetpassword(params, user);
+      dispatch({ type: type.RESETPASSWORD_SUCCESSFUL, payload: data });
+      dispatch(getMessage(data, "RESETPASSWORD SUCCESSFUL"));
     } catch (err) {
       console.log(err.message);
+      dispatch({ type: type.RESETPASSWORD_ERR });
+      dispatch(getMessage(err.response, "RESETPASSWORD FAIL"));
     }
   };
 };

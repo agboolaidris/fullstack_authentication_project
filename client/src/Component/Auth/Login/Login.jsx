@@ -1,11 +1,8 @@
 import React from "react";
-import Facebook from "../Oauth/Facebook";
-import Google from "../Oauth/Google";
 import LoginForm from "./loginForm";
-import { connect } from "react-redux";
-import { OauthLogin } from "../../../Redux/Action/Auth";
 import Loading from "../../../Utlits/Loading";
-function Login({ OauthLogin }) {
+
+function Login() {
   return (
     <>
       <Loading />
@@ -16,10 +13,7 @@ function Login({ OauthLogin }) {
         <div className="login-social">
           <div>
             <p>Login with</p>
-            <div className="social">
-              <Facebook Oauth={OauthLogin} />
-              <Google Oauth={OauthLogin} />
-            </div>
+            <div className="social"></div>
           </div>
         </div>
       </div>
@@ -27,4 +21,4 @@ function Login({ OauthLogin }) {
   );
 }
 
-export default connect(null, { OauthLogin })(Login);
+export default Login;

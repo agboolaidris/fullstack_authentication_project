@@ -3,11 +3,12 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieparser = require("cookie-parser");
 require("dotenv").config();
-const DEV = "mongodb://localhost:27017/authentication";
+const URL = "mongodb://localhost:27017/authentication";
+// : process.env.MONGODB_SECRET;
 
 //init mongoose
 mongoose.connect(
-  process.env.MONGODB_SECRET,
+  URL,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -37,8 +38,9 @@ app.use(express.json({ limit: "30mb", extended: false }));
 app.use(express.urlencoded({ extended: false }));
 
 //router
-app.use("/user", require("./Route/UserRoute"));
-app.use("/blog", require("./Route/BlogRoute"));
+app.use("/auth", require("./Route/Auth"));
+app.use("/blog", require("./Route/Blog"));
+app.use("/user", require("./Route/User"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
