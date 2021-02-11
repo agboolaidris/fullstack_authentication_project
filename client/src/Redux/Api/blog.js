@@ -1,9 +1,6 @@
 import axios from "axios";
 
-const URL =
-  process.env.NODE_ENV === "development"
-    ? "http:localhost:5000/blog"
-    : `https://irisblogserver.herokuapp.com/blog`;
+const URL = `https://irisblogserver.herokuapp.com/blog`;
 
 export const Post = (blog) => axios.post(URL, blog, { withCredentials: true });
 
