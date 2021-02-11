@@ -27,7 +27,6 @@ const Auth = (state = initialState, action) => {
         isAuthenticated: true,
       };
 
-    case type.AUTH_ERR:
     case type.LOGOUT:
       return {
         ...state,

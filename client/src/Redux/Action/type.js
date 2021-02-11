@@ -1,19 +1,18 @@
 export const USER_LOADING = "USER_LOADING";
 
 export const USER_LOADED = "USER_LOADED";
-export const AUTH_ERR = "USER_AUTH_ERR";
 
 export const REGISTER_SUCCESSFUL = "REGISTER_SUCCESSFUL";
 export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
 
-export const GET_MESSAGE = "GET_MESSAGE";
-export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
-
 export const LOGOUT = "LOGOUT";
 
 export const FORGETPASSWORD_SUCCESSFUL = "FORGET_PASSWORD_SUCCESSFUL";
-
 export const RESETPASSWORD_SUCCESSFUL = "RESET_PASSWORD_SUCCESSFUL";
+
+//message
+export const GET_MESSAGE = "GET_MESSAGE";
+export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 
 // blog types
 export const POST = "POST-BLOG";
