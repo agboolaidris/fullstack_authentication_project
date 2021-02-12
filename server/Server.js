@@ -18,23 +18,21 @@ mongoose.connect(
 
 // init express
 const app = express();
+app.set("trust proxy", 1);
+//cokieparser
+app.use(cookieparser());
+//body parser
+app.use(express.json({ limit: "30mb", extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 //cross origin resource sharing
 app.use(
   cors({
-    //origin: "https://localhost:3000",
-    origin: "https://iris-blog.herokuapp.com",
+    origin: ["https://iris-blog.herokuapp.com", "https://localhost:3000"],
     credentials: true,
     exposedHeaders: ["access-token"],
   })
 );
-
-//cokieparser
-app.use(cookieparser());
-
-//body parser
-app.use(express.json({ limit: "30mb", extended: false }));
-app.use(express.urlencoded({ extended: false }));
 
 //router
 app.use("/auth", require("./Route/Auth"));
