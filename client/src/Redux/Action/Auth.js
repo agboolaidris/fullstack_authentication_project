@@ -36,9 +36,11 @@ export const Login = (user) => {
   return async (dispatch) => {
     try {
       dispatch({ type: type.USER_LOADING });
-      const { data } = await api.Login(user);
-      dispatch({ type: type.LOGIN_SUCCESSFUL, payload: data });
+      const res = await api.Login(user);
+      console.log(res);
+      dispatch({ type: type.LOGIN_SUCCESSFUL, payload: res.data });
     } catch (err) {
+      console.log(err);
       dispatch({ type: type.LOGOUT });
       dispatch(getMessage(err.response, "LOGIN FAIL"));
     }

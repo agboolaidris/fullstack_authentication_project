@@ -26,9 +26,10 @@ const Login = async (req, res) => {
     const access_token = await signToken(user._id);
     return res
       .cookie("access-token", access_token, {
-        httpOnly: true,
-        sameSite: true,
+        domain: "https://iris-blog.herokuapp.com",
         expires: new Date("21 july 2023"),
+        httpOnly: true,
+        secure: req.secure || req.headers["x-forwarded-proto"] === "https",
       })
       .json({ msg: "successful" });
   } catch (err) {

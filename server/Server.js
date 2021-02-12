@@ -22,7 +22,7 @@ const app = express();
 //cross origin resource sharing
 app.use(
   cors({
-    // origin: "https://localhost:3000",
+    //origin: "https://localhost:3000",
     origin: "https://iris-blog.herokuapp.com",
     credentials: true,
     exposedHeaders: ["access-token"],
