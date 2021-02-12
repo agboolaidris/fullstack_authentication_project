@@ -3,11 +3,10 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieparser = require("cookie-parser");
 require("dotenv").config();
-const URL = process.env.MONGODB_SECRET;
 
 //init mongoose
 mongoose.connect(
-  URL,
+  process.env.MONGODB_SECRET,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -23,6 +22,7 @@ const app = express();
 //cross origin resource sharing
 app.use(
   cors({
+    // origin: "https://localhost:3000",
     origin: "https://iris-blog.herokuapp.com",
     credentials: true,
     exposedHeaders: ["access-token"],
