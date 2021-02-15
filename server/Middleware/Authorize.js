@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
-const verifyToken = (token) => {
-  const id = jwt.verify(token, process.env.JWT_SECRET);
+const verifyToken = async (token) => {
+  const id = await jwt.verify(token, process.env.JWT_SECRET);
   return id;
 };
 

@@ -3,8 +3,9 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 //handle the cookie token
-const signToken = (userID) => {
-  return jwt.sign(userID.toJSON(), process.env.JWT_SECRET);
+const signToken = async (userID) => {
+  const jwt = await jwt.sign(userID.toJSON(), process.env.JWT_SECRET);
+  return jwt;
 };
 
 const Login = async (req, res) => {
