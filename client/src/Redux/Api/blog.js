@@ -1,7 +1,7 @@
 import axios from "axios";
 
-//const URL = `https://serverblog.herokuapp.com/blog`;
-const URL = `http://localhost:5000/blog`;
+const URL = `https://serverblog.herokuapp.com/blog`;
+//const URL = `http://localhost:5000/blog`;
 export const Post = (blog) => axios.post(URL, blog, { withCredentials: true });
 
 export const Fetch = () => axios.get(URL, { withCredentials: true });

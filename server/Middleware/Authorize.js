@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 
 const verifyToken = (token) => {
-  const id = jwt.verify(token, process.env.JWT_SECRET);
-  return id;
+  const data = jwt.verify(token, process.env.JWT_SECRET);
+  return data.id;
 };
 
 const Authorize = (req, res, next) => {
@@ -15,7 +15,6 @@ const Authorize = (req, res, next) => {
     return res.status({ msg: "error occur during the process" });
   }
   req.userID = id;
-  console.log(id);
   next();
 };
 

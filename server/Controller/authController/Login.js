@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 //handle the cookie token
 const signToken = (userID) => {
-  return jwt.sign(userID.toJSON(), process.env.JWT_SECRET);
+  return jwt.sign(userID, process.env.JWT_SECRET);
 };
 
 const Login = async (req, res) => {
@@ -23,8 +23,8 @@ const Login = async (req, res) => {
       return res.status(400).json({ msg: "email or password does not match" });
     }
 
-    const access_token = await signToken(user._id);
-    console.log(access_token);
+    const access_token = await signToken({ id: user._id });
+
     return res
       .cookie("access-token", access_token, {
         expires: new Date("21 july 2023"),
