@@ -23,16 +23,17 @@ const app = express();
 app.use(
   cors({
     origin: ["iris-blog.herokuapp.com", "https://localhost:3000"],
-    exposedHeaders: ["access-token"],
     credentials: true,
+    exposedHeaders: ["access-token"],
   })
 );
 
-//cokieparser
-app.use(cookieparser());
 //body parser
 app.use(express.json({ limit: "30mb", extended: false }));
 app.use(express.urlencoded({ extended: false }));
+
+//cokieparser
+app.use(cookieparser());
 
 //router
 app.use("/auth", require("./Route/Auth"));

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const URL = `/auth`;
-
+const as = axios.create({ baseURL: "/auth" });
 export const Login = (data) =>
   axios.post(`${URL}/login`, data, { withCredentials: true });
 
