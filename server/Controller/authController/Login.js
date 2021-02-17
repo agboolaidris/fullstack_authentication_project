@@ -28,9 +28,9 @@ const Login = async (req, res) => {
     return res
       .cookie("access-token", access_token, {
         expires: new Date("21 july 2023"),
-        secure: process.env.NODE_ENV === "production",
+        httpOnly: true,
       })
-      .json({ msg: "successful" });
+      .json({ msg: "successful", access_token });
   } catch (err) {
     res.status(401).json({ msg: err.message });
   }

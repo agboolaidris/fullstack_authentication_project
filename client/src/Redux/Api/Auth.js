@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const URL = `https://serverblog.herokuapp.com/auth`;
-//const URL = `http://localhost:5000/auth`;
+const URL = `/auth`;
+
 export const Login = (data) =>
   axios.post(`${URL}/login`, data, { withCredentials: true });
 
