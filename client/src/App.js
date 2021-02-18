@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {isAuthenticated && <Navbar />}
+        <Navbar />
         <ToastContainer />
         <UnProtected />
         <Protected />

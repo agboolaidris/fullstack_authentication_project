@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = `/user`;
+const URL = `/api/user`;
 
 export const FETCH = () => axios.get(URL, { withCredentials: true });
 export const PATCH = (data) =>

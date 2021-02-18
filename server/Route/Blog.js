@@ -9,7 +9,7 @@ const LikeBlog = require("../Controller/BlogController/LIkeBlog");
 
 //Route
 Route.post("/", [Authorize], POST);
-Route.get("/", [Authorize], GET);
+Route.get("/", GET);
 Route.patch("/:id", [Authorize], UPDATE);
 Route.delete("/:id", [Authorize], DELETE);
 Route.patch("/:id/user", [Authorize], LikeBlog);

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = `/blog`;
+const URL = `/api/blog`;
 
 export const Post = (blog) => axios.post(URL, blog, { withCredentials: true });
 

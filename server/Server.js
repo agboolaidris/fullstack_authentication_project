@@ -36,9 +36,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieparser());
 
 //router
-app.use("/auth", require("./Route/Auth"));
-app.use("/blog", require("./Route/Blog"));
-app.use("/user", require("./Route/User"));
+app.use("/api/auth", require("./Route/Auth"));
+app.use("/api/blog", require("./Route/Blog"));
+app.use("/api/user", require("./Route/User"));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
