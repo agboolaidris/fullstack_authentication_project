@@ -10,10 +10,9 @@ function Login() {
         <div className="login-form">
           <LoginForm />
         </div>
-        <div className="login-social">
+        <div className="info">
           <div>
-            <p>Login with</p>
-            <div className="social"></div>
+            <p>Share your intrest</p>
           </div>
         </div>
       </div>

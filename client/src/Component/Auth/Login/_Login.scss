@@ -95,7 +95,7 @@
     }
   }
 
-  .login-social {
+  .info {
     background: $primary;
     grid-column: 1/4;
     grid-row: 2/4;
@@ -103,32 +103,12 @@
     border-radius: 30px;
     div {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       height: 100%;
-      padding: 0 1em;
+
       p {
-        width: 40%;
         color: $secondary;
-      }
-
-      .social {
-        display: flex;
-        justify-content: space-between;
-        width: 60%;
-        button {
-          outline: none;
-          background: none;
-          border: none;
-          color: $primary2;
-          transition: all 0.5s ease-in-out;
-        }
-
-        button:hover,
-        button:focus {
-          color: $neutral;
-          cursor: pointer;
-        }
       }
     }
   }

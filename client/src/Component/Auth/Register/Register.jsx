@@ -13,10 +13,9 @@ function Register() {
             <RegisterForm />
           </div>
         </div>
-        <div className="register-social">
+        <div className="info">
           <div>
-            <p>Register with</p>
-            <div className="social">LET SHARE OUR STORY</div>
+            <p>Share your story</p>
           </div>
         </div>
       </div>
