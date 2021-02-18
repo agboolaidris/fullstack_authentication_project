@@ -5,13 +5,12 @@ import {
   faHome,
   faBlog,
   faHeart,
-  faStickyNote,
   faChartLine,
   faCog,
   faPencilAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Nav({ handleHarmburger }) {
+function Client({ handleHarmburger }) {
   return (
     <ul className={"nav"}>
       <li onClick={handleHarmburger} onClick={handleHarmburger}>
@@ -43,4 +42,4 @@ function Nav({ handleHarmburger }) {
   );
 }
 
-export default Nav;
+export default Client;
