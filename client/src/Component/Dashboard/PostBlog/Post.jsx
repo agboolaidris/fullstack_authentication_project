@@ -33,6 +33,7 @@ function Post() {
       ) : (
         <>
           <form onSubmit={handleSubmit}>
+            <span className="title">Post Blog</span>
             <div>
               <label>Title</label>
               <input

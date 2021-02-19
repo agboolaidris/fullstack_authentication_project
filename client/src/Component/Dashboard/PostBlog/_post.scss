@@ -7,6 +7,12 @@
   justify-content: center;
   form {
     width: 80%;
+    .title {
+      text-align: center;
+      display: block;
+      margin: 0 auto;
+      font-size: 30px;
+    }
     div {
       width: 100%;
       margin-top: 0.5em;
@@ -29,7 +35,8 @@
         display: block;
       }
       button {
-        border: 1px solid $secondary;
+        border: none;
+        outline: none;
         background: $secondary;
         color: $neutral;
         width: 100px;
@@ -39,7 +46,7 @@
         transition: all 1s ease-out;
       }
       button:hover {
-        background: none;
+        background: $primary;
       }
     }
   }

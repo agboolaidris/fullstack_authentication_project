@@ -27,10 +27,12 @@ export const fetch = () => {
   };
 };
 
-export const patch = (id, blog) => {
+export const patch = (id, blog, history) => {
   return async (dispatch) => {
+    dispatch({ type: type.LOADING });
     try {
       const data = await api.Patch(id, blog);
+      history.push("/user/blogs");
       dispatch({ type: type.PATCH, payload: data });
     } catch (err) {
       console.log(err.message);
@@ -52,6 +54,7 @@ export const userFetch = () => {
 
 export const Delete = (id) => {
   return async (dispatch) => {
+    dispatch({ type: type.LOADING });
     try {
       const { data } = await api.Delete(id);
       dispatch({ type: type.DELETE, payload: data });
