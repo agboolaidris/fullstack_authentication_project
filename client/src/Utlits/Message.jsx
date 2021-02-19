@@ -27,7 +27,7 @@ function Message({ clearMessage, msg, err, suc }) {
     >
       {Msg}
       <span onClick={() => clearMessage()}>
-        <FontAwesomeIcon icon={faTimes} />{" "}
+        <FontAwesomeIcon icon={faTimes} />
       </span>
     </span>
   );
