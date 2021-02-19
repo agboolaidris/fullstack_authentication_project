@@ -6,13 +6,13 @@ const initialState = {
 
 const Auth = (state = initialState, action) => {
   switch (action.type) {
-    case type.USER_LOADING:
+    case type.LOADING:
       return {
         ...state,
         isLoading: true,
       };
 
-    case type.USER_LOADED:
+    case type.LOADED:
       return {
         ...state,
         isLoading: false,

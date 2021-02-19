@@ -6,7 +6,7 @@ import Loading from "../../../Utlits/Loading";
 function Login() {
   const isLoading = useSelector((state) => state.Auth.isLoading);
   return (
-    <div className="login">
+    <div className={isLoading ? "no-login" : "login"}>
       {isLoading ? (
         <Loading />
       ) : (

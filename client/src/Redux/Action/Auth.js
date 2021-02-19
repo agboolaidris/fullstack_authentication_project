@@ -5,9 +5,9 @@ import { getMessage } from "./Message";
 export const checkAuth = () => {
   return async (dispatch) => {
     try {
-      dispatch({ type: type.USER_LOADING });
+      dispatch({ type: type.LOADING });
       const { data } = await api.Persitence();
-      dispatch({ type: type.USER_LOADED, payload: data });
+      dispatch({ type: type.LOADED, payload: data });
     } catch (err) {
       dispatch({ type: type.LOGOUT });
     }
@@ -18,7 +18,7 @@ export const checkAuth = () => {
 export const Register = (user) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: type.USER_LOADING });
+      dispatch({ type: type.LOADING });
       const { data } = await api.Register(user);
       if (data) {
         const { data } = await api.Login(user);
@@ -35,12 +35,10 @@ export const Register = (user) => {
 export const Login = (user) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: type.USER_LOADING });
-      const res = await api.Login(user);
-      console.log(res);
-      dispatch({ type: type.LOGIN_SUCCESSFUL, payload: res.data });
+      dispatch({ type: type.LOADING });
+      const { data } = await api.Login(user);
+      dispatch({ type: type.LOGIN_SUCCESSFUL, payload: data });
     } catch (err) {
-      console.log(err);
       dispatch({ type: type.LOGOUT });
       dispatch(getMessage(err.response, "LOGIN FAIL"));
     }
@@ -51,7 +49,7 @@ export const Login = (user) => {
 export const Logout = () => {
   return async (dispatch) => {
     try {
-      dispatch({ type: type.USER_LOADING });
+      dispatch({ type: type.LOADING });
       const { data } = await api.Logout();
       dispatch({ type: type.LOGOUT, payload: data });
     } catch (err) {
@@ -64,12 +62,13 @@ export const Logout = () => {
 export const ForgetPassword = (email) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: type.USER_LOADING });
+      dispatch({ type: type.LOADING });
       const { data } = await api.Forgetpassword(email);
+
       dispatch(getMessage(data, "FORGETPASSWORD SUCCESSFUL"));
+
       dispatch({ type: type.FORGETPASSWORD_SUCCESSFUL });
     } catch (err) {
-      console.log(err.message);
       dispatch({ type: type.LOGOUT });
       dispatch(getMessage(err.response, "FORGETPASSWORD ERROR"));
     }
@@ -80,7 +79,7 @@ export const ForgetPassword = (email) => {
 export const ResetPassword = (user, params) => {
   return async (dispatch) => {
     try {
-      dispatch({ type: type.USER_LOADING });
+      dispatch({ type: type.LOADING });
       const { data } = await api.Resetpassword(params, user);
       dispatch({ type: type.RESETPASSWORD_SUCCESSFUL, payload: data });
       dispatch(getMessage(data, "RESETPASSWORD SUCCESSFUL"));

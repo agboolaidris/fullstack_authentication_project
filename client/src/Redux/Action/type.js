@@ -1,6 +1,6 @@
-export const USER_LOADING = "USER_LOADING";
+export const LOADING = "LOADING";
 
-export const USER_LOADED = "USER_LOADED";
+export const LOADED = "USER_LOADED";
 
 export const REGISTER_SUCCESSFUL = "REGISTER_SUCCESSFUL";
 export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";

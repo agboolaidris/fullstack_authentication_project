@@ -14,6 +14,7 @@ export const post = (blog) => {
 
 export const fetch = () => {
   return async (dispatch) => {
+    dispatch({ type: type.LOADING });
     try {
       const { data } = await api.Fetch();
 

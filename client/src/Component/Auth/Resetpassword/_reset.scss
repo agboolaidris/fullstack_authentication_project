@@ -4,7 +4,11 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(to right, $primary, $primary2);
+  background: linear-gradient(
+    to right,
+    $primary,
+    lighten($color: $primary, $amount: 30)
+  );
 
   .reset-form {
     width: 400px;

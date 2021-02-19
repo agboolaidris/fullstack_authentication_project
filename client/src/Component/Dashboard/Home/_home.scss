@@ -1,16 +1,7 @@
 .no-blog {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
   width: 75%;
-  min-height: 100vh;
+  height: 100vh;
   margin-left: 25%;
-  color: $primary;
-
-  div {
-    color: $primary;
-  }
 }
 .dashboard {
   width: 75%;

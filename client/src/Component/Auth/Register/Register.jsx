@@ -7,7 +7,7 @@ function Register() {
   const isLoading = useSelector((state) => state.Auth.isLoading);
   return (
     <>
-      <div className="register">
+      <div className={isLoading ? "no-register" : "register"}>
         {isLoading ? (
           <Loading />
         ) : (

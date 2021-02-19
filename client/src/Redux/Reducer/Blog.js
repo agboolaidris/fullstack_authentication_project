@@ -4,13 +4,20 @@ import { toast } from "react-toastify";
 const initialState = {
   userBlogs: [],
   blogs: [],
+  isLoading: false,
 };
 const Blog = (state = initialState, action) => {
   switch (action.type) {
+    case type.LOADING:
+      return {
+        ...state,
+        isLoading: true,
+      };
     case type.FETCH:
       return {
         ...state,
         blogs: action.payload,
+        isLoading: false,
       };
       break;
 
