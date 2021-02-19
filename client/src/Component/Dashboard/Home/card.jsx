@@ -1,9 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { LikeBlog } from "../../../Redux/Action/Blog";
+import { LikeBlog, SaveBlog } from "../../../Redux/Action/Blog";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faSave } from "@fortawesome/free-solid-svg-icons";
+
 function Card({ blog }) {
   const Dispatch = useDispatch();
   return (
@@ -26,7 +27,7 @@ function Card({ blog }) {
             <FontAwesomeIcon icon={faThumbsUp} />
             &nbsp;{blog.like.length}
           </button>
-          <button>
+          <button onClick={() => Dispatch(SaveBlog(blog._id))}>
             <FontAwesomeIcon icon={faSave} /> &nbsp; save
           </button>
         </div>

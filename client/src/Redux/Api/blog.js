@@ -15,5 +15,8 @@ export const Patch = (id, blog) =>
 export const Delete = (id) =>
   axios.delete(`${URL}/${id}`, { withCredentials: true });
 
-export const LikeCount = (id) =>
+export const LikeBlog = (id) =>
   axios.patch(`${URL}/${id}/user`, {}, { withCredentials: true });
+
+export const SaveBlog = (id) =>
+  axios.patch(`${URL}/${id}/save`, {}, { withCredentials: true });

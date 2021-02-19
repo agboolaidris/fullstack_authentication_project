@@ -16,12 +16,14 @@ export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 
 // blog types
 export const POST = "POST-BLOG";
-export const POST_ERROR = "POST-ERROR";
+export const ERROR = "POST-ERROR";
 export const FETCH = "FETCH-BLOG";
 export const USER_FETCH = "USER-FETCH";
 export const PATCH = "PATCH-BLOG";
 export const DELETE = "DELETE-BLOG";
-export const BLOG_LIKE = "LIKE-UPDATE";
+export const BLOG_LIKE = "BLOG-LIKE";
+export const BLOG_SAVE = "BLOG-SAVE";
+export const BLOG_SAVE_ERR = "BLOG-SAVE-ERR";
 
 //user
 export const FETCH_USER = "FETCH_USER";

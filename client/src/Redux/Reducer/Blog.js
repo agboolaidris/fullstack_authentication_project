@@ -13,6 +13,7 @@ const Blog = (state = initialState, action) => {
         ...state,
         isLoading: true,
       };
+
     case type.FETCH:
       return {
         ...state,
@@ -44,15 +45,6 @@ const Blog = (state = initialState, action) => {
       };
       break;
 
-    case type.POST_ERROR:
-      toast.error("An error occur");
-      return {
-        ...state,
-        isLoading: false,
-      };
-
-      break;
-
     case type.USER_FETCH:
       return {
         ...state,
@@ -72,6 +64,7 @@ const Blog = (state = initialState, action) => {
         isLoading: false,
       };
       break;
+
     case type.BLOG_LIKE:
       return {
         ...state,
@@ -81,6 +74,25 @@ const Blog = (state = initialState, action) => {
         isLoading: false,
       };
       break;
+
+    case type.BLOG_SAVE:
+      toast.success(action.payload.msg);
+      return {
+        ...state,
+      };
+    case type.BLOG_SAVE_ERR:
+      toast.error(action.payload.msg);
+      return {
+        ...state,
+      };
+    case type.ERROR:
+      toast.error("An error occur");
+      return {
+        ...state,
+        isLoading: false,
+      };
+      break;
+
     default:
       return state;
       break;

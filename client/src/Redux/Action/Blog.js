@@ -9,7 +9,7 @@ export const post = (blog, history) => {
       dispatch({ type: type.POST, payload: data });
       history.push("/");
     } catch (err) {
-      dispatch({ type: type.POST_ERROR, payload: err.message.msg });
+      dispatch({ type: type.ERROR, payload: err.message.msg });
     }
   };
 };
@@ -67,10 +67,21 @@ export const Delete = (id) => {
 export const LikeBlog = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await api.LikeCount(id);
+      const { data } = await api.LikeBlog(id);
       dispatch({ type: type.BLOG_LIKE, payload: data });
     } catch (err) {
       console.log(err.response);
+    }
+  };
+};
+
+export const SaveBlog = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await api.SaveBlog(id);
+      dispatch({ type: type.BLOG_SAVE, payload: data });
+    } catch (error) {
+      dispatch({ type: type.BLOG_SAVE_ERR, payload: error.response.data });
     }
   };
 };

@@ -24,7 +24,6 @@ const Login = async (req, res) => {
     }
 
     const access_token = await signToken(user._id);
-
     return res
       .cookie("access-token", access_token, {
         expires: new Date("21 july 2023"),

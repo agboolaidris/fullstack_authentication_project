@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import Protected from "./Route/Protected/index";
 import UnProtected from "./Route/Unprotected/index";
 import Navbar from "./Component/Layout/Navbar/Navbar";
+import ScrollToTop from "./Route/ScrollToTop";
 
 function App() {
   const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
@@ -19,6 +20,8 @@ function App() {
       <BrowserRouter>
         {isAuthenticated && <Navbar />}
         <ToastContainer />
+        <ScrollToTop />
+
         <UnProtected />
         <Protected />
       </BrowserRouter>

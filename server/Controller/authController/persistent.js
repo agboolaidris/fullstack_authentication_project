@@ -5,6 +5,7 @@ const Persistent = async (req, res) => {
     if (!user) {
       return res.status(401).json({ msg: "unathorized" });
     }
+
     return res.json({ msg: "authorized" });
   } catch (err) {
     res.status(401).json({ msg: err.message });
