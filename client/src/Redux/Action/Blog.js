@@ -3,6 +3,7 @@ import * as type from "./type";
 
 export const post = (blog, history) => {
   return async (dispatch) => {
+    dispatch({ type: type.LOADING });
     try {
       const { data } = await api.Post(blog);
       dispatch({ type: type.POST, payload: data });
