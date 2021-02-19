@@ -1,8 +1,3 @@
-.no-blog {
-  width: 75%;
-  height: 100vh;
-  margin-left: 25%;
-}
 .dashboard {
   width: 75%;
   min-height: 100vh;
@@ -79,17 +74,8 @@
     padding: 1em;
     grid-template-columns: repeat(2, 1fr);
   }
-  .no-blog {
-    margin-left: 30%;
-    width: 70%;
-  }
 }
 @media only screen and (max-width: 576px) {
-  .no-blog {
-    margin-top: 8vh;
-    margin-left: 0;
-    width: 100%;
-  }
   .dashboard {
     margin-top: 8vh;
     margin-left: 0;

@@ -26,6 +26,7 @@ const Blog = (state = initialState, action) => {
       return {
         ...state,
         blogs: [...state.blogs, action.payload],
+        isLoading: false,
       };
       break;
 
@@ -39,18 +40,24 @@ const Blog = (state = initialState, action) => {
         userBlogs: state.userBlogs.map((blog) =>
           blog._id === action.payload._id ? action.payload : blog
         ),
+        isLoading: false,
       };
       break;
 
     case type.POST_ERROR:
       toast.error("An error occur");
-      return state;
+      return {
+        ...state,
+        isLoading: false,
+      };
+
       break;
 
     case type.USER_FETCH:
       return {
         ...state,
         userBlogs: action.payload,
+        isLoading: false,
       };
       break;
 
@@ -62,6 +69,7 @@ const Blog = (state = initialState, action) => {
           (blog) => blog._id !== action.payload._id
         ),
         blogs: state.blogs.filter((blog) => blog._id !== action.payload._id),
+        isLoading: false,
       };
       break;
     case type.BLOG_LIKE:
@@ -70,6 +78,7 @@ const Blog = (state = initialState, action) => {
         blogs: state.blogs.map((blog) =>
           blog._id === action.payload._id ? action.payload : blog
         ),
+        isLoading: false,
       };
       break;
     default:

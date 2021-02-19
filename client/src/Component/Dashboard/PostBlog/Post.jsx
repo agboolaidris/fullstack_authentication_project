@@ -20,8 +20,7 @@ function Post() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    Dispatch(post(state));
-    history.push("/");
+    Dispatch(post(state, history));
   };
   return (
     <div className="post">

@@ -45,19 +45,36 @@ html {
 .msg-none {
   display: none;
 }
-
-.not-loading {
-  display: none;
+.no-blog {
+  width: 75%;
+  height: 100vh;
+  margin-left: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 992px) {
+  .no-blog {
+    margin-left: 30%;
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .no-blog {
+    margin-top: 8vh;
+    margin-left: 0%;
+    width: 100%;
+    height: 92vh;
+  }
 }
 
 .isloading {
   display: flex;
-  width: inherit;
-  min-height: inherit;
-  height: inherit;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
-  background: $neutral;
+
   span {
     display: block;
     width: 200px;

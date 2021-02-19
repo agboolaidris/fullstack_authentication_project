@@ -1,11 +1,12 @@
 import * as api from "../Api/blog";
 import * as type from "./type";
 
-export const post = (blog) => {
+export const post = (blog, history) => {
   return async (dispatch) => {
     try {
       const { data } = await api.Post(blog);
       dispatch({ type: type.POST, payload: data });
+      history.push("/");
     } catch (err) {
       dispatch({ type: type.POST_ERROR, payload: err.message.msg });
     }
@@ -38,6 +39,7 @@ export const patch = (id, blog) => {
 
 export const userFetch = () => {
   return async (dispatch) => {
+    dispatch({ type: type.LOADING });
     try {
       const { data } = await api.userFetch();
       dispatch({ type: type.USER_FETCH, payload: data });
