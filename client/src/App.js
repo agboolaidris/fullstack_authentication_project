@@ -19,7 +19,13 @@ function App() {
     <div className="App">
       <BrowserRouter>
         {isAuthenticated && <Navbar />}
-        <ToastContainer />
+        <ToastContainer
+          position="top-center"
+          hideProgressBar="true"
+          pauseOnHover="true"
+          draggable
+          className="notification"
+        />
         <ScrollToTop />
 
         <UnProtected />

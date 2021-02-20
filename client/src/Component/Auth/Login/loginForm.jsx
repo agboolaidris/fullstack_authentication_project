@@ -5,14 +5,13 @@ import { Login } from "../../../Redux/Action/Auth";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 function LoginForm({ Login }) {
   const { state, handleChange, handleSubmit } = useLogin(Login);
   return (
     <div className="div">
       <h1>SIGN IN</h1>
-      <ToastContainer />
+
       <form onSubmit={handleSubmit}>
         <div className="input">
           <label htmlFor="email">
