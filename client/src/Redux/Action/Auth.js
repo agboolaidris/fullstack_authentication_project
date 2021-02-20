@@ -10,6 +10,7 @@ export const checkAuth = () => {
       dispatch({ type: type.LOADED, payload: data });
     } catch (err) {
       dispatch({ type: type.LOGOUT });
+      console.log(err.response);
     }
   };
 };
@@ -34,13 +35,13 @@ export const Register = (user) => {
 //login Action
 export const Login = (user) => {
   return async (dispatch) => {
+    dispatch({ type: type.LOADING });
     try {
-      dispatch({ type: type.LOADING });
       const { data } = await api.Login(user);
       dispatch({ type: type.LOGIN_SUCCESSFUL, payload: data });
     } catch (err) {
-      dispatch({ type: type.LOGOUT });
-      dispatch(getMessage(err.response, "LOGIN FAIL"));
+      dispatch({ type: type.LOGOUT, payload: err.response.data });
+      console.log(err.response.data);
     }
   };
 };

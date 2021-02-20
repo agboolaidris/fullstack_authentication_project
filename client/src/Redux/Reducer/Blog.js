@@ -77,7 +77,6 @@ const Blog = (state = initialState, action) => {
 
     case type.BLOG_SAVE:
       toast.success("blog have been save");
-      console.log(action.payload);
       return {
         ...state,
       };

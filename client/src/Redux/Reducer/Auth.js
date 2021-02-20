@@ -1,4 +1,5 @@
 import * as type from "../Action/type";
+import { toast } from "react-toastify";
 const initialState = {
   isLoading: false,
   isAuthenticated: false,
@@ -26,8 +27,10 @@ const Auth = (state = initialState, action) => {
         isLoading: false,
         isAuthenticated: true,
       };
-
+      break;
     case type.LOGOUT:
+      toast.warning(action.payload?.msg);
+
       return {
         ...state,
         isLoading: false,
