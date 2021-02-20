@@ -76,15 +76,18 @@ const Blog = (state = initialState, action) => {
       break;
 
     case type.BLOG_SAVE:
-      toast.success(action.payload.msg);
+      toast.success("blog have been save");
+      console.log(action.payload);
       return {
         ...state,
       };
+      break;
     case type.BLOG_SAVE_ERR:
       toast.error(action.payload.msg);
       return {
         ...state,
       };
+      break;
     case type.ERROR:
       toast.error("An error occur");
       return {
