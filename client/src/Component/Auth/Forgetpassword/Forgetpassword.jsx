@@ -4,7 +4,6 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { ForgetPassword } from "../../../Redux/Action/Auth";
 import { useSelector, useDispatch } from "react-redux";
-import Message from "../../../Utlits/Message";
 import Loading from "../../../Utlits/Loading";
 
 function Forgetpassword() {
@@ -26,10 +25,7 @@ function Forgetpassword() {
         <>
           <div className="forget-form">
             <h1>FORGET PASSWORD</h1>
-            <Message
-              err="FORGETPASSWORD ERROR"
-              suc="FORGETPASSWORD SUCCESSFUL"
-            />
+
             <p>
               kindly insert the email address you register our account with, a
               mail will be sent to the email with a link to change your password

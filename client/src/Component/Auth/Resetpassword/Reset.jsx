@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { ResetPassword } from "../../../Redux/Action/Auth";
-import Message from "../../../Utlits/Message";
+
 import Loading from "../../../Utlits/Loading";
 function Reset({ match }) {
   const [state, setstate] = useState({
@@ -26,7 +26,7 @@ function Reset({ match }) {
         <>
           <div className="reset-form">
             <h1>RESET PASSWORD</h1>
-            <Message err="RESETPASSWORD FAIL" suc="RESETPASSWORD SUCCESSFUL" />
+
             <p>
               fill up the field below as required inorder to change your
               password, remember that password is a secret code that most not

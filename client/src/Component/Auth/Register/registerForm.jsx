@@ -5,13 +5,12 @@ import { Register } from "../../../Redux/Action/Auth";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import Message from "../../../Utlits/Message";
+
 function RegisterForm({ Register }) {
   const { state, handleChange, handleSubmit } = useRegister(Register);
 
   return (
     <form onSubmit={handleSubmit}>
-      <Message err="REGISTERATION FAIL" />
       <div className="input">
         <label htmlFor="username">
           <FontAwesomeIcon icon={faUser} />

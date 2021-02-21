@@ -23,34 +23,20 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
-%msg {
-  width: 100%;
-  text-align: center;
-  display: block;
-  color: $neutral;
-  padding: 1px;
-  span {
-    color: $primary2;
-    padding: 0 1em;
-  }
+.Toastify__toast {
+  font-size: 1.2em !important;
 }
-.err {
-  background: $secondary;
-  @extend %msg;
+.Toastify__toast--error {
+  background-color: $secondary !important;
 }
-.suc {
-  background: rgb(110, 175, 110);
-  @extend %msg;
+.Toastify__toast--warning {
+  background-color: darken($color: $secondary, $amount: 20) !important;
 }
-.msg-none {
-  display: none;
+
+.Toastify__toast--success {
+  background-color: $primary2 !important;
 }
-.notification {
-  background: #fc5185 !important;
-  height: inherit;
-  height: inherit;
-  display: block;
-}
+
 .no-blog {
   width: 75%;
   height: 100vh;

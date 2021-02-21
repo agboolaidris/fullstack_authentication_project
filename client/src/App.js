@@ -23,8 +23,6 @@ function App() {
           position="top-center"
           hideProgressBar="true"
           pauseOnHover="true"
-          draggable
-          className="notification"
         />
         <ScrollToTop />
 

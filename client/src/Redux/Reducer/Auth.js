@@ -29,7 +29,7 @@ const Auth = (state = initialState, action) => {
       };
       break;
     case type.LOGOUT:
-      toast(action.payload?.msg, {
+      toast.success(action.payload?.msg, {
         position: "top-center",
       });
 
