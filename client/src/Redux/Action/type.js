@@ -15,8 +15,8 @@ export const PATCH = "PATCH-BLOG";
 export const DELETE = "DELETE-BLOG";
 export const BLOG_LIKE = "BLOG-LIKE";
 export const BLOG_SAVE = "BLOG-SAVE";
-export const BLOG_SAVE_ERR = "BLOG-SAVE-ERR";
-export const POST_ERROR = "POST_ERROR";
+export const BLOG_SAVE_FETCH = "BLOG-SAVE-FETCH";
+export const BLOG_ERROR = "POST_ERROR";
 
 //user
 export const FETCH_USER = "FETCH_USER";

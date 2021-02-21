@@ -4,18 +4,31 @@ const SaveBlog = async (req, res) => {
   try {
     const userID = req.userID;
     const _id = req.params.id;
-    if (!_id) res.status(400).json({ msg: "params is required" });
-    const blog = await Blog.findById(_id);
-    if (!blog) res.status(400).json({ msg: "params is invalid" });
-    if (blog.userID === userID)
-      res.status(400).json({ msg: "you can not save your blog" });
-    const Find = blog.favourite.find((e) => e === userID);
 
-    if (Find) res.status(400).json({ msg: "you have already save the post" });
+    if (!_id) {
+      return res.status(400).json({ msg: "params is required" });
+    }
+
+    const blog = await Blog.findById(_id);
+    if (!blog) {
+      return res.status(400).json({ msg: "params is invalid" });
+    }
+
+    if (blog.userID === String(userID)) {
+      return res.status(400).json({ msg: "you can not save your blog" });
+    }
+
+    const Find = blog.favourite.find((e) => e === String(userID));
+
+    if (Find) {
+      return res.status(400).json({ msg: "you have already save the post" });
+    }
     blog.favourite.push(userID);
-    console.log(Find);
     const response = await blog.save();
-    if (!response) res.status(500).json({ msg: "server error" });
+    if (!response) {
+      return res.status(500).json({ msg: "server error" });
+    }
+
     res.json(response);
   } catch (error) {
     res.status(400).json({ msg: error.message });

@@ -5,7 +5,9 @@ const userGet = async (req, res) => {
     const userID = req.userID;
     const blog = await Blog.find({ userID });
     if (!blog) {
-      res.status(400).json({ msg: "user doesn't not have any post yet" });
+      return res
+        .status(400)
+        .json({ msg: "user doesn't not have any post yet" });
     }
     res.json(blog);
   } catch (err) {

@@ -9,7 +9,7 @@ export const post = (blog, history) => {
       dispatch({ type: type.POST, payload: data });
       history.push("/");
     } catch (err) {
-      dispatch({ type: type.POST_ERROR, payload: err.message.msg });
+      dispatch({ type: type.BLOG_ERROR, payload: err.message.msg });
     }
   };
 };
@@ -77,20 +77,22 @@ export const LikeBlog = (id) => {
 
 export const SaveBlog = (id) => {
   return async (dispatch) => {
+    dispatch({ type: type.LOADING });
     try {
       const { data } = await api.SaveBlog(id);
       dispatch({ type: type.BLOG_SAVE, payload: data });
     } catch (error) {
-      dispatch({ type: type.BLOG_SAVE_ERR, payload: error.response.data });
+      dispatch({ type: type.BLOG_ERROR, payload: error.response.data });
     }
   };
 };
 
 export const SaveblogFetch = () => {
-  return async () => {
+  return async (dispatch) => {
+    dispatch({ type: type.LOADING });
     try {
       const { data } = await api.SaveBlogFetch();
-      console.log(data);
+      dispatch({ type: type.BLOG_SAVE_FETCH, payload: data });
     } catch (error) {
       console.log(error.response);
     }

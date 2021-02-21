@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 const initialState = {
   userBlogs: [],
   blogs: [],
+  saveBlog: [],
   isLoading: false,
 };
 const Blog = (state = initialState, action) => {
@@ -75,23 +76,18 @@ const Blog = (state = initialState, action) => {
       };
       break;
 
+    case type.BLOG_SAVE_FETCH:
+      return {
+        ...state,
+        saveBlog: action.payload,
+      };
+      break;
+
     case type.BLOG_SAVE:
       toast.success("blog have been save");
       return {
         ...state,
-      };
-      break;
-    case type.BLOG_SAVE_ERR:
-      toast.error(action.payload.msg);
-      return {
-        ...state,
-      };
-      break;
-    case type.POST_ERROR:
-      toast.error("An error occur");
-      return {
-        ...state,
-        isLoading: false,
+        saveBlog: [...state.saveBlog, action.payload],
       };
       break;
 

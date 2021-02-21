@@ -16,6 +16,7 @@ const likeBlog = async (req, res) => {
     }
 
     const response = await Blog.findByIdAndUpdate(id, blog, { new: true });
+    if (!response) return res.status(500).json({ msg: "server error" });
     res.json(response);
   } catch (err) {
     res.status(400).json({ msg: err.message });
