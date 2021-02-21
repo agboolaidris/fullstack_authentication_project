@@ -85,3 +85,14 @@ export const SaveBlog = (id) => {
     }
   };
 };
+
+export const SaveblogFetch = () => {
+  return async () => {
+    try {
+      const { data } = await api.SaveBlogFetch();
+      console.log(data);
+    } catch (error) {
+      console.log(error.response);
+    }
+  };
+};

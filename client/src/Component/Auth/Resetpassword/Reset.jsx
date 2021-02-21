@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { ResetPassword } from "../../../Redux/Action/Auth";
-
 import Loading from "../../../Utlits/Loading";
 function Reset({ match }) {
   const [state, setstate] = useState({

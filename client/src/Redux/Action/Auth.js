@@ -1,6 +1,5 @@
 import * as type from "./type";
 import * as api from "../Api/Auth";
-import { getMessage } from "./Message";
 
 export const checkAuth = () => {
   return async (dispatch) => {

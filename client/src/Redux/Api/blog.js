@@ -16,7 +16,9 @@ export const Delete = (id) =>
   axios.delete(`${URL}/${id}`, { withCredentials: true });
 
 export const LikeBlog = (id) =>
-  axios.patch(`${URL}/${id}/user`, {}, { withCredentials: true });
+  axios.patch(`${URL}/${id}/like`, {}, { withCredentials: true });
 
 export const SaveBlog = (id) =>
   axios.patch(`${URL}/${id}/save`, {}, { withCredentials: true });
+export const SaveBlogFetch = () =>
+  axios.get(`${URL}/save`, {}, { withCredentials: true });

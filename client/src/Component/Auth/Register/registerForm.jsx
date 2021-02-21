@@ -5,7 +5,6 @@ import { Register } from "../../../Redux/Action/Auth";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-
 function RegisterForm({ Register }) {
   const { state, handleChange, handleSubmit } = useRegister(Register);
 
