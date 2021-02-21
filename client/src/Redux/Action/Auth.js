@@ -7,10 +7,9 @@ export const checkAuth = () => {
     try {
       dispatch({ type: type.LOADING });
       const { data } = await api.Persitence();
-      dispatch({ type: type.LOADED, payload: data });
+      dispatch({ type: type.SUCCESS, payload: data });
     } catch (err) {
-      dispatch({ type: type.LOGOUT });
-      console.log(err.response);
+      dispatch({ type: type.AUTH_ERROR });
     }
   };
 };
@@ -23,11 +22,10 @@ export const Register = (user) => {
       const { data } = await api.Register(user);
       if (data) {
         const { data } = await api.Login(user);
-        dispatch({ type: type.LOGIN_SUCCESSFUL, payload: data });
+        dispatch({ type: type.SUCCESS, payload: data });
       }
     } catch (err) {
-      dispatch({ type: type.LOGOUT });
-      dispatch(getMessage(err.response, "REGISTERATION FAIL"));
+      dispatch({ type: type.AUTH_ERROR, payload: err.response.data });
     }
   };
 };
@@ -38,10 +36,9 @@ export const Login = (user) => {
     dispatch({ type: type.LOADING });
     try {
       const { data } = await api.Login(user);
-      dispatch({ type: type.LOGIN_SUCCESSFUL, payload: data });
+      dispatch({ type: type.SUCCESS, payload: data });
     } catch (err) {
-      dispatch({ type: type.LOGOUT, payload: err.response.data });
-      console.log(err.response.data);
+      dispatch({ type: type.AUTH_ERROR, payload: err.response.data });
     }
   };
 };
@@ -54,7 +51,7 @@ export const Logout = () => {
       const { data } = await api.Logout();
       dispatch({ type: type.LOGOUT, payload: data });
     } catch (err) {
-      console.log(err.response);
+      dispatch({ type: type.AUTH_ERROR, payload: err.response.data });
     }
   };
 };
@@ -65,13 +62,9 @@ export const ForgetPassword = (email) => {
     try {
       dispatch({ type: type.LOADING });
       const { data } = await api.Forgetpassword(email);
-
-      dispatch(getMessage(data, "FORGETPASSWORD SUCCESSFUL"));
-
-      dispatch({ type: type.FORGETPASSWORD_SUCCESSFUL });
+      dispatch({ type: type.LOGOUT, payload: data });
     } catch (err) {
-      dispatch({ type: type.LOGOUT });
-      dispatch(getMessage(err.response, "FORGETPASSWORD ERROR"));
+      dispatch({ type: type.AUTH_ERROR, payload: err.response.data });
     }
   };
 };
@@ -82,11 +75,9 @@ export const ResetPassword = (user, params) => {
     try {
       dispatch({ type: type.LOADING });
       const { data } = await api.Resetpassword(params, user);
-      dispatch({ type: type.RESETPASSWORD_SUCCESSFUL, payload: data });
-      dispatch(getMessage(data, "RESETPASSWORD SUCCESSFUL"));
+      dispatch({ type: type.LOGOUT, payload: data });
     } catch (err) {
-      dispatch({ type: type.LOGOUT });
-      dispatch(getMessage(err.response, "RESETPASSWORD FAIL"));
+      dispatch({ type: type.AUTH_ERROR, payload: err.response.data });
     }
   };
 };

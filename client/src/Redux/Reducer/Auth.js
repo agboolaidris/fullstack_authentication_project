@@ -13,26 +13,23 @@ const Auth = (state = initialState, action) => {
         isLoading: true,
       };
 
-    case type.LOADED:
+    case type.SUCCESS:
       return {
         ...state,
         isLoading: false,
         isAuthenticated: true,
       };
 
-    case type.REGISTER_SUCCESSFUL:
-    case type.LOGIN_SUCCESSFUL:
+    case type.LOGOUT:
+      toast.success(action.payload?.msg);
       return {
         ...state,
         isLoading: false,
-        isAuthenticated: true,
+        isAuthenticated: false,
       };
       break;
-    case type.LOGOUT:
-      toast.success(action.payload?.msg, {
-        position: "top-center",
-      });
-
+    case type.AUTH_ERROR:
+      toast.warning(action.payload?.msg);
       return {
         ...state,
         isLoading: false,

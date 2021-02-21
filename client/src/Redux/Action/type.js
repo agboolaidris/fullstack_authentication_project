@@ -1,14 +1,7 @@
-export const LOADING = "LOADING";
-
-export const LOADED = "USER_LOADED";
-
-export const REGISTER_SUCCESSFUL = "REGISTER_SUCCESSFUL";
-export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
-
+export const SUCCESS = "SUCCESS";
 export const LOGOUT = "LOGOUT";
-
-export const FORGETPASSWORD_SUCCESSFUL = "FORGET_PASSWORD_SUCCESSFUL";
-export const RESETPASSWORD_SUCCESSFUL = "RESET_PASSWORD_SUCCESSFUL";
+export const AUTH_ERROR = "AUTH_ERROR";
+export const LOADING = "LOADING";
 
 //message
 export const GET_MESSAGE = "GET_MESSAGE";
@@ -16,7 +9,6 @@ export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 
 // blog types
 export const POST = "POST-BLOG";
-export const ERROR = "POST-ERROR";
 export const FETCH = "FETCH-BLOG";
 export const USER_FETCH = "USER-FETCH";
 export const PATCH = "PATCH-BLOG";
@@ -24,6 +16,7 @@ export const DELETE = "DELETE-BLOG";
 export const BLOG_LIKE = "BLOG-LIKE";
 export const BLOG_SAVE = "BLOG-SAVE";
 export const BLOG_SAVE_ERR = "BLOG-SAVE-ERR";
+export const POST_ERROR = "POST_ERROR";
 
 //user
 export const FETCH_USER = "FETCH_USER";

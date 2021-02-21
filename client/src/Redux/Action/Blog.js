@@ -9,7 +9,7 @@ export const post = (blog, history) => {
       dispatch({ type: type.POST, payload: data });
       history.push("/");
     } catch (err) {
-      dispatch({ type: type.ERROR, payload: err.message.msg });
+      dispatch({ type: type.POST_ERROR, payload: err.message.msg });
     }
   };
 };

@@ -87,7 +87,7 @@ const Blog = (state = initialState, action) => {
         ...state,
       };
       break;
-    case type.ERROR:
+    case type.POST_ERROR:
       toast.error("An error occur");
       return {
         ...state,
