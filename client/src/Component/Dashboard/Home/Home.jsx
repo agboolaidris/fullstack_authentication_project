@@ -12,11 +12,7 @@ function Dashboard() {
     Dispatch(fetch());
   }, [Dispatch]);
   return (
-    <div
-      className={
-        isLoading ? "no-blog" : !Blogs.length ? "no-blog" : "dashboard"
-      }
-    >
+    <div className={isLoading || !Blogs.length ? "no-blog" : "dashboard"}>
       {isLoading ? (
         <Loading />
       ) : (

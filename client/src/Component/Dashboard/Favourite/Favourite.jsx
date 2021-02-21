@@ -1,25 +1,31 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { SaveblogFetch } from "../../../Redux/Action/Blog";
+import React from "react";
+import { useSelector } from "react-redux";
 import Loading from "../../../Utlits/Loading";
+import Card from "./Card";
+
 function Favourite() {
-  const dispatch = useDispatch();
-  const blog = useSelector((state) => state.Blog.saveBlog);
-  console.log(blog);
+  const blogs = useSelector((state) => state.Blog.blogs);
   const isLoading = useSelector((state) => state.Blog.isLoading);
-  useEffect(() => {
-    dispatch(SaveblogFetch());
-  }, [dispatch]);
+  const userID = useSelector((state) => state.User._id);
+  //save blogs
+  const saveBlogs = blogs.filter((blog) =>
+    blog.favourite.find((e) => e === userID)
+  );
+
   return (
     <div className="favourite">
       {isLoading ? (
         <Loading />
-      ) : !blog.length ? (
+      ) : !saveBlogs.length ? (
         <h1>No BLOG SAVE</h1>
       ) : (
         <>
-          {blog.map((blog) => {
-            return <div key={blog._id}>HELLO</div>;
+          {saveBlogs.map((blog) => {
+            return (
+              <div key={blog._id}>
+                <Card blog={blog} />
+              </div>
+            );
           })}
         </>
       )}

@@ -4,25 +4,26 @@ import { userFetch } from "../../../Redux/Action/Blog";
 import Card from "./Card";
 import Loading from "../../../Utlits/Loading";
 function Index({ setblogID }) {
-  const Dispatch = useDispatch();
-  const blogs = useSelector((state) => state.Blog.userBlogs);
+  const userID = useSelector((state) => state.User._id);
+  const blogs = useSelector((state) => state.Blog.blogs);
   const isLoading = useSelector((state) => state.Blog.isLoading);
 
-  useEffect(() => {
-    Dispatch(userFetch());
-  }, [Dispatch]);
+  //userBlog
+  const userBlogs = blogs.filter((blog) => blog?.userID === userID);
 
   return (
-    <div className={isLoading ? "no-blog" : !blogs.length ? "no-blog" : "user"}>
+    <div
+      className={isLoading ? "no-blog" : !userBlogs.length ? "no-blog" : "user"}
+    >
       {isLoading ? (
         <Loading />
       ) : (
         <>
-          {!blogs.length ? (
+          {!userBlogs.length ? (
             <h1>You have no blog yet</h1>
           ) : (
             <>
-              {blogs.map((blog) => {
+              {userBlogs.map((blog) => {
                 return (
                   <div key={blog._id}>
                     <Card blog={blog} setblogID={setblogID} />

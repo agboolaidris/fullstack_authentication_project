@@ -7,7 +7,7 @@ import Loading from "../../../Utlits/Loading";
 function Edit({ blogID }) {
   // mapStateToprops
   const editBlog = useSelector((state) =>
-    state.Blog.userBlogs.find((blog) => blog._id === blogID)
+    state.Blog.blogs.find((blog) => blog._id === blogID)
   );
 
   //data

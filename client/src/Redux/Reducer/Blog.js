@@ -2,9 +2,7 @@ import * as type from "../Action/type";
 import { toast } from "react-toastify";
 
 const initialState = {
-  userBlogs: [],
   blogs: [],
-  saveBlog: [],
   isLoading: false,
 };
 const Blog = (state = initialState, action) => {
@@ -39,17 +37,6 @@ const Blog = (state = initialState, action) => {
         blogs: state.blogs.map((blog) =>
           blog._id === action.payload._id ? action.payload : blog
         ),
-        userBlogs: state.userBlogs.map((blog) =>
-          blog._id === action.payload._id ? action.payload : blog
-        ),
-        isLoading: false,
-      };
-      break;
-
-    case type.USER_FETCH:
-      return {
-        ...state,
-        userBlogs: action.payload,
         isLoading: false,
       };
       break;
@@ -58,9 +45,6 @@ const Blog = (state = initialState, action) => {
       toast.success("blog deleted");
       return {
         ...state,
-        userBlogs: state.userBlogs.filter(
-          (blog) => blog._id !== action.payload._id
-        ),
         blogs: state.blogs.filter((blog) => blog._id !== action.payload._id),
         isLoading: false,
       };
@@ -76,20 +60,23 @@ const Blog = (state = initialState, action) => {
       };
       break;
 
-    case type.BLOG_SAVE_FETCH:
-      return {
-        ...state,
-        saveBlog: action.payload,
-      };
-      break;
-
     case type.BLOG_SAVE:
       toast.success("blog have been save");
       return {
         ...state,
-        saveBlog: [...state.saveBlog, action.payload],
+        blogs: state.blogs.map((blog) =>
+          blog._id === action.payload._id ? action.payload : blog
+        ),
+        isLoading: false,
       };
       break;
+
+    case type.BLOG_ERROR:
+      toast.error(action.payload?.msg);
+      return {
+        ...state,
+        isLoading: false,
+      };
 
     default:
       return state;
