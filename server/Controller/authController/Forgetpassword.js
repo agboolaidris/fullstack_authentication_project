@@ -23,7 +23,7 @@ const Forgetpassword = async (req, res) => {
 
     await user.save();
 
-    const URL = `https://localhost:3000/resetpassword/${param}`;
+    const URL = `https://iris-blog.herokuapp.com/resetpassword/${param}`;
     const message = `
     <h1>Password Reset</h1>
     <p>kindly click the below link to change reset your password</P>

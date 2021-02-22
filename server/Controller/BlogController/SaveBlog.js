@@ -19,16 +19,15 @@ const SaveBlog = async (req, res) => {
     }
 
     const Find = blog.favourite.find((e) => e === String(userID));
-
     if (Find) {
-      return res.status(400).json({ msg: "you have already save the post" });
+      blog.favourite.filter((e) => e !== String(userID));
+    } else {
+      blog.favourite.push(userID);
     }
-    blog.favourite.push(userID);
     const response = await blog.save();
     if (!response) {
       return res.status(500).json({ msg: "server error" });
     }
-
     res.json(response);
   } catch (error) {
     res.status(400).json({ msg: error.message });

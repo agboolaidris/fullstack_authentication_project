@@ -16,7 +16,7 @@ const Blog = (state = initialState, action) => {
     case type.FETCH:
       return {
         ...state,
-        blogs: action.payload,
+        blogs: action.payload.reverse(),
         isLoading: false,
       };
       break;

@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { LikeBlog, SaveBlog } from "../../../Redux/Action/Blog";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +7,11 @@ import { faThumbsUp, faSave } from "@fortawesome/free-solid-svg-icons";
 
 function Card({ blog }) {
   const Dispatch = useDispatch();
+
+  //confirm if user have save the blog
+  const userID = useSelector((state) => state.User._id);
+  const confirmSave = blog.favourite.find((e) => e === userID);
+
   return (
     <div className="card">
       <Link to="/trending">
@@ -27,7 +32,10 @@ function Card({ blog }) {
             <FontAwesomeIcon icon={faThumbsUp} />
             &nbsp;{blog.like.length}
           </button>
-          <button onClick={() => Dispatch(SaveBlog(blog._id))}>
+          <button
+            onClick={() => Dispatch(SaveBlog(blog._id))}
+            className={confirmSave && "color"}
+          >
             <FontAwesomeIcon icon={faSave} /> &nbsp; save
           </button>
         </div>
