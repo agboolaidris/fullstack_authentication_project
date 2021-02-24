@@ -7,7 +7,7 @@ import Favourite from "../../Component/Dashboard/Favourite/Favourite";
 import Home from "../../Component/Dashboard/Home/Home";
 import User from "../../Component/Dashboard/UserBlog";
 import Edit from "../../Component/Dashboard/EditBlog/Edit";
-
+import Read from "../../Component/Dashboard/ReadBlog/Index";
 function Index() {
   const [blogID, setblogID] = useState(null);
   return (
@@ -17,6 +17,7 @@ function Index() {
       <ProtectedRoute exact path="/profile" component={Setting} />
       <ProtectedRoute exact path="/trending" component={Trend} />
       <ProtectedRoute exact path="/favourite" component={Favourite} />
+      <ProtectedRoute exact path="/blog/:id" component={Read} />
       <ProtectedRoute
         exact
         path="/user/blogs"

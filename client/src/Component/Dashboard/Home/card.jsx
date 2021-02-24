@@ -13,13 +13,13 @@ function Card({ blog }) {
   const confirmSave = blog.favourite.find((e) => e === userID);
 
   return (
-    <div className="card">
-      <Link to="/trending">
+    <>
+      <Link to={`/blog/${blog._id}`}>
+        <div className="content">
+          <h2 className="title">{blog.title}</h2>
+        </div>
         <div className="img-container">
           <img src={blog.image} />
-        </div>
-        <div className="content">
-          <p className="title">{blog.title}</p>
         </div>
       </Link>
       <div className="div">
@@ -40,7 +40,7 @@ function Card({ blog }) {
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

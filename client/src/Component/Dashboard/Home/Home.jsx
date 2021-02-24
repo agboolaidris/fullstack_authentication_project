@@ -23,7 +23,7 @@ function Dashboard() {
             <>
               {Blogs.map((blog) => {
                 return (
-                  <div key={blog._id}>
+                  <div key={blog._id} className="card">
                     <Card blog={blog} />
                   </div>
                 );
