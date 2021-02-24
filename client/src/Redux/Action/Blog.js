@@ -68,6 +68,7 @@ export const SaveBlog = (id) => {
     try {
       const { data } = await api.SaveBlog(id);
       dispatch({ type: type.BLOG_SAVE, payload: data });
+      console.log(data);
     } catch (error) {
       dispatch({ type: type.BLOG_ERROR, payload: error.response.data });
       console.log(error.response);
