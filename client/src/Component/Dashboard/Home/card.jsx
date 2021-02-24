@@ -15,15 +15,12 @@ function Card({ blog }) {
   return (
     <>
       <Link to={`/blog/${blog._id}`}>
-        <div className="content">
-          <h2 className="title">{blog.title}</h2>
-        </div>
+        <h2 className="title">{blog.title}</h2>
         <div className="img-container">
           <img src={blog.image} />
         </div>
       </Link>
       <div className="div">
-        <span className="line"></span>
         <div className="icon">
           <button
             onClick={() => Dispatch(LikeBlog(blog._id))}
@@ -39,6 +36,7 @@ function Card({ blog }) {
             <FontAwesomeIcon icon={faSave} /> &nbsp; save
           </button>
         </div>
+        <span className="line"></span>
       </div>
     </>
   );

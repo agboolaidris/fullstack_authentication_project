@@ -12,26 +12,26 @@ function Dashboard() {
     Dispatch(fetch());
   }, [Dispatch]);
   return (
-    <div className={isLoading || !Blogs.length ? "no-blog" : "dashboard"}>
-      {isLoading ? (
+    // isLoading || !Blogs.length ? "no-blog" :
+    <div className={"dashboard"}>
+      {/* {isLoading ? (
         <Loading />
-      ) : (
-        <>
-          {!Blogs.length ? (
-            <h1>No Blog is posted yet</h1>
-          ) : (
-            <>
-              {Blogs.map((blog) => {
-                return (
-                  <div key={blog._id} className="card">
-                    <Card blog={blog} />
-                  </div>
-                );
-              })}
-            </>
-          )}
-        </>
-      )}
+      ) : ( */}
+      <>
+        {!Blogs.length ? (
+          <h1>No Blog is posted yet</h1>
+        ) : (
+          <>
+            {Blogs.map((blog) => {
+              return (
+                <div key={blog._id} className="card">
+                  <Card blog={blog} />
+                </div>
+              );
+            })}
+          </>
+        )}
+      </>
     </div>
   );
 }
