@@ -75,3 +75,14 @@ export const SaveBlog = (id) => {
     }
   };
 };
+
+export const FetchEach = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await api.Fetch_Each(id);
+      console.log(data);
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
+};

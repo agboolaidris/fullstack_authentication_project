@@ -7,28 +7,34 @@ import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 function Card({ blog, setblogID }) {
   const Dispatch = useDispatch();
   return (
-    <div className="card">
-      <div className="img-container">
+    <>
+      <Link to={`/blog/${blog._id}`} className="imgbx">
         <img src={blog.image} />
-      </div>
-      <div className="content">
-        <p className="title">{blog.title}</p>
-        <div className="line"></div>
-        <div>
-          <button className="delete" onClick={() => Dispatch(Delete(blog._id))}>
-            <FontAwesomeIcon icon={faTrash} /> &nbsp;Delete
+      </Link>
+      <div className="div">
+        <div className="tag">
+          <span>{blog.category.toUpperCase()}</span>
+          <p className="line"></p>
+        </div>
+        <h3>{blog.title}</h3>
+        <p className="article">
+          {blog.body.slice(0, 150)} &nbsp;
+          <Link to={`/blog/${blog._id}`}>Read more</Link>
+        </p>
+        <p className="lines"></p>
+        <div className="icon">
+          <button onClick={() => Dispatch(Delete(blog._id))}>
+            <FontAwesomeIcon icon={faTrash} />
+            <br />
+            Delete
           </button>
-          <Link
-            to="/edit"
-            onClick={() => setblogID(blog._id)}
-            className="edits"
-          >
+          <Link to="/edit" onClick={() => setblogID(blog._id)}>
             <FontAwesomeIcon icon={faEdit} />
-            &nbsp;Edit
+            <br /> Edit
           </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

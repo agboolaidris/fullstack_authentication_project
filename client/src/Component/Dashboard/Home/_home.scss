@@ -7,16 +7,16 @@
   padding-top: 2em;
   .card {
     margin: 0 auto 1em;
-    width: 70%;
-    display: grid;
-    grid-template-columns: 40% 60%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
     border-radius: 8px;
     overflow: hidden;
     background-color: darken($color: $neutral, $amount: 5%);
     .imgbx {
       width: 100%;
       overflow: hidden;
-      height: inherit;
+      height: 200px;
 
       img {
         width: 100%;

@@ -17,3 +17,7 @@ export const LikeBlog = (id) =>
 
 export const SaveBlog = (id) =>
   axios.patch(`${URL}/${id}/save`, {}, { withCredentials: true });
+
+//get each blog
+export const Fetch_Each = (id) =>
+  axios.get(`${URL}/${id}`, { withCredentials: true });
