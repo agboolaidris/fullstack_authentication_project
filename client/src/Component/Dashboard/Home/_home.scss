@@ -8,16 +8,15 @@
   .card {
     margin: 0 auto 1em;
     width: 70%;
-    display: flex;
-    min-height: 200px;
-    max-height: 400px;
+    display: grid;
+    grid-template-columns: 40% 60%;
     border-radius: 8px;
     overflow: hidden;
     background-color: darken($color: $neutral, $amount: 5%);
     .imgbx {
-      width: 40%;
-      height: inherit;
+      width: 100%;
       overflow: hidden;
+      height: inherit;
 
       img {
         width: 100%;
@@ -26,7 +25,8 @@
     }
     .div {
       padding: 1em;
-      width: 60%;
+      width: 100%;
+      height: inherit;
       .tag {
         width: max-content;
         margin-bottom: 0.5em;
