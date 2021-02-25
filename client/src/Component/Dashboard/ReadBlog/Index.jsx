@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Profile from "../../../img/idris.png";
+import { useDispatch, useSelector } from "react-redux";
+import { FetchEach } from "../../../Redux/Action/Blog";
+function Index({ match }) {
+  // console.log(match.params.id);
 
-function Index() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(FetchEach(match.params.id));
+  }, [dispatch]);
   return (
     <div className="read">
       <div className="wrapper">

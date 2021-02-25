@@ -19,7 +19,7 @@ export const fetch = () => {
     dispatch({ type: type.LOADING });
     try {
       const { data } = await api.Fetch();
-      console.log(data);
+
       dispatch({ type: type.FETCH, payload: data });
     } catch (err) {
       console.log(err.message);
@@ -78,6 +78,7 @@ export const SaveBlog = (id) => {
 
 export const FetchEach = (id) => {
   return async (dispatch) => {
+    console.log(id);
     try {
       const { data } = await api.Fetch_Each(id);
       console.log(data);
