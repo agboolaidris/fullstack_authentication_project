@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Loading from "../../../Utlits/Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchEach } from "../../../Redux/Action/Blog";
+import moment from "moment";
 function Index({ match }) {
   const blog = useSelector((state) => state.Blog.blog);
   const isLoading = useSelector((state) => state.Blog.isLoading);
@@ -20,7 +21,7 @@ function Index({ match }) {
             <span className="poster">
               posted by :<span> {blog.username}</span>
             </span>
-            <span className="date">2th,feb 2020</span>
+            <span className="date">{moment(blog.createAt).fromNow()}</span>
           </div>
           <div className="imgbx">
             <img src={blog.image} alt="" />
