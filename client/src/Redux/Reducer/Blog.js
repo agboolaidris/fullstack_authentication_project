@@ -76,6 +76,7 @@ const Blog = (state = initialState, action) => {
       return {
         ...state,
         blog: action.payload,
+        isLoading: false,
       };
       break;
 
