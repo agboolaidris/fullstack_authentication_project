@@ -21,13 +21,10 @@ function Client({ handleHarmburger }) {
         <FontAwesomeIcon icon={faBlog} />
         <Link to="/user/blogs">My Blogs</Link>
       </li>
-      <li onClick={handleHarmburger}>
-        <FontAwesomeIcon icon={faChartLine} />
-        <Link to="/trending">Trending Blog</Link>
-      </li>
+
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHeart} />
-        <Link to="/favourite">Favorite Blog</Link>
+        <Link to="/favourite">Save Blog</Link>
       </li>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faPencilAlt} />

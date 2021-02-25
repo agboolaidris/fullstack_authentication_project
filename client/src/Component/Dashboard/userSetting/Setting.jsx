@@ -3,7 +3,11 @@ import Form from "./Form";
 import Img from "../../../img/idris.png";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearchLocation, faMap } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSearchLocation,
+  faMap,
+  faEdit,
+} from "@fortawesome/free-solid-svg-icons";
 function Setting() {
   const Profile = useSelector((state) => state.User);
   const [edit, setedit] = useState(false);
@@ -13,6 +17,11 @@ function Setting() {
         <Form />
       ) : (
         <div className="profile">
+          <span className="edit-icon" onClick={() => setedit(true)}>
+            <FontAwesomeIcon icon={faEdit} />
+            <br />
+            Edit profile
+          </span>
           <div className="imgbx">
             <img alt="profile pic" src={Img} />
           </div>
