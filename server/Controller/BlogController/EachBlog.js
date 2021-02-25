@@ -15,12 +15,11 @@ const Index = async (req, res) => {
     res.json({
       body: blog.body,
       title: blog.title,
-
       username: user.username,
-      ...blog,
       email: user.email,
     });
   } catch (error) {
+    console.log(error.message);
     res.status(400).json({ msg: error.message });
   }
 };

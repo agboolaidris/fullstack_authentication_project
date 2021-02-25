@@ -19,6 +19,7 @@ export const fetch = () => {
     dispatch({ type: type.LOADING });
     try {
       const { data } = await api.Fetch();
+      console.log(data);
 
       dispatch({ type: type.FETCH, payload: data });
     } catch (err) {
@@ -78,12 +79,13 @@ export const SaveBlog = (id) => {
 
 export const FetchEach = (id) => {
   return async (dispatch) => {
-    console.log(id);
     try {
       const { data } = await api.Fetch_Each(id);
+      dispatch({ type: type.EACH_BLOG, payload: data });
       console.log(data);
     } catch (error) {
       console.log(error.response.data);
+      dispatch({ type: type.BLOG_ERROR, payload: error.response.data });
     }
   };
 };

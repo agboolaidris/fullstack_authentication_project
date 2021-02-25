@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
 import { checkAuth } from "./Redux/Action/Auth";
 import { useDispatch, useSelector } from "react-redux";
+import { fetch } from "./Redux/Action/Blog";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Protected from "./Route/Protected/index";
@@ -14,7 +15,11 @@ function App() {
   const Dispatch = useDispatch();
   useEffect(() => {
     Dispatch(checkAuth());
-  }, [Dispatch]);
+    if (isAuthenticated) {
+      Dispatch(fetch());
+    }
+  }, [Dispatch, isAuthenticated]);
+
   return (
     <div className="App">
       <BrowserRouter>

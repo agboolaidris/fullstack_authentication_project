@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 
 const initialState = {
   blogs: [],
+  blog: {},
   isLoading: false,
 };
 const Blog = (state = initialState, action) => {
@@ -68,6 +69,13 @@ const Blog = (state = initialState, action) => {
           blog._id === action.payload._id ? action.payload : blog
         ),
         isLoading: false,
+      };
+      break;
+
+    case type.EACH_BLOG:
+      return {
+        ...state,
+        blog: action.payload,
       };
       break;
 
