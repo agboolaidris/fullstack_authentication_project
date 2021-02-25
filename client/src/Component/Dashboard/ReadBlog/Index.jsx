@@ -11,7 +11,7 @@ function Index({ match }) {
     dispatch(FetchEach(match.params.id));
   }, [dispatch]);
   return (
-    <div className="read">
+    <div className={isLoading ? "no-blog" : "read"}>
       {isLoading ? (
         <Loading />
       ) : (
