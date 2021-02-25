@@ -53,13 +53,37 @@
   }
   form {
     width: 70%;
+    background: darken($color: $neutral, $amount: 20);
+
+    .img-input {
+      border: none;
+      background-color: rebeccapurple;
+    }
+    .img {
+      margin: 0.7em auto;
+      width: 60%;
+      input {
+        border: none;
+        display: block;
+      }
+    }
 
     .div {
       margin: 0.7em auto;
-      width: 70%;
-
+      width: 60%;
+      textarea {
+        width: 100%;
+        height: 50px;
+        padding: 0.2em;
+        border: 1px solid gray;
+        outline: none;
+      }
       input {
         width: 100%;
+        height: 30px;
+        padding: 0.2em;
+        border: 1px solid gray;
+        outline: none;
       }
     }
   }

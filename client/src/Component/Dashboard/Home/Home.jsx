@@ -9,7 +9,7 @@ function Dashboard() {
   const isLoading = useSelector((state) => state.Blog.isLoading);
 
   return (
-    <div className={"dashboard"}>
+    <div className={isLoading ? "no-blog" : "dashboard"}>
       {isLoading ? (
         <Loading />
       ) : (
