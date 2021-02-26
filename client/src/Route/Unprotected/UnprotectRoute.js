@@ -1,23 +1,21 @@
 import { Route, Redirect } from "react-router-dom";
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
 function UnProtectedRoute({ component: Component, ...rest }) {
-  return rest.isAuthenticated ? (
-    <Redirect to="/" />
-  ) : (
+  const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
+  return (
     <Route
       {...rest}
       render={(props) => {
-        return <Component {...props} />;
+        if (!isAuthenticated) {
+          return <Component {...props} />;
+        } else {
+          return <Redirect to="/" />;
+        }
       }}
     />
   );
 }
-const mapStateToProps = (state) => {
-  return {
-    isAuthenticated: state.Auth.isAuthenticated,
-  };
-};
 
-export default connect(mapStateToProps)(UnProtectedRoute);
+export default UnProtectedRoute;

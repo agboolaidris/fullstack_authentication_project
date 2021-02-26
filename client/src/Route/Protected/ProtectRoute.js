@@ -4,13 +4,16 @@ import { useSelector } from "react-redux";
 
 function ProtectedRoute({ component: Component, ...rest }) {
   const isAuthenticated = useSelector((state) => state.Auth.isAuthenticated);
-  return !isAuthenticated ? (
-    <Redirect to="/login" />
-  ) : (
+
+  return (
     <Route
       {...rest}
       render={(props) => {
-        return <Component {...props} {...rest} />;
+        if (isAuthenticated) {
+          return <Component {...props} {...rest} />;
+        } else {
+          return <Redirect to={{ pathname: "/login" }} />;
+        }
       }}
     />
   );

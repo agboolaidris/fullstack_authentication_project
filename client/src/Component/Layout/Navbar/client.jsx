@@ -19,16 +19,16 @@ function Client({ handleHarmburger }) {
       </li>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faBlog} />
-        <Link to="/user/blogs">My Blogs</Link>
+        <Link to="/user/blogs">My Article</Link>
       </li>
 
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faHeart} />
-        <Link to="/favourite">Save Blog</Link>
+        <Link to="/favourite">Save Article</Link>
       </li>
       <li onClick={handleHarmburger}>
         <FontAwesomeIcon icon={faPencilAlt} />
-        <Link to="/post">Post Blog</Link>
+        <Link to="/post">Post Article</Link>
       </li>
       <span className="underline"></span>
       <li onClick={handleHarmburger}>
