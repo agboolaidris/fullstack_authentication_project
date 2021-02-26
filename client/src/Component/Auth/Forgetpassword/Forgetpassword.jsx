@@ -18,7 +18,7 @@ function Forgetpassword() {
   };
 
   return (
-    <div className="forget">
+    <div className={isLoading ? "no-login" : "forget"}>
       {isLoading ? (
         <Loading />
       ) : (

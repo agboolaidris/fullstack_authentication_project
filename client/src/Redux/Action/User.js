@@ -17,7 +17,7 @@ export const patch = (user) => {
     console.log("sent");
     try {
       const { data } = await api.PATCH(user);
-      console.log(data);
+      dispatch({ type: PATCH_USER, payload: data });
     } catch (error) {
       console.log(error.response);
     }

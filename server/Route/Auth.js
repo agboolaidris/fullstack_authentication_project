@@ -23,6 +23,6 @@ Route.get("/", [Authorize], Persistent);
 Route.post("/forgetpassword", Forgetpassword);
 
 //resetpassword Route
-Route.put("/resetpassword/:id", Resetpassword);
+Route.patch("/resetpassword/:id", Resetpassword);
 
 module.exports = Route;

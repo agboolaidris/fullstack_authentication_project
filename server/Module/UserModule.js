@@ -7,7 +7,7 @@ const new_schema = new schema({
   password: { type: String, required: true, unique: true },
   image: { type: String },
   profession: { type: String },
-  Location: { type: String },
+  location: { type: String },
   status: { type: String },
   resetpasswordToken: { type: String },
   resetpasswordExpire: { type: Date },

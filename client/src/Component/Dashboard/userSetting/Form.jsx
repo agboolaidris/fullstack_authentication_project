@@ -71,7 +71,8 @@ function Form() {
         <label>Status</label>
         <textarea
           type="text"
-          placeholder="add bio"
+          placeholder="
+          add bio"
           value={state.status}
           id="status"
           onChange={handleChange}

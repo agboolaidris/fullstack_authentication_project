@@ -11,14 +11,15 @@ function Profile() {
   return (
     <div className="profile">
       <div className="img-container">
-        <img src={Img} />
+        {profile.image && <img src={profile.image} />}
       </div>
       <div className="info">
         <h3 className="name">
           {profile.username ? profile.username : "GUSET"}
         </h3>
-        <span className="job">{profile.job && profile.job}</span>
+        <span className="job">{profile.profession && profile.profession}</span>
       </div>
+      <p className="status">{profile.status && profile.status}</p>
     </div>
   );
 }

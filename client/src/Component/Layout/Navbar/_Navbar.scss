@@ -38,15 +38,23 @@ header {
       .profile {
         width: 100%;
         margin-top: 1em;
-        display: flex;
-        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        justify-items: center;
         color: $neutral;
         .info {
           margin-left: 1em;
+          justify-self: flex-start;
           margin-top: 0.5em;
           .job {
             font-size: 12px;
           }
+        }
+        .status {
+          grid-column: 1/4;
+          justify-self: center;
+          padding: 0.5em;
+          font-size: 13px;
         }
         .img-container {
           width: 60px;
@@ -60,6 +68,7 @@ header {
           }
         }
       }
+
       .nav {
         list-style: none;
         li {
