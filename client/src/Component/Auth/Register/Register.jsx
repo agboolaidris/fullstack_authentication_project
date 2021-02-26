@@ -20,7 +20,7 @@ function Register() {
             </div>
             <div className="info">
               <div>
-                <p>Share your story</p>
+                <p>Share and Discuss Interest Topic</p>
               </div>
             </div>
           </>

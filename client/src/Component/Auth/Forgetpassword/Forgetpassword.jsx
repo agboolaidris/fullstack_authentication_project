@@ -27,12 +27,13 @@ function Forgetpassword() {
             <h1>FORGET PASSWORD</h1>
 
             <p>
-              kindly insert the email address you register our account with, a
-              mail will be sent to the email with a link to change your password
-              as soon as you submit the correct email address.
+              kindly input the email address your account is register with, you
+              will recieve a mail via the email address inorder for you to
+              change the previous password.
             </p>
             <form onSubmit={handleSubmit}>
               <div className="input">
+                {" "}
                 <label htmlFor="email">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </label>

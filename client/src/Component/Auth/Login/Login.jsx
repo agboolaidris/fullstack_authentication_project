@@ -16,7 +16,7 @@ function Login() {
           </div>
           <div className="info">
             <div>
-              <p>Share your intrest</p>
+              <p>Share and Discuss Interest Topic</p>
             </div>
           </div>
         </>
