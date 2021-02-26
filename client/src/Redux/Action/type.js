@@ -19,4 +19,4 @@ export const EACH_BLOG = "EACH-BLOG";
 
 //user
 export const FETCH_USER = "FETCH_USER";
-export const POST_USER = "POST-USER";
+export const PATCH_USER = "PATCH-USER";

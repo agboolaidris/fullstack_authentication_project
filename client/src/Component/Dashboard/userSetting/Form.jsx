@@ -1,23 +1,30 @@
+import { faRoad } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import FileBase from "react-file-base64";
+import { useSelector, useDispatch } from "react-redux";
+import { patch } from "../../../Redux/Action/User";
 function Form() {
+  const user = useSelector((state) => state.User);
+  const dispatch = useDispatch();
   const [state, setstate] = useState({
-    username: "",
-    email: "",
-    image: "",
-    status: "",
-    profession: "",
-    location: "",
+    username: user?.username,
+    email: user?.email,
+    image: user?.image,
+    status: user?.status,
+    profession: user?.profession,
+    location: user?.location,
   });
+
   const handleChange = (e) => {
     setstate({
       ...state,
       [e.target.id]: e.target.value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(state);
+    dispatch(patch(state));
   };
   return (
     <form onSubmit={handleSubmit}>
