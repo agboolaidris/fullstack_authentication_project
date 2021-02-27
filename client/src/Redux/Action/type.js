@@ -18,5 +18,7 @@ export const BLOG_ERROR = "POST_ERROR";
 export const EACH_BLOG = "EACH-BLOG";
 
 //user
-export const FETCH_USER = "FETCH_USER";
+export const FETCH_USER = "FETCH-USER";
 export const PATCH_USER = "PATCH-USER";
+export const USER_LOADING = "USER-LOADING";
+export const USER_ERROR = "USER-ERROR";

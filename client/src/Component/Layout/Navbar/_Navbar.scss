@@ -36,11 +36,11 @@ header {
       flex-direction: column;
       justify-content: space-around;
       .profile {
-        width: 100%;
+        width: 80%;
         margin-top: 1em;
         display: grid;
         grid-template-columns: 40% 60%;
-        justify-items: center;
+        justify-items: flex-start;
         color: $neutral;
         .info {
           margin-left: 1em;
@@ -52,7 +52,7 @@ header {
         }
         .status {
           grid-column: 1/4;
-          justify-self: center;
+          justify-self: flex-start;
           padding: 0.5em;
           font-size: 13px;
         }

@@ -7,7 +7,7 @@ function Profile() {
   useEffect(() => {
     Dispatch(Fetch());
   }, [Dispatch]);
-  const profile = useSelector((state) => state.User);
+  const profile = useSelector((state) => state.User.user);
   return (
     <div className="profile">
       <div className="img-container">

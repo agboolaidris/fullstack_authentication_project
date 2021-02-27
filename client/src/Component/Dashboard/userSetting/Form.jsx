@@ -1,10 +1,11 @@
-import { faRoad } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import FileBase from "react-file-base64";
 import { useSelector, useDispatch } from "react-redux";
 import { patch } from "../../../Redux/Action/User";
 function Form() {
-  const user = useSelector((state) => state.User);
+  const history = useHistory();
+  const user = useSelector((state) => state.User.user);
   const dispatch = useDispatch();
   const [state, setstate] = useState({
     username: user?.username,
@@ -24,7 +25,7 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(patch(state));
+    dispatch(patch(state, history));
   };
   return (
     <form onSubmit={handleSubmit}>

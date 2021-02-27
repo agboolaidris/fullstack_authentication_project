@@ -21,7 +21,6 @@ const Auth = (state = initialState, action) => {
       };
 
     case type.LOGOUT:
-      toast.success(action.payload?.msg);
       return {
         ...state,
         isLoading: false,

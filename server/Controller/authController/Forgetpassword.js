@@ -24,10 +24,11 @@ const Forgetpassword = async (req, res) => {
     await user.save();
 
     const URL = `https://iris-blog.herokuapp.com/resetpassword/${param}`;
-    const message = `
+    const message = `<htmL>
     <h1>Password Reset</h1>
     <p>kindly click the below link to change reset your password</P>
      <a href=${URL}>${URL}</a> 
+     </html>
     `;
 
     const sendmail = await SendMail({

@@ -8,7 +8,7 @@ import { faThumbsUp, faSave } from "@fortawesome/free-solid-svg-icons";
 function Card({ blog }) {
   const Dispatch = useDispatch();
   //confirm if user have save the blog
-  const userID = useSelector((state) => state.User._id);
+  const userID = useSelector((state) => state.User.user._id);
   const confirmSave = blog.favourite.find((e) => e === userID);
   return (
     <>

@@ -1,5 +1,5 @@
 import * as api from "../Api/user";
-import { FETCH_USER, PATCH_USER } from "./type";
+import { FETCH_USER, PATCH_USER, USER_ERROR, USER_LOADING } from "./type";
 
 export const Fetch = () => {
   return async (dispatch) => {
@@ -12,14 +12,15 @@ export const Fetch = () => {
   };
 };
 
-export const patch = (user) => {
+export const patch = (user, history) => {
   return async (dispatch) => {
-    console.log("sent");
+    dispatch({ type: USER_LOADING });
     try {
       const { data } = await api.PATCH(user);
       dispatch({ type: PATCH_USER, payload: data });
+      history.push("/");
     } catch (error) {
-      console.log(error.response);
+      dispatch({ type: USER_ERROR, payload: error.response.data });
     }
   };
 };

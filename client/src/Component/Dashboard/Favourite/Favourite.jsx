@@ -6,14 +6,14 @@ import Card from "./Card";
 function Favourite() {
   const blogs = useSelector((state) => state.Blog.blogs);
   const isLoading = useSelector((state) => state.Blog.isLoading);
-  const userID = useSelector((state) => state.User._id);
+  const userID = useSelector((state) => state.User.user._id);
   //save blogs
   const saveBlogs = blogs.filter((blog) =>
     blog.favourite.find((e) => e === userID)
   );
 
   return (
-    <div className="favourite">
+    <div className={isLoading || !saveBlogs.length ? "no-blog" : "favourite"}>
       {isLoading ? (
         <Loading />
       ) : !saveBlogs.length ? (

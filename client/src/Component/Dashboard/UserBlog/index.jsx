@@ -4,7 +4,7 @@ import { userFetch } from "../../../Redux/Action/Blog";
 import Card from "./Card";
 import Loading from "../../../Utlits/Loading";
 function Index({ setblogID }) {
-  const userID = useSelector((state) => state.User._id);
+  const userID = useSelector((state) => state.User.user._id);
   const blogs = useSelector((state) => state.Blog.blogs);
   const isLoading = useSelector((state) => state.Blog.isLoading);
 
