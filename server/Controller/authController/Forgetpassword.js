@@ -30,7 +30,17 @@ const Forgetpassword = async (req, res) => {
      <a href=${URL}>${URL}</a> 
     `;
 
-    await SendMail({ email, message, subject: "RESET PASSWORD" });
+    const sendmail = await SendMail({
+      email,
+      message,
+      subject: "RESET PASSWORD",
+    });
+    console.log(sendmail);
+    if (!sendmail) {
+      return res.status(400).json({
+        msg: "an error occur during the process, pls try again later",
+      });
+    }
     res.json({ msg: "email have been sent to your email addresss" });
   } catch (err) {
     res.status(400).json({ msg: err.message });
