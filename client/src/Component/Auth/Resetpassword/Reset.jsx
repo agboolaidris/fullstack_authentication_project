@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { ResetPassword } from "../../../Redux/Action/Auth";
 import Loading from "../../../Utlits/Loading";
 function Reset({ match }) {
@@ -9,12 +10,13 @@ function Reset({ match }) {
     password: "",
     password2: "",
   });
+  const history = useHistory();
   const isLoading = useSelector((state) => state.Auth.isLoading);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(ResetPassword(state, match.params.id));
+    dispatch(ResetPassword(state, match.params.id, history));
   };
 
   return (

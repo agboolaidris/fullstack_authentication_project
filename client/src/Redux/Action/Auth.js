@@ -48,7 +48,7 @@ export const Logout = () => {
     try {
       dispatch({ type: type.LOADING });
       const { data } = await api.Logout();
-      dispatch({ type: type.LOGOUT, payload: data });
+      dispatch({ type: type.LOGOUT });
     } catch (err) {
       dispatch({ type: type.AUTH_ERROR, payload: err.response.data });
     }
@@ -69,11 +69,12 @@ export const ForgetPassword = (email) => {
 };
 
 //Resetpassword Action
-export const ResetPassword = (user, params) => {
+export const ResetPassword = (user, params, history) => {
   return async (dispatch) => {
     try {
       dispatch({ type: type.LOADING });
       const { data } = await api.Resetpassword(params, user);
+      history.push("/login");
       dispatch({ type: type.LOGOUT, payload: data });
     } catch (err) {
       dispatch({ type: type.AUTH_ERROR, payload: err.response.data });

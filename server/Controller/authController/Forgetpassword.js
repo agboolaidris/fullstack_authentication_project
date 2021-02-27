@@ -42,7 +42,7 @@ const Forgetpassword = async (req, res) => {
         msg: "an error occur during the process, pls try again later",
       });
     }
-    res.json({ msg: "email have been sent to your email addresss" });
+    res.json({ msg: "mail have been sent to your email address" });
   } catch (err) {
     res.status(400).json({ msg: err.message });
   }
